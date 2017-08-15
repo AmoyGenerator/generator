@@ -2,7 +2,6 @@
 
 > Everything can be generated
 
-[Install](#1) |
 <a href="http://www.jmr-source.com" target="_blank">Home</a> | 
 <a href="http://www.jmr-source.com/doc/en/index.html" target="_blank">Documentation</a> |
 <a href="http://www.jmr-source.com/doc/zh/index.html">文档</a>
