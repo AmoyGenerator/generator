@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>tag-set</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">set - 设置变量</div></h1>
+<p>&lt;set&gt;</p>
+<pre>
+设置新变量
+</pre>
+<h4>说明</h4>
+<pre>
+设置新变量，从作用域context或者session中得到变量，
+可使用Ognl表达式得到变量的属性和方法，或者自定义ognl类型变量。
+</pre>
+<h4>属性</h4>
+<pre>
+<b>var（必须）</b>
+设置新的变量
+</pre>
+<pre>
+<b>setScope（可选）</b>
+设置变量的作用域
+
+<b>属性</b>
+context:设置变量到context中（默认）
+session:设置变量到session中
+</pre>
+<pre>
+<b>value（必须）</b>
+得到变量值，也可以得到变量相关的Ognl值
+
+<b>可选值</b>
+"str":字符串格式
+{"e1","e2","e3"}:List格式
+#{"key1":"value1","key2":"value2"}:Map格式
+</pre>
+<pre>
+<b>valueScope（可选）</b>
+变量的作用域
+
+<b>属性</b>
+context:从context中得到变量（默认）
+session:从session中得到变量
+</pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 common/set</li>
+</ul>
+<h2>设置规则</h2>
+<p>从value中得到值设置到var中，&lt;set&gt;的value的用法同&lt;get&gt;的value，<br />
+能够从context，session中取值。不同于&lt;get&gt;的是，它会把取到的值设置成新变量。  </p>
+<p>过程相当于先调用：<br />
+Object value = context.getVariable(key)<br />
+Object value = context.getSessionVariable(key)<br />
+然后新设置变量存放得到的值：<br />
+context.setVariable(newKey, value)<br />
+context.setSessionVariable(newKey, value)</p>
+<pre>
+例子：
+在模板或者action中，设置2个变量id和name
+</pre>
+<p><img src="image/tag_set_from1.png" /></p>
+<pre>
+set分别得到变量id和name，重新为他们设置新变量id_1和name_1，
+其中的name的valueScope为seesion，并用get输出这2个值。
+</pre>
+<p><img src="image/tag_set_from2.png" /></p>
+<pre>
+结果
+</pre>
+<p><img src="image/tag_set_from3.png" /></p>
+<pre>
+也可以把它们设置到session中，setScope为session
+</pre>
+<p><img src="image/tag_set_from4.png" /></p>
+<pre>
+结果
+</pre>
+<p><img src="image/tag_set_from5.png" /></p>
+<h2>自定义值</h2>
+<p>set不仅可以设置从context，session中得到变量，也可以自定义值。<br />
+只要是符合Ognl的规范的值都可以设置成新变量。</p>
+<pre>
+1.字符串:"字符串"或者'字符串'
+2.数字，Ognl根据数字转换的java类型
+3.List:{"e1","e2","e3"}
+4.Map:#{"key1":"value1","key2":"value2"}
+5.Ognl表达式，如 1 == 1，则输出的是true
+
+其中的""都可以用''替换，根据value的引号是''，则用""；value的引号是""，则为''。
+</pre>
+<pre>
+例子：
+我们分别设置了几个变量：
+1.String类型：a和b的值都是str，外层是''，则写成""；反之外层是"",则写成''。
+2.数字类型：c的值是1，Ognl认为它是Integer类型；d的值是1.1，Ognl认为它是Double型。
+3.List：变量list是列表类型，写法是{"e1","e2","e3"}。
+4.Map：变量map是Map类型，写法是#{"key1":"value1","key2":"value2"}
+5.Ognl表达式：1 == 1的结果是Boolean型。
+</pre>
+<p><img src="image/tag_set_value1.png" /></p>
+<pre>
+使用get得到它们
+</pre>
+<p><img src="image/tag_set_value2.png" /></p>
+<pre>
+结果
+</pre>
+<p><img src="image/tag_set_value3.png" /></p>
+<h2>应用场景</h2>
+<p>set用来新设变量，新变量的值可以是原先变量的公式，或者原先变量的方法的返回值。</p>
+<pre>
+之前设置的变量
+</pre>
+<p><img src="image/tag_set_use1.png" /></p>
+<pre>
+新设变量e， 得到字符串的大写；
+新设变量f， 得到一个乘法公式的结果；
+新设变量g， 得到list的个数；
+新设变量h， 得到Map键key2的值。
+</pre>
+<p><img src="image/tag_set_use2.png" /></p>
+<p><img src="image/tag_set_use3.png" /></p>
+<pre>
+结果
+</pre>
+<p><img src="image/tag_set_use4.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

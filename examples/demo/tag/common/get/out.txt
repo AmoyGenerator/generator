@@ -1,0 +1,6 @@
+
+int: 2
+String: str
+
+List: [a, b, c]
+array: [I@18bc1a9

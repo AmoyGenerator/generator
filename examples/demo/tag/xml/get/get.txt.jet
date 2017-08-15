@@ -1,0 +1,15 @@
+<%@jet package="translated" class="Get_txt"%>
+
+<xml var="xml"/>
+
+<xml:get select="$xml/bookstore/book[1]/title"/>
+
+<xml:get select="$xml/bookstore/book/title[@lang='eng']"/>
+
+<xml:get select="$xml/bookstore/book[price>35.00]/price"/>
+
+<xml:get select="$xml/bookstore/book[2]/title"/>
+
+<xml:get select="$xml/bookstore/book[2]/title" case="lr"/>
+
+<xml:get select="$xml/bookstore/book[2]/title" trim="true"/>

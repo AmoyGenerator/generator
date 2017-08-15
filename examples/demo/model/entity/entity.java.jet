@@ -1,0 +1,46 @@
+<%@ jet package="translated" class="Entity_java"%>
+<entity var="object"/>
+<%--package--%>
+package <java:package/>;
+
+<%--imports--%>
+<for var="field" value="object.fields" duplicate="false">
+import <get value="field.fullType"/>;
+</for>
+
+<%--class messages--%>
+public class <java:class/>{
+  <%--generate fields--%>
+  <for var="field" value="object.fields">
+    private <get value="field.type"/> <get value="field.name"/>;
+  </for>
+
+  <%--Empty construction method--%>
+    public <java:class/>() {
+		super();
+	}
+
+  <%--Parameters construction method--%>
+    public <java:class/>(<for value="object.fields" var="field" delimiter=", ">
+		                   <get value="field.type"/> <get value="field.name"/>
+	                     </for>) {
+		super();
+	  <for value="object.fields" var="field">
+		this.<get value="field.name"/> = <get value="field.name"/>;
+	  </for>
+	}
+	
+  <%--get/set method--%>   
+  <for value="object.fields" var="field">
+    <%--get method, header character to uppercase--%>
+    public <get value="field.type"/> get<get value="field.name" case="headUpper"/>() {
+		return <get value="field.name"/>;
+	}
+	
+	<%--set method, header character to uppercase--%>
+	public void set<get value="field.name" case="headUpper"/>(<get value="field.type"/> <get value="field.name"/>){
+		this.<get value="field.name"/> = <get value="field.name"/>;
+	}
+	
+  </for>
+}

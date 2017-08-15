@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-init-mapping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">模型预设 - 映射和转换</div></h1>
+<hr />
+<h3>目录:</h3>
+<ul>
+<li><a href="#1">映射</a></li>
+<li><a href="#2">映射配置</a></li>
+<li><a href="#3">在模型中使用映射</a></li>
+<li><a href="#4">在预设方案中使用映射</a></li>
+<li><a href="#5">转换</a></li>
+<li><a href="#6">转换配置</a></li>
+<li>
+<a href="#7">在模型中使用转换</a>
+<ul>
+<li><a href="#8">属性转换</a></li>
+<li><a href="#9">字段转换</a></li>
+</ul>
+</li>
+<li><a href="#10">在预设方案中使用转换</a></li>
+</ul>
+<hr />
+<h2><span id="1">映射</span></h2>
+<p>我们知道，数据库的类型和实际开发语言的类型是不一致的，所以需要一座桥梁，桥的一端指定数据库的类型，另一端指定语言的类型。</p>
+<p>不同数据库所支持的SQL类型之间有很大的不同，比如Oracle中有DECIMAL类型，Mysql中则没有，Mysql的varchar类型对应到Oracle却是varchar2。类似的，大部分数据库都有自己的类型规则。</p>
+<p>幸运的是，各大数据库厂商都为自家的数据库提供了jdbc驱动包，它会按照jdbc标准，把自己的SQL类型转换成对应的jdbc类型，而这些jdbc类型都来自java.sql.Types中。</p>
+<pre>
+以下是所有的类型：
+
+ARRAY, BIGINT, BINARY, BIT, BLOB, BOOLEAN, CHAR, CLOB,
+DATALINK, DATE, DECIMAL, DISTINCT, DOUBLE, FLOAT,
+INTEGER, JAVA_OBJECT, LONGNVARCHAR, LONGVARBINARY, LONGVARCHAR,
+NCHAR, NCLOB, NULL, NUMERIC, NVARCHAR,
+OTHER, REAL, REF, ROWID, SMALLINT, SQLXML, STRUCT,
+TIME, TIMESTAMP, TINYINT, VARBINARY, VARCHAR
+</pre>
+<pre>
+Jmr采用jdbc类型作为映射的标准的原因:
+
+1.统一标准，不需要关心不同数据库类型的区别，所有类型都在jdbc类型中有对应。
+2.方便设置映射，只需要为jdbc类型设置对应开发语言的映射类型。
+</pre>
+<p>以下是Mysql数据库中的一张表，我们可以看到它不同字段对应的类型。</p>
+<p><img src="image/model_init_mapping_mapping1.png" /></p>
+<p>jdbcType即为jdbc类型，Jmr会转换成如下：</p>
+<ul>
+<li>jdbcType是按jdbc标准得到的类型，统一的标准，是我们需要的映射类型。</li>
+<li>dbType是数据库实际类型，它也是按jdbc标准得到的，但是每个数据库都有自己的类型规则。</li>
+<li>type和fullType是我们需要映射到实际语言的类型。其中，type是类型名，如String，Date；fullType是完整的类型名，如java.lang.String, java.util.Date。</li>
+</ul>
+<p><img src="image/model_init_mapping_mapping2.png" /></p>
+<hr />
+<h2><span id="2">映射配置</span></h2>
+<p>点击模型页--&gt;选择映射和转换--&gt;新映射</p>
+<p><img src="image/model_init_mapping_mapping3.png" /></p>
+<p>我们取名type，用来做为类型名的映射；右侧双击表格可以填写映射对应的类名。</p>
+<p><img src="image/model_init_mapping_mapping4.png" /></p>
+<p>根据自己的需求填写jdbcType对应的类型（此处用java语言为例，也可以使用其它语言）</p>
+<p><img src="image/model_init_mapping_mapping5.png" /></p>
+<p>我们再新建一个映射，名为fullType，用来做为完整的类型名的映射。</p>
+<p><img src="image/model_init_mapping_mapping6.png" /></p>
+<pre>
+小贴士：在编辑类型时，可以使用右侧按钮，从左到右分别为：
+* 搜索类型按钮：可以搜索出项目中包含的类型，暂时只支持搜索java类型。
+* 打开类型按钮：可以打开类型对应的源码，暂时只支持打开java源码。
+* 删除按钮：删除已经输入的类型。
+</pre>
+<p><img src="image/model_init_mapping_mapping7.png" /></p>
+<h2><span id="3">在模型中使用映射</span></h2>
+<p>我们配置好映射后，可以在模型中使用配置好的映射。点击模型type和fullType上的图标。</p>
+<p><img src="image/model_init_mapping_mapping8.png" /></p>
+<p>以fullType为例，我们选择的映射为fullType；点击转换，它会根据jdbcType的值，生成对应的类型。</p>
+<p><img src="image/model_init_mapping_mapping9.png" /></p>
+<p>转换后的结果，可以看到type和fullType已经映射完成。</p>
+<p><img src="image/model_init_mapping_mapping10.png" /></p>
+<h2><span id="4">在预设方案中使用映射</span></h2>
+<p>除了在模型中手动映射，还有更方便的方法，在模型转换的过程中就可以完成映射。</p>
+<p>我们在预设方案中设置映射：点击模型页--&gt;选择预设方案--&gt;新预设</p>
+<p><img src="image/model_init_mapping_mapping11.png" /></p>
+<p>命名为init，预设方案会自带name，type，jdbcType三个字段。</p>
+<p><img src="image/model_init_mapping_mapping12.png" /></p>
+<p>选中type和fullType--&gt;预设转换--&gt;来自列jdbcType，映射分别选type和fullType。</p>
+<p><img src="image/model_init_mapping_mapping13.png" /></p>
+<p>在模型转换时，选择init</p>
+<p><img src="image/model_init_mapping_mapping14.png" /></p>
+<p>转换后的结果：</p>
+<p><img src="image/model_init_mapping_mapping10.png" /></p>
+<h2><span id="5">转换</span></h2>
+<p>转换使用Action类自定义逻辑，例如：</p>
+<ul>
+<li>表名：book_order --&gt; BookOrder</li>
+<li>表字段：regist_time --&gt; registTime</li>
+</ul>
+<h2><span id="6">转换配置</span></h2>
+<p>点击模型页--&gt;选择映射和转换--&gt;新转换</p>
+<p><img src="image/model_init_mapping_convert1.png" /></p>
+<p>我们取名headLowerCamel</p>
+<p><img src="image/model_init_mapping_convert2.png" /></p>
+<p>新建Jmr Convert，在菜单File或者右键菜单-&gt;New-&gt;Jmr Convert，或者在其它（Other）找到JMR目录下也有。</p>
+<p><img src="image/model_init_mapping_convert3.png" /></p>
+<p>如果没有找打，在菜单File或者右键菜单-&gt;New-&gt;Other-&gt;Jmr下也有</p>
+<p><img src="image/model_init_mapping_convert4.png" /></p>
+<p>新建一个名为HeadLowerCamelConvert的转换</p>
+<p><img src="image/model_init_mapping_convert5.png" /></p>
+<p>Action继承自JmrConvert，它有一个convert实现方法，参数value是传入的值，我们根据传入的值自定义处理逻辑后返回值</p>
+<pre>
+HeadLowerCamel会根据下化线分割字母大小写
+比如数据库中有表里有字段名为regist_time，通过处理后作为java的属性为registTime。
+</pre>
+<p><img src="image/model_init_mapping_convert6.png" /></p>
+<p>点击右侧按钮搜索Jmr Convert。</p>
+<p><img src="image/model_init_mapping_convert7.png" /></p>
+<p>选择HeadLowerCamelConvert。</p>
+<p><img src="image/model_init_mapping_convert8.png" /></p>
+<p>我们在配置另外一个转换器HeadUpperCamelConvert，配置过程一样，不再描述。</p>
+<pre>
+HeadUpperCamelConvert会根据下化线分割字母大小写，并且首字母大写。
+比如数据库中有表里有表名为book_order，通过处理后作为java的类名为BookOrder。
+</pre>
+<p><img src="image/model_init_mapping_convert9.png" /></p>
+<h2><span id="7">在模型中使用转换</span></h2>
+<p>转换可以用在属性或者字段的属性上。</p>
+<h4><span id="8">属性转换</span></h4>
+<p>我们新建了一个属性名为ClassName，用来作为java的类名。</p>
+<p><img src="image/model_init_mapping_convert10.png" /></p>
+<p>java类名头字母是驼峰式大写，我们想从模型的name值去转换，因为name和对应数据库表名一致。</p>
+<p><img src="image/model_init_mapping_convert11.png" /></p>
+<p>点击转换图标<img src="image/model_init_mapping_convert12.png" />，只要有这个图标的属性都可以使用转换。</p>
+<p><img src="image/model_init_mapping_convert13.png" /></p>
+<p>选择headUpperCanelConvert，对于类名的转换，我们需要头字母大写的驼峰式转换，取值源选择name
+，在预览中我们可以看到转换的结果，由book转换成了Book。最后点击转换。</p>
+<p><img src="image/model_init_mapping_convert14.png" /></p>
+<p>运行结果，得到的值Book赋给了ClassName。</p>
+<p><img src="image/model_init_mapping_convert15.png" /></p>
+<h4><span id="9">字段转换</span></h4>
+<p>我们选择name，name默认情况下和id的值是一样的，但也可以通过转换得到。</p>
+<p><img src="image/model_init_mapping_convert16.png" /></p>
+<p>选择headLowerCanelConvert，对于字段名的转换，我们需要头字母小写的驼峰式转换，取值源字段id
+，在预览中我们可以看到转换的结果，字段都转换成驼峰式格式。最后点击转换。、</p>
+<p><img src="image/model_init_mapping_convert17.png" /></p>
+<p>运行结果</p>
+<p><img src="image/model_init_mapping_convert18.png" /></p>
+<p>当然，也可以给新设的字段设置转换，只要有<img src="image/model_init_mapping_convert12.png" />都可以进行转换。</p>
+<p><img src="image/model_init_mapping_convert19.png" /></p>
+<h2><span id="10">在预设方案中使用转换</span></h2>
+<p>除了在模型中手动转换，还有更方便的方法，在生成模型的过程中就可以完成转换。</p>
+<p>点击模型页--&gt;选择预设方案，在之前建立好的预设方案init中，其中type和fullType我们是使用映射，这次选择name--&gt;预设转换，来自列选id，转换器选headLowerCamel。</p>
+<p><img src="image/model_init_mapping_convert20.png" /></p>
+<p>同时，我们还可以新设列中预设转换器，我们新建列fieldName，预设转换，来自列选id，转换器选headLowerCamel。</p>
+<p><img src="image/model_init_mapping_convert21.png" /></p>
+<p>转换模型时，选择init。</p>
+<p><img src="image/model_init_mapping_convert22.png" /></p>
+<p>生成的模型，name和fieldName的字段都已经转换成首字母为小写的驼峰式格式。</p>
+<p><img src="image/model_init_mapping_convert23.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

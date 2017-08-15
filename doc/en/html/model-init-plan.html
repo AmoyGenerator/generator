@@ -1,0 +1,439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-init-plan</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">Init</div></h1>
+<hr />
+<h3>Introduce</h3>
+<pre>
+When model transforming, we can get the structure of the model we want with init scheme.
+</pre>
+<h3>Catalog:</h3>
+<ul>
+<li><a href="#1">Why use init scheme?</a></li>
+<li>
+<a href="#2">How to use init scheme</a>
+<ul>
+<li><a href="#3">New init scheme</a></li>
+<li><a href="#4">Init scheme and transform model</a></li>
+<li><a href="#5">Init Property</a></li>
+<li><a href="#6">Init Column</a></li>
+<li><a href="#7">Init Field</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2><span id="1">Why use init scheme?</span></h2>
+<p>Init scheme can help you automatically set properties, columns and fields when transform model.</p>
+<p>For example, the database has a book table, we need to transform a model. Often we need to add some properties and columns to the model.</p>
+<p>There is a table in the database</p>
+<p><img src="image/model_init_plan4.png" /></p>
+<p>Transform by default model, Can't meet our needs.</p>
+<p><img src="image/model_init_plan1.png" /></p>
+<h2><span id="2">How to use init scheme</span></h2>
+<p>For example, according to business requirements, we need to add and modify the model.</p>
+<ul>
+<li>
+Modify
+<ul>
+<li>type column: field type, such as String, Integer.</li>
+<li>fullType column: field full type, such as java.lang.String, java.lang.Integer, java.util.Date.</li>
+</ul>
+</li>
+<li>
+Add
+<ul>
+<li>title property: title.</li>
+<li>fieldName column: UI field name.</li>
+<li>controlType column: UI control type, such as text, select and date.</li>
+<li>isQuery column: Whether field to be queried.</li>
+</ul>
+</li>
+</ul>
+<p>type and fullType</p>
+<p><img src="image/model_init_plan3.png" /></p>
+<p>title、fieldName、controlType</p>
+<p><img src="image/model_init_plan2.png" /></p>
+<p>isQuery</p>
+<p><img src="image/model_init_plan5.png" /></p>
+<h4><span id="3">New init scheme</span></h4>
+<p>Model Page--&gt;Init Scheme--&gt;New Init--&gt;Enter init name</p>
+<p><img src="image/model_init_plan6.png" /></p>
+<h4><span id="4">Init scheme and transform model</span></h4>
+<p><img src="image/model_init_plan7.png" /></p>
+<h4><span id="5">Init Property</span></h4>
+<p>There are 2 ways to set property: default and convert.</p>
+<h5>1.Default: Enter a fixed content</h5>
+<p>Double click or press enter edit</p>
+<p><img src="image/model_init_plan8.png" /></p>
+<p>transform model</p>
+<p><img src="image/model_init_plan11.png" /></p>
+<h5>2.Convert</h5>
+<p>We can use a convert, It convert the specified property value to a new value.</p>
+<p>Select name, select headUpperCamel, It can convert the name to head character upper case and camel case.</p>
+<p>For example: book_id --&gt; BookId  </p>
+<p><img src="image/model_init_plan12.png" /></p>
+<p>We are in the database table named book, after transform model, it will create a new property title, it's value Book.</p>
+<p><img src="image/model_init_plan13.png" /></p>
+<p>More about the mapping and converter: <a href="model-init-mapping.html">Mapping and Converter</a></p>
+<h4><span id="6">Init Column</span></h4>
+<p>There are 2 kinds:</p>
+<ul>
+<li>Existing column init</li>
+<li>New column init</li>
+</ul>
+<h5>Existing column init</h5>
+<p>Including name, type, fullType:</p>
+<ul>
+<li>name: Field name, which corresponds to the field name of the class.</li>
+<li>type: Field type, default is null, can be modified. such as Stirng, int, Integer.</li>
+<li>fullType: Field full type, default is null, such as java.lang.String、java.util.Date.</li>
+</ul>
+<p><img src="image/model_init_plan14.png" /></p>
+<p>There are also two ways: default and convert.</p>
+<p>The default value is filled with a fixed value. Fill in here myName.</p>
+<p><img src="image/model_init_plan15.png" /></p>
+<p>The same value is generated for each field in the same column.</p>
+<p><img src="image/model_init_plan16.png" /></p>
+<p>But in most cases, name, type, fullType these three field are converted by other columns</p>
+<p>Our conversion scheme:</p>
+<ul>
+<li>name: id --&gt; converter headLowerCamel, the value of the id is the same as the field of the table, which is converted into a camel case, such as regist_time to registTime.</li>
+<li>type: jdbcType --&gt; Mapping type, jdbcType is the type of jdbc standard, we mapping to the type by jdbcType.</li>
+<li>fullType: jdbcType --&gt; Mapping fullType, we also mapping to the type by jdbcType.</li>
+</ul>
+<p>Converter headLowerCamel, lower case and camel case.</p>
+<p><img src="image/model_init_plan17.png" /></p>
+<p>Mapping type, from jdbcType to the development language type.</p>
+<p><img src="image/model_init_plan18.png" /></p>
+<p>Mapping full type, from jdbcType to the development language fullType.</p>
+<p><img src="image/model_init_plan19.png" /></p>
+<p>More about headLowerCamel、mapping type and fullType：<a href="model-init-mapping.html">Mapping and Convert</a></p>
+<p>name, select the Convert from column is id, convert is headLowerCamel.</p>
+<p><img src="image/model_init_plan20.png" /></p>
+<p>Type, select the default from the column jdbcType, using the mapping type.</p>
+<p><img src="image/model_init_plan21.png" /></p>
+<p>FullType, select the default from the column jdbcType, using the mapping fullType.</p>
+<p><img src="image/model_init_plan22.png" /></p>
+<p>Transform model, select the init.</p>
+<p><img src="image/model_init_plan23.png" /></p>
+<p>Transform result</p>
+<p><img src="image/model_init_plan24.png" /></p>
+<h5>Init Column</h5>
+<p>Similar to existing column,</p>
+<p>Our conversion scheme:</p>
+<ul>
+<li>fieldName: id --&gt; converter headLowerCamel, the value of the id is the same as the field of the table, which is converted into a camel case, such as regist_time to registTime.</li>
+<li>controlType: Set the option value, text, select, date.</li>
+<li>isQuery: Set the Boolean value, the default value is true.</li>
+</ul>
+<p><img src="image/model_init_plan26.png" /></p>
+<p><img src="image/model_init_plan27.png" /></p>
+<p><img src="image/model_init_plan28.png" /></p>
+<p>Result</p>
+<p><img src="image/model_init_plan29.png" /></p>
+<pre>
+Click any grid can edit, you can find,
+controlType columns can choose three options and null;
+IsQuery columns can choose true, false and null.
+</pre>
+<p><img src="image/model_init_plan30.png" /></p>
+<p><img src="image/model_init_plan31.png" /></p>
+<h4><span id="7">Init Field</span></h4>
+<p>Create a new field price</p>
+<p><img src="image/model_init_plan32.png" /></p>
+<p>Create new field</p>
+<p><img src="image/model_init_plan33.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

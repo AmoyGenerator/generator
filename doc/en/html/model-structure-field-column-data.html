@@ -1,0 +1,481 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-structure-field-column-data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">Model Structure - Field、Column、Data</div></h1>
+<hr />
+<h3>Catalog:</h3>
+<ul>
+<li><a href="#1">Relationship of field, column, data</a></li>
+<li><a href="#2">Operation of field, column, data: add/modify/delete/mapping/convert/init scheme</a></li>
+<li><a href="#3">Usage of field, column, data</a></li>
+</ul>
+<hr />
+<h3>Example:</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml - model/column/column和model/data/data</li>
+</ul>
+<h2><span id="1">Relationship of field, column, data</span></h2>
+<ul>
+<li>
+<p>field: As the field of the entity model, its source is the field of the database table, view or java class, and the user's own new definition of field.</p>
+</li>
+<li>
+<p>column: The common properties of field, such as id, name, type, and so on.</p>
+</li>
+<li>
+<p>data: The private property of field, and the difference between column is that column is the property of all field, and data belongs to only one field.</p>
+</li>
+</ul>
+<p><img src="image/model-structure-field-column-data1.png" /></p>
+<p><img src="image/model-structure-field-column-data2.png" /></p>
+<h2><span id="2">Operation of field, column, data[add/modify/delete/mapping/convert/init scheme]</span></h2>
+<p>The following is the distribution of these operations</p>
+<p><img src="image/model-structure-field-column-data3.png" /></p>
+<h2>field</h2>
+<h3>Add field</h3>
+<p>At 1 and 5 click, you can add new field, or right-click, click new, and fill in the new field name &quot;price&quot; here.</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<p><img src="image/model-structure-field-column-data4.png" /></p>
+<p>New field price is created, and you can see that if the field is new, the icon color is green.</p>
+<p><img src="image/model-structure-field-column-data5.png" /></p>
+<p>You can also add fields when the model is transformed, read in detail:
+<a href="model-init-plan.html#7">Init Scheme add Field</a>。</p>
+<h3>Delete field</h3>
+<p>Click the selected field at 2, you can delete, or select the field, right-click to delete, all fields can be deleted.</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<h3>Up field</h3>
+<p>Clicking the selected field at 3 can move up the field, or select the field right-click.</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<h3>Down field</h3>
+<p>Clicking the selected field at 4 can move down the field, or select the field right-click.</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<h3>Modify field</h3>
+<p>Except for the id column that cannot be modified, all other fields can be modified. Select what you need to change, and click <img src="image/model-structure-field-column-data9.png" /></p>
+<p><img src="image/model-structure-field-column-data11.png" /></p>
+<p>String type: you can choose null, or you can enter any string.</p>
+<p><img src="image/model-structure-field-column-data12.png" /></p>
+<p>Boolean type: you can choose null, true or false.</p>
+<p><img src="image/model-structure-field-column-data13.png" /></p>
+<p>Select type: you can choose null or other set options.</p>
+<p><img src="image/model-structure-field-column-data14.png" /></p>
+<h3>mapping field</h3>
+<ul>
+<li>Mapping: The database type is different from the actual development language type, Need one-to-one mapping. The type and fullType columns can be assigned by mapping. Click <img src="image/model-structure-field-column-data16.png" /> to mapping. Read about the operation of the mapping: <a href="model-init-mapping.html#3">Using mappings in the model</a>.</li>
+</ul>
+<p><img src="image/model-structure-field-column-data15.png" /></p>
+<p>After mapping:</p>
+<p><img src="image/model-structure-field-column-data17.png" /></p>
+<ul>
+<li>Convert: Use a column value as the source value, according to covert rules to generate new value. For example, the source value is the id, and name we want to be covert to the java class name. id is regist_time, then name is registTime. You can click <img src="image/model-structure-field-column-data16.png" /> to convert. Read about the operation of the convert: <a href="model-init-mapping.html#9">Using convert in the model</a>。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data18.png" /></p>
+<p>After convert:</p>
+<p><img src="image/model-structure-field-column-data19.png" /></p>
+<h3>Init scheme field</h3>
+<p>In actual development, we need to modify the content of the model, but we all need to do it manually. Is there a way to set it up when the model is transformed? The answer is yes, that is, set by init scheme. Field through init scheme, can save most of the time you modify the model. Read about: <a href="model-init-plan.html#7">Init scheme field</a>.</p>
+<h2>column</h2>
+<p>In actual development, an original model alone can not fully meet our business needs. For example, the field need to a field name, control type(such as text, select, date), whether the field is be queried. All requires new columns to extend the properties of the fields.</p>
+<p><img src="image/model_init_plan2.png" /></p>
+<p>isQuery is a column whether the field is be queried.</p>
+<p><img src="image/model_init_plan5.png" /></p>
+<h3>Add column</h3>
+<p>Click the new column at 6, and there are 3 types of column, String, Boolean, and Select:</p>
+<p>String type can be null or fill in default value.</p>
+<p><img src="image/model-structure-field-column-data7.png" /></p>
+<p>As you can see, the new column fieldName is created.</p>
+<p><img src="image/model-structure-field-column-data8.png" /></p>
+<p>Boolean: Boolean type can be null or select true or false.</p>
+<p><img src="image/model-structure-field-column-data20.png" /></p>
+<p>As you can see, the column isQuery is created, and the value is true.</p>
+<p><img src="image/model-structure-field-column-data21.png" /></p>
+<p>Select: Select options type can be null or add your own options. a new column called controlType, add options in the table, we added 3 types of controls, text, select and date, the default option is text.</p>
+<p><img src="image/model-structure-field-column-data22.png" /></p>
+<p>As you can see, the column isQuery is created, and the default value is text.</p>
+<p><img src="image/model-structure-field-column-data23.png" /></p>
+<h3>Delete column</h3>
+<p>You can delete columns at 8 <img src="image/model-structure-field-column-data24.png" />, Only new columns can be deleted.</p>
+<h3>Modify column</h3>
+<p>Just like modifying field, click <img src="image/model-structure-field-column-data26.png" />.</p>
+<p><img src="image/model-structure-field-column-data25.png" /></p>
+<p>String type modify</p>
+<p><img src="image/model-structure-field-column-data27.png" /></p>
+<p>Boolean type modify</p>
+<p><img src="image/model-structure-field-column-data28.png" /></p>
+<p>Select type modify</p>
+<p><img src="image/model-structure-field-column-data29.png" /></p>
+<h3>Convert column</h3>
+<ul>
+<li>Convert: Liking field convert, use a column value as the source value, according to covert rules to generate new value. For example, the source value is the id, and we want to be covert to the fieldName. id is regist_time, then fieldName is registTime. You can click to convert <img src="image/model-structure-field-column-data16.png" />. Read about the operation of the convert: Using convert in the model。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data30.png" /></p>
+<p>After convert</p>
+<p><img src="image/model-structure-field-column-data31.png" /></p>
+<h3>Init scheme column</h3>
+<p>Liking field convert, in actual development, we need to modify the content of the model, but we all need to do it manually. Is there a way to set it up when the model is transformed? The answer is yes, that is, set by init scheme. Field through init scheme, can save most of the time you modify the model. Read about: <a href="model-init-plan.html#7">Init scheme field</a>.</p>
+<h2>data</h2>
+<p><img src="image/model-structure-field-column-data32.png" /></p>
+<h3>Add data</h3>
+<p>Click <img src="image/model-structure-field-column-data33.png" /> to add.</p>
+<p><img src="image/model-structure-field-column-data34.png" /></p>
+<p>Data has 2 attributes, name and value.</p>
+<p><img src="image/model-structure-field-column-data35.png" /></p>
+<h3>Delete data</h3>
+<p>Select the data item, right-click to delete.</p>
+<p><img src="image/model-structure-field-column-data36.png" /></p>
+<h3>Modify data</h3>
+<p>Select the data item, right-click to modify.</p>
+<p><img src="image/model-structure-field-column-data37.png" /></p>
+<h2><span id="3">Usage of field, column, data</span></h2>
+<p>Add two columns:</p>
+<ul>
+<li>controlType: control type, field id and name is text, field type is select, field regist_time is date.</li>
+<li>fieldName: field name in page, field id is id, field name is name, field type is type, and regist_time is registTime。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data47.png" /></p>
+<p>Select model in task</p>
+<p><img src="image/model_structure_property16.png" /></p>
+<p>Select model in template(code assist)</p>
+<p><img src="image/model_structure_property13.png" /></p>
+<p>Specify that the value of relation is one.</p>
+<p><img src="image/model_structure_property14.png" /></p>
+<h3>field usage</h3>
+<p>Iterate over field to generate a query page</p>
+<p><img src="image/model-structure-field-column-data44.png" /></p>
+<p>object is entity, use the for tag to iterate over object.fields, and use get tag to get the field properties or methods.</p>
+<p><img src="image/model-structure-field-column-data38.png" /></p>
+<pre>
+Result
+</pre>
+<p><img src="image/model-structure-field-column-data43.png" /></p>
+<p>The example here is a simplified query page. Complete example please read: <a href="demo-java-view.html">Generate query page</a></p>
+<pre>
+Tip: through code assist you can find the properties and methods.
+</pre>
+<p><img src="image/model-structure-field-column-data39.png" /></p>
+<pre>
+Tip: mouse select or hover can see the value.
+</pre>
+<p><img src="image/model-structure-field-column-data42.png" /></p>
+<h3>column usage</h3>
+<p>Iterate over field to generate a add page</p>
+<p><img src="image/model-structure-field-column-data49.png" /></p>
+<p>field，field.property(&quot;fieldName&quot;) is get the fieldName, field.property(&quot;controlType&quot;) is get the control type, generates different types of control based on controlType</p>
+<p><img src="image/model-structure-field-column-data45.png" /></p>
+<pre>
+Result
+</pre>
+<p><img src="image/model-structure-field-column-data48.png" /></p>
+<p>The example here is a simplified add page. Complete example please read: <a href="demo-java-add.html">Generate add page</a></p>
+<pre>
+Tip: mouse select or hover can see the value.
+</pre>
+<p><img src="image/model-structure-field-column-data50.png" /></p>
+<h3>data usage</h3>
+<p>The data of type</p>
+<p><img src="image/model-structure-field-column-data51.png" /></p>
+<p>In add page, type is a select which has same options.</p>
+<p><img src="image/model-structure-field-column-data52.png" /></p>
+<p>In select options, option value is data.value, option content is data.name</p>
+<p><img src="image/model-structure-field-column-data53.png" /></p>
+<pre>
+Result
+</pre>
+<p><img src="image/model-structure-field-column-data54.png" /></p>
+<pre>
+Tip: mouse select or hover can see the value of data.
+</pre>
+<p><img src="image/model-structure-field-column-data55.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

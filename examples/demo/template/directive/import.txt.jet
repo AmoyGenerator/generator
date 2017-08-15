@@ -1,0 +1,7 @@
+<%@jet package="translated" class="Import_txt" %>
+<%@jet imports="template.Import"%>
+<%
+  Import i = new Import("a", "b");
+%>
+<%=i.getPackageName()%>
+<%=i.getClassName()%>

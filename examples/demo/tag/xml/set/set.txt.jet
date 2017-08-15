@@ -1,0 +1,14 @@
+<%@jet package="translated" class="Set_txt"%>
+
+<xml var="xml" relation="xml"/>
+
+<xml:set var="book1" select="$xml/bookstore/book[1]"/>
+
+<xml:get select="$book1/title"/>
+<xml:get select="$book1/price"/>
+
+<xml:set var="book2" select="$xml/bookstore/book[price>35.00]"/>
+
+<xml:get select="$book2/title"/>
+<xml:get select="$book2/price"/>
+

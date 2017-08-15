@@ -1,0 +1,45 @@
+<%@jet package="translated" class="If_txt"%>
+<set var="score" value='75'/>
+
+<if test='score >= 60 && score <= 100'>
+   Congratulations, you passed!
+</if>
+
+<for var='book' value='books'>
+ <if test='book.price < 50'>
+   <get value='book.name'/>: <get value='0.9 * book.price'/>
+ </if>
+ <else>
+   <get value='book.name'/>: <get value='book.price'/>
+ </else>
+</for>
+
+<set var="wrong" value='"Knowledge makes proud."'/>
+<set var="proud" value='"proud"'/>
+<set var="humble" value='"humble"'/>
+
+<if test='wrong.indexOf(proud) > -1'>
+   <set var="right" value='wrong.replace(proud, humble)'/>
+   <get value='right'/>
+</if>
+
+<set var="str" value='"Honor"'/>
+<if test='str == "Honor"'>
+   String use "==" is equal
+</if>
+<if test='str.equals("Honor")'>
+   String use equals method also equal 
+</if>
+
+
+All for <if test='true'>
+           one
+        </if>, one for <if test='true'>
+                         all
+                       </if>.
+
+All for <if test='true' trim="true">
+           one
+        </if>, one for <if test='true' trim="true">
+                         all
+                       </if>.

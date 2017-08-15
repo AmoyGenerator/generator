@@ -1,0 +1,22 @@
+<%@jet package="translated" class="Out_txt"%>
+<%@jet imports="java.util.List"%>
+<%@jet imports="java.util.ArrayList"%>
+<%
+context.setVariable("int", 2);
+context.setVariable("String", "str");
+
+List<String> list = new ArrayList<String>();
+list.add("a");
+list.add("b");
+list.add("c");
+context.setVariable("list", list);
+
+int[] array = new int[]{1, 2, 3};
+context.setVariable("array", array);
+%>
+
+int: <get value='int'/>
+String: <get value='String'/>
+
+List: <get value='list'/>
+array: <get value='array'/>

@@ -1,0 +1,15 @@
+<%@jet package="translated" class="F_txt"%>
+<set value="345.678" var="d"/>
+<set value="'Hello Jmr!'" var="s"/>
+<set value="1234" var="i"/>
+<f partten="%9.2f" values="d"/>
+<f partten="%+9.2f" values="d"/>
+<f partten="%-9.4f" values="d"/>
+<f partten="%+-9.3f" values="d"/>
+<f partten="%d" values="i"/>
+<f partten="%o" values="i"/>
+<f partten="%x" values="i"/>
+<f partten="%#x" values="i"/>
+<f partten="%s" values="s"/>
+<f partten="This is a float number：%f，This is a int number: %d，This is a string: %s" values="d, i, s"/>
+<f partten="String: %2$s, %1$d hexadecimal number is: %1$#x" values="i, s"/>

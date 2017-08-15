@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-init-mapping</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">Mapping And Convert</div></h1>
+<hr />
+<h3>Catalog:</h3>
+<ul>
+<li><a href="#1">Mapping</a></li>
+<li><a href="#2">Mapping Config</a></li>
+<li><a href="#3">Using mapping in the model</a></li>
+<li><a href="#4">Using mapping in init scheme</a></li>
+<li><a href="#5">Convert</a></li>
+<li><a href="#6">Convert Config</a></li>
+<li>
+<a href="#7">Using convert in the model</a>
+<ul>
+<li><a href="#8">Property Convert</a></li>
+<li><a href="#9">Field Convert</a></li>
+</ul>
+</li>
+<li><a href="#10">Using convert in init scheme</a></li>
+</ul>
+<hr />
+<h2><span id="1">Mapping</span></h2>
+<p>We know that the type of database is different from the type of development language, so we need a bridge, one side is the database type, and the other is the development language type</p>
+<p>There is a big difference between the types of SQL supported by different databases, such as DECIMAL in Oracle,
+Mysql is not, Mysql varchar type corresponds to Oracle is varchar2.
+Most databases have their own type rules.</p>
+<p>Fortunately, the major database vendors are providing their own database jdbc driver, it will follow the jdbc standard,
+Convert your SQL type to the corresponding jdbc type, which is derived from java.sql.Types.</p>
+<p>The following are all types:</p>
+<pre>
+ARRAY, BIGINT, BINARY, BIT, BLOB, BOOLEAN, CHAR, CLOB,
+DATALINK, DATE, DECIMAL, DISTINCT, DOUBLE, FLOAT,
+INTEGER, JAVA_OBJECT, LONGNVARCHAR, LONGVARBINARY, LONGVARCHAR,
+NCHAR, NCLOB, NULL, NUMERIC, NVARCHAR,
+OTHER, REAL, REF, ROWID, SMALLINT, SQLXML, STRUCT,
+TIME, TIMESTAMP, TINYINT, VARBINARY, VARCHAR
+</pre>
+<pre>
+Jmr uses the jdbc type as a standard for mapping reasons:
+
+1. Unified standards do not need to be concerned with different database types,
+   and all types have correspondence in the jdbc type.
+2. Just set the corresponding development language mapping type for the jdbc type.
+</pre>
+<p>The following is a table in the database, and we can see the types of its different fields.</p>
+<p><img src="image/model_init_mapping_mapping1.png" /></p>
+<p>JdbcType is the jdbc type, and Jmr is converted to the following:</p>
+<ul>
+<li>jdbcType is the type obtained by the jdbc standard, and the uniform standard is the mapping type we need.</li>
+<li>dbType is the type of the database, and it is also obtained by the jdbc standard, but each database has its own type rules.</li>
+<li>type and fullType are the types that we need to map to the development language, type is a short type, such as String, Date; fullType is a full type, such as java.lang.String, java.util.Date.</li>
+</ul>
+<p><img src="image/model_init_mapping_mapping2.png" /></p>
+<hr />
+<h2><span id="2">Mapping Config</span></h2>
+<p>Click Model page --&gt; Select Mapping and Convert --&gt; New Mapping</p>
+<p><img src="image/model_init_mapping_mapping3.png" /></p>
+<p>Named type, which is used as a mapping name; double clicking on the right side of the table allows you to fill the mapping type.</p>
+<p><img src="image/model_init_mapping_mapping4.png" /></p>
+<p>Fill in the type of jdbcType corresponding to your own requirements (this use the Java language as an example and you can use other languages)</p>
+<p><img src="image/model_init_mapping_mapping5.png" /></p>
+<p>Another new mapping, named fullType, is used to mapping the fullType.</p>
+<p><img src="image/model_init_mapping_mapping6.png" /></p>
+<pre>
+Tip: when editing type, you can use the right button, from left to right:
+* Search type button: you can search for the types included in your project,
+  only Java type are supported.
+* Open type button: you can open the type corresponding to the source code,  
+  only Java type are supported.
+* Delete button: delete the type you have entered.
+</pre>
+<p><img src="image/model_init_mapping_mapping7.png" /></p>
+<h2><span id="3">Using mapping in the model</span></h2>
+<p>When we configure the mapping, we can use the configured mappings in the model. Click on the icons on model type and fullType.</p>
+<p><img src="image/model_init_mapping_mapping8.png" /></p>
+<p>In fullType, for example, we choose the mapping to fullType; click convert, which generates the type based on the value of the jdbcType.</p>
+<p><img src="image/model_init_mapping_mapping9.png" /></p>
+<p>As a result of the convert, you can see that type and fullType have been mapped to complete.</p>
+<p><img src="image/model_init_mapping_mapping10.png" /></p>
+<h2><span id="4">Using mapping in init scheme</span></h2>
+<p>You can complete the mapping in the process of model transform.</p>
+<p>Click Model page--&gt;Select Init Scheme--&gt;New Init</p>
+<p><img src="image/model_init_mapping_mapping11.png" /></p>
+<p>Named init, the init scheme comes with three fields called name, type, and jdbcType.</p>
+<p><img src="image/model_init_mapping_mapping12.png" /></p>
+<p>Select type and fullType--&gt;Convert--&gt;From Column: jdbcType, The mapping select type and fullType.</p>
+<p><img src="image/model_init_mapping_mapping13.png" /></p>
+<p>When the model transform, select init</p>
+<p><img src="image/model_init_mapping_mapping14.png" /></p>
+<p>Transform result:</p>
+<p><img src="image/model_init_mapping_mapping10.png" /></p>
+<h2><span id="5">Convert</span></h2>
+<p>The transform use the Jmr Convert, for example:</p>
+<ul>
+<li>table name: book_order - &gt; BookOrder</li>
+<li>table field: regist_time - &gt; registTime</li>
+</ul>
+<h2><span id="6">Convert Config</span></h2>
+<p>Click Model page--&gt;Select Mapping and Convert--&gt;New Convert</p>
+<p><img src="image/model_init_mapping_convert1.png" /></p>
+<p>Named headLowerCamel</p>
+<p><img src="image/model_init_mapping_convert2.png" /></p>
+<p>New Jmr Convert, New-&gt;Jmr Convert</p>
+<p><img src="image/model_init_mapping_convert3.png" /></p>
+<p>Or, in Other JMR.</p>
+<p><img src="image/model_init_mapping_convert4.png" /></p>
+<p>Create a new convert called HeadLowerCamelConvert</p>
+<p><img src="image/model_init_mapping_convert5.png" /></p>
+<p>Action inherits from JmrConvert. It has a convert implementation method.</p>
+<pre>
+The function of HeadLowerCamelConvert:
+for example: regist_time -> registTime
+</pre>
+<p><img src="image/model_init_mapping_convert6.png" /></p>
+<p>Click the right button to search for Jmr Convert.</p>
+<p><img src="image/model_init_mapping_convert7.png" /></p>
+<p>Select HeadLowerCamelConvert.</p>
+<p><img src="image/model_init_mapping_convert8.png" /></p>
+<p>We are configuring another convert, HeadUpperCamelConvert</p>
+<pre>
+The function of HeadUpperCamelConvert:
+for example: book_order -> BookOrder
+</pre>
+<p><img src="image/model_init_mapping_convert9.png" /></p>
+<h2><span id="7">Using convert in the model</span></h2>
+<p>Convert can be used on properties or fields.</p>
+<h4><span id="8">Property Convert</span></h4>
+<p>We have created a new property named ClassName, which is used as the class name of the java.</p>
+<p><img src="image/model_init_mapping_convert10.png" /></p>
+<p>The Java class name are head upper case and camel case, we convert from the name.</p>
+<p><img src="image/model_init_mapping_convert11.png" /></p>
+<p>Click Convert Icon <img src="image/model_init_mapping_convert12.png" /></p>
+<p><img src="image/model_init_mapping_convert13.png" /></p>
+<p>Select headUpperCanelConvert, In the Results Preview, we can see the result of the convert, converted from book to Book. Finally, click Convert.</p>
+<p><img src="image/model_init_mapping_convert14.png" /></p>
+<p>The value of ClassName is Book.</p>
+<p><img src="image/model_init_mapping_convert15.png" /></p>
+<h4><span id="9">Field Convert</span></h4>
+<p>We select name, and name default to the same value as id, but can also be converted.</p>
+<p><img src="image/model_init_mapping_convert16.png" /></p>
+<p>Select headLowerCanelConvert, Source is id, Target is name,  In the Results Preview, we can see the result of the convert. Finally, click Convert.</p>
+<p><img src="image/model_init_mapping_convert17.png" /></p>
+<p>Result</p>
+<p><img src="image/model_init_mapping_convert18.png" /></p>
+<p>Of course, you can also set convert for new fields, Click <img src="image/model_init_mapping_convert12.png" /> to convert.</p>
+<p><img src="image/model_init_mapping_convert19.png" /></p>
+<h2><span id="10">Using convert in init scheme</span></h2>
+<p>You can complete the convert in the process of model transform.</p>
+<p>Click Model page --&gt; Select Init Scheme, select name --&gt;From Column id, select headLowerCamel。</p>
+<p><img src="image/model_init_mapping_convert20.png" /></p>
+<p>We can also set the convert in the new column, create new column fieldName --&gt;
+From Column id, select headLowerCamel。</p>
+<p><img src="image/model_init_mapping_convert21.png" /></p>
+<p>When the model transform, select init.</p>
+<p><img src="image/model_init_mapping_convert22.png" /></p>
+<p>Result</p>
+<p><img src="image/model_init_mapping_convert23.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

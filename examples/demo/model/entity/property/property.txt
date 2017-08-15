@@ -1,0 +1,16 @@
+
+
+name:book
+relation:one
+from:db
+type:table
+null:
+true
+false
+e1
+e2
+e3
+key: key1
+value: value1
+key: key2
+value: value2

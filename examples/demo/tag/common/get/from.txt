@@ -1,0 +1,24 @@
+
+/* from context */
+String: c_str
+boolean: true
+int: 6
+object: [1, 2, 3]
+
+/* from session */
+String: s_str
+boolean: false
+int: 7
+object: {1=str1, 2=str2, 3=str3}
+
+/* from action */
+String: a_str
+boolean: false
+int: 8
+object: [D@255c13
+
+/* from tag */
+String: str
+boolean: true
+int: 9
+foreach: e1,e2,e3

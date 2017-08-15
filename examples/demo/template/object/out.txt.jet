@@ -1,0 +1,29 @@
+<%@jet package="translated" class="Out_txt"%>
+<%@jet imports="java.util.Date"%>
+<%-- set int double float --%>
+<%int i = 1;%>
+<%double d = 3.141592;%>
+<%float f = (float)3.14;%>
+<%float c = 'c';%>
+<%-- output String --%>
+<%out.write("Hello Jmr!");%>
+<%-- output boolean and Boolean --%>
+<%out.write(true);%>
+<%out.write(new Boolean(false));%>
+<%-- output char and Character --%>
+<%out.write(c);%>
+<%out.write(new Character('c'));%>
+<%-- output char array --%>
+<%out.write(new char[]{'a', 'b', 'c'});%>
+<%-- output int and Integer --%>
+<%out.write(i);%>
+<%out.write(new Integer(1));%>
+<%-- output double and Double --%>
+<%out.write(d);%>
+<%out.write(new Double(3.141592));%>
+<%-- output float and Float --%>
+<%out.write(f);%>
+<%out.write(new Float(3.14));%>
+<%-- output Object --%>
+<%out.write(new Object());%>
+<%out.write(new Date());%>

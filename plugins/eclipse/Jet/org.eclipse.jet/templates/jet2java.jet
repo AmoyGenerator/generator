@@ -1,0 +1,85 @@
+<%@jet package="org.eclipse.jet.internal.compiler.templates" 
+               class="JET2JavaGenerator" 
+               %>
+<%@jet imports="org.eclipse.jet.internal.compiler.*"%>
+<%@jet imports="org.eclipse.jet.compiler.*"%>
+<%@jet imports="org.eclipse.jet.transform.TransformContextExtender"%>
+<%@jet imports="org.eclipse.jet.taglib.TagLibraryReference"%>
+<%@jet imports="java.util.ArrayList"%>
+<%@jet imports="java.util.List"%>
+<%@jet imports="java.util.Iterator"%>
+<%!
+    private XMLElement[] getAllXMLTags(JET2CompilationUnit cu) {
+        final List result = new ArrayList();
+    	cu.accept(new DefaultJET2ASTVisitor() {
+	    	public void visit(XMLBodyElement element) {
+		    	result.add(element);
+		    }
+		
+			public void visit(XMLEmptyElement element) {
+				result.add(element);
+			}
+		});
+        return (XMLElement[])result.toArray(new XMLElement[result.size()]);
+    }
+    
+    private JET2Declaration[] getAllJavaDeclarations(JET2CompilationUnit cu) {
+        final List result = new ArrayList();
+    	cu.accept(new DefaultJET2ASTVisitor() {
+	    	public void visit(JET2Declaration declaration) {
+		    	result.add(declaration);
+		    }
+		});
+        return (JET2Declaration[])result.toArray(new JET2Declaration[result.size()]);
+    }
+%>
+<%
+	JET2CompilationUnit cu = (JET2CompilationUnit)context.getVariable("cu"); //$NON-NLS-1$
+	
+	final JET2Declaration[] allMemberDeclarations = getAllJavaDeclarations(cu);
+	final XMLElement[] allXMLElements = getAllXMLTags(cu);
+		
+	final TagLibraryReference[] tlRefs = cu.getTagLibraryReferences();
+
+	MethodBodyCreator generatedBody = new MethodBodyCreator(TransformContextExtender.getInstance(context).getLoader());
+	cu.accept(generatedBody);
+%>
+package <%= cu.getOutputJavaPackage() %>;
+
+import org.eclipse.jet.JET2Context;
+import org.eclipse.jet.JET2Template;
+import org.eclipse.jet.JET2Writer;
+<% if( allXMLElements.length > 0) { %>
+import org.eclipse.jet.taglib.RuntimeTagElement;
+import org.eclipse.jet.taglib.TagInfo;
+<% } %>
+<% for(Iterator i=cu.getImports().iterator();i.hasNext();) { 
+	String importName = (String)i.next();%>
+import <%=importName%>;
+<% } %>
+
+public class <%= cu.getOutputJavaClassName() %> implements JET2Template {
+<% if( allXMLElements.length > 0) { %>
+<%    for(int i = 0; i < tlRefs.length; i++ ) { %>
+    public static final String _jetns_<%= tlRefs[i].getPrefix() %> = "<%= tlRefs[i].getTagLibraryId() %>"; //$NON-NLS-1$
+<%    } %>
+<% } %>
+<%	for(int i = 0; i < allMemberDeclarations.length; i++) { %>
+
+<%= allMemberDeclarations[i].getJavaContent() %>
+<%  } %>
+
+	public <%= cu.getOutputJavaClassName() %>() {
+		super();
+	}
+
+	public void generate(final JET2Context context, JET2Writer out) {
+<%	for(int i = 0; i < allXMLElements.length; i++) { 
+	    context.setVariable("element", allXMLElements[i]); //$NON-NLS-1$
+%>
+			<c:include template="templates/tagDataDeclarations.jet"/>
+<%  } %>
+<%= generatedBody.getBuffer() %>
+	}
+
+}

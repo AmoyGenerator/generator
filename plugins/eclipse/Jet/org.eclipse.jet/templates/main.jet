@@ -1,0 +1,2 @@
+<%@jet class="DummyMain"%>
+<c:log>This transform in not intended to be run.</c:log>

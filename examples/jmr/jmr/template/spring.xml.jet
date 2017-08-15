@@ -1,0 +1,22 @@
+<%@jet package="translated" class="Spring_xml"%>
+<entity var="object"/>
+<set var="Class" value='object.property("Class")'/>
+<set var="class" value='object.property("class")'/>
+    <insert id="bean">
+    <bean id="<get value="class"/>Dao" class="com.jmr.dao.impl.<get value="Class"/>DaoImpl">
+	    <property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+    
+	<bean id="<get value="class"/>Service" class="com.jmr.service.impl.<get value="Class" />ServiceImpl">
+	    <property name="<get value="class"/>Dao">
+			<ref bean="<get value="class"/>Dao" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+	</insert>
+	
+	

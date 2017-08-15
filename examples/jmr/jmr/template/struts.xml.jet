@@ -1,0 +1,14 @@
+<%@jet package="translated" class="Struts_xml"%>
+
+<entity var="object"/>
+<set var="Class" value='object.property("Class")'/>
+<set var="class" value='object.property("class")'/>
+    <insert id="action">
+       <action path="/<get value="class"/>" type="com.jmr.action.<get value="Class"/>Action"
+                  scope="request" parameter="act"> 
+            <forward name="toFind" path="/views/<get value="class"/>/<get value="class"/>.jsp" />
+	        <forward name="toFindAction" path="/views/<get value="class"/>.do?act=find" redirect="true" />
+	   		<forward name="toAdd" path="/views/<get value="class"/>/<get value="class"/>Add.jsp" />
+	   		<forward name="toModify" path="/views/<get value="class"/>/<get value="class"/>Update.jsp" />           
+       </action>            
+	</insert>

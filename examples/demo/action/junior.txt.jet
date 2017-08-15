@@ -1,0 +1,21 @@
+<%@jet package="translated" class="Junior_txt"%>
+<%@jet imports="java.util.List"%>
+<%@jet imports="java.util.ArrayList"%>
+<%
+   String bookName = "Harry Potter";
+   List<String> bookParts = new ArrayList<String>();
+   bookParts.add("Sorcerer's Stone");
+   bookParts.add("Chamber of Secrets");
+   bookParts.add("Prisoner of Azkaban");
+   bookParts.add("Goblet of Fire");
+   bookParts.add("Order of Phoenix");
+   bookParts.add("Half-Blood Prince");
+   bookParts.add("Deathly Hallows");
+%>
+
+book: <%=bookName%>
+    
+parts:
+<%for(int i = 0; i < bookParts.size(); i++){%>
+   part<%=i + 1%>: <%=bookParts.get(i)%>
+<%}%>

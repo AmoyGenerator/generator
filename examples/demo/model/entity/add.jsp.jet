@@ -1,0 +1,25 @@
+<%@ jet package="translated" class="Add_jsp"%>
+
+<entity var='one' relation="one"/>
+
+<table>
+  <for var="field" value='one.fields' test='field.property("isEdit") == true'>
+  <tr>
+    <td><get value='field.name'/></td>
+    <td>
+      <if test='field.property("controlType") == "text"'>
+	  <input type="text"/>
+	  </if>
+	  <elseif test='field.property("controlType") == "select"'>
+	  <select>
+	    <option>Novel</option>
+		<option>Magazine</option>
+	  </select>
+	  </elseif>
+	  <elseif test='field.property("controlType") == "date"'>
+	  <input class="Wdate" onfocus="WdatePicker()"/>
+	  </elseif>
+	</td>
+  </tr>
+  </for>
+</table>	

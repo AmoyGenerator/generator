@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>demo-java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">实战 - Java Web项目</div></h1>
+<hr />
+<h2>前言</h2>
+<p>Jmr如何运用到实际开发，如何给大家带来效率的提升和真实的价值，这才是大家最关心的。接下来通过一个实际Java Web项目来说明。</p>
+<p>以下是一个Java Web的例子，根据数据库的表，转换模型，生成一个完整的增删查改模块，概括起来有4步：<br />
+1、编写模板  <br />
+2、设置任务<br />
+3、设置模型（数据库）<br />
+4、运行生成   </p>
+<p><img src="image/demo-java10.png" /></p>
+<p>小伙伴们可以根据自己的项目和框架，把那些有规律重复的部分写成Jmr的模板，不管多复杂的前后台代码，只要有规律可循都可以实现自动化。设定好任务，设置好模型的规则，用好Jmr，能大大提高工作效率。</p>
+<hr />
+<h3>项目下载位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo-java</a>。</li>
+<li>jmr.sql中可以导入到mysql数据库。</li>
+<li>登录地址：localhost:8080/jmr。</li>
+</ul>
+<h2>具体内容</h2>
+<ul>
+<li><a href="demo-java-model.html">模型：</a>讲述项目的模型如何设计和预设方案</li>
+<li>
+模板
+<ul>
+<li>
+model
+<ul>
+<li><a href="demo-java-entity.html">entity：</a>实体类</li>
+<li><a href="demo-java-hibernate.html">hibernate：</a>实体类的hibernate映射</li>
+</ul>
+</li>
+<li>
+dao
+<ul>
+<li><a href="demo-java-dao.html">dao：</a>dao接口</li>
+<li><a href="demo-java-daoImpl.html">daoImpl：</a>dao接口的实现类</li>
+</ul>
+</li>
+<li>
+service
+<ul>
+<li><a href="demo-java-service.html">service：</a>service接口</li>
+<li><a href="demo-java-serviceImpl.html">serviceImpl：</a>service接口的实现类</li>
+<li><a href="demo-java-spring.html">spring：</a>spring中注册daoImpl和serviceImpl</li>
+</ul>
+</li>
+<li>
+controller
+<ul>
+<li><a href="demo-java-action.html">action：</a>控制类</li>
+<li><a href="demo-java-struts.html">struts：</a>在struts中注册action</li>
+</ul>
+</li>
+<li>
+view
+<ul>
+<li><a href="demo-java-menu.html">menu：</a>在菜单栏中添加链接</li>
+<li><a href="demo-java-view.html">view：</a>查询页面</li>
+<li><a href="demo-java-add.html">add：</a>新增页面</li>
+<li><a href="demo-java-update.html">update：</a>修改页面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>项目预览</h2>
+<p>1）编写模板：包括entity（实体类），dao，service，action；在hibernate中添加映射，在spring中注册bean，在struts中注册action；增删查改的jsp前台界面。当然，小伙伴也可以根据自己使用的框架来写对应的模板，使用Jmr都可以很容易做到，此处只是拿ssh框架做例子。</p>
+<p>2）设置好对应的任务。</p>
+<p>根据要生成的文件设置任务。</p>
+<p><img src="image/demo-java1.png" /></p>
+<p>3）生成模型：读取数据库中的新表，生成模型。我们使用预设方案，自定义新属性，减少我们修改模型的工作量。</p>
+<p><img src="image/demo-java2.png" /></p>
+<p>4）修改模型：由于每个项目都有自己的特性，根据自己项目的规则，可以修改或者新增一些特性，作为参数传给模板，满足不同项目的生成需求。</p>
+<p>增加了3个属性：</p>
+<ul>
+<li>Class（大写类名）</li>
+<li>class（小写类型）</li>
+<li>menu（左侧菜单名）</li>
+</ul>
+<p>增加了3个列：</p>
+<ul>
+<li>controlType（字段控件类型）</li>
+<li>isEdit（是否是可编辑的字段）</li>
+<li>isQuery（字段是否作为查询项）</li>
+</ul>
+<p><img src="image/demo-java3.png" /></p>
+<p>5）为任务配置新的模型</p>
+<p><img src="image/demo-java4.png" /></p>
+<p>6）选中刚刚新建模型的组。</p>
+<p><img src="image/demo-java5.png" /></p>
+<p>7）运行任务。</p>
+<p><img src="image/demo-java6.png" /></p>
+<p>8）生成的新功能，完整的增删查改。</p>
+<p>查询页面：</p>
+<p><img src="image/demo-java7.png" /></p>
+<p>新增页面：</p>
+<p><img src="image/demo-java8.png" /></p>
+<p>修改页面：</p>
+<p><img src="image/demo-java9.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

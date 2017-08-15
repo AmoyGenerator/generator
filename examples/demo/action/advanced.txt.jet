@@ -1,0 +1,9 @@
+<%@jet package="translated" class="Advanced_txt"%>
+
+book: <get value='bookName'/>    
+
+parts:
+<for var='part' value='bookParts' status="s">
+   part<get value='s.index + 1'/>: <get value='part'/>
+</for> 
+

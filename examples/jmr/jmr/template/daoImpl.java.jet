@@ -1,0 +1,69 @@
+<%@ jet package="translated" class="Dao_java"%>
+<entity var="object"/>
+<set var="Class" value='object.property("Class")'/>
+package <java:package />;
+
+import java.util.Map;
+import ssh.hibernate.dao.IBaseDao;
+import ssh.hibernate.dao.QuerySqlManager;
+import ssh.hibernate.page.ListPage;
+import com.jmr.dao.I<get value="Class"/>Dao;
+import com.jmr.entity.<get value="Class"/>;
+
+/**
+ * Dao implementation class
+ *
+ */
+
+public class <java:class /> implements I<get value="Class"/>Dao{
+	
+	private IBaseDao baseDao;
+
+	public void setBaseDao(IBaseDao baseDao) {
+		this.baseDao = baseDao;
+	}
+	
+	/**
+	 * 
+	 * @param pageNo 
+	 * @param pageCount
+	 * @param queryMap 
+	 * @return
+	 */
+	public ListPage find(int pageNo, int pageCount, Map queryMap) {
+		return QuerySqlManager.query(baseDao, <get value="Class"/>.class, pageNo, pageCount, queryMap);
+	}
+	
+	/**
+	 * Get Object
+	 * @param id
+	 * @return
+	 */
+	public <get value="Class"/> getById(Integer id) {
+		return (<get value="Class"/>)baseDao.get(<get value="Class"/>.class, id);
+	}
+		
+	/**
+	 * Delete
+	 * @param id
+	 */
+	public void delete(Integer id) {
+		baseDao.delete(<get value="Class"/>.class, id);
+	}
+	
+	/**
+	 * Save
+	 */
+	public void save(Object object) {
+		baseDao.save(object);
+	}
+	
+	/**
+	 * Update
+	 */
+	public void update(Object object) {
+		baseDao.update(object);
+	}
+
+}
+

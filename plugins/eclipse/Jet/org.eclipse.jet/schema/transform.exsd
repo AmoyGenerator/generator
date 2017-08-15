@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.jet" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.jet" id="transform" name="JET Transformation"/>
+      </appInfo>
+      <documentation>
+         Declares that the extending plugin is a JET transformation. 
+&lt;p&gt;
+&lt;b&gt;This extension point is not intended to be used directly by clients.&lt;/b&gt;
+      </documentation>
+   </annotation>
+
+   <include schemaLocation="schema://org.eclipse.core.expressions/schema/expressionLanguage.exsd"/>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="transform"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="transform">
+      <annotation>
+         <documentation>
+            Declares transformation access details. For JET Transformation projects, there is exactly one of these.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="description"/>
+            <element ref="tagLibraries"/>
+            <element ref="enablement" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="startTemplate" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The project relative path to the main template in the transformation. The main template serves as an entry point for the transformation. Typical values: template/control.jet or template/main.jet
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="templateLoaderClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The fully qualified Java class name of the template loader class.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.emf.internal.jet2.runtime.IJET2Transformation"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="modelLoader" type="string">
+            <annotation>
+               <documentation>
+                  A reference to the id of the model loader to use when loading Eclipse resources. If not specified, a model loader is selected based on the file extension of the input model, or by the value of the &apos;modelExtension&apos; attribute.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="overrides" type="string">
+            <annotation>
+               <documentation>
+                  The id of a JET transformation that this transformation overrides. If not specified, the transformation does not override another transformation.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="modelExtension" type="string">
+            <annotation>
+               <documentation>
+                  When specified, model loading ignores the file extension on the input model, and uses the value specified here instead. This can affect both the selection of a model loader (if the modelLoader attribute is not set), and the behavior of the selected model loader. 
+&lt;p&gt;
+A typical use would be to force model loading to treat inputs as a specific type. For example, an Eclipse XML Schema file (exsd file extension) is an XML document that is not recognized by the XML model loaders. Setting the &apos;modelExtension&apos; attribute to &apos;xml&apos; would cause the model loading mechanism to treat an any input as if it had an &apos;xml&apos; extension.
+&lt;/p&gt;
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="private" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  Indicate whether the transformation should appear in any JET UIs, or be enumerated by any JET APIs that search for available transformations. The default is &lt;code&gt;false&lt;/code&gt;, indicating that the transformation will appear in all UIs and APIs.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="modelSchema" type="string">
+            <annotation>
+               <documentation>
+                  An optional project relative path or a URL to a file that serves as a schema for transformation inputs. JET APIs makes no use of this information, but a schema can help users in creating valid models for the transformation.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="enableEmbeddedExpressions" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, then embedded expressions of the for ${ expr } are allowed in both template bodies and tag attributes. Otherwise, these string are treated as literal values.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="tagLibraries">
+      <annotation>
+         <documentation>
+            Declares tag libraries that may be used by the transformation&apos;s templates.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="importLibrary" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="importLibrary">
+      <annotation>
+         <documentation>
+            References an JET2 tag library.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The tag library id. Example: org.eclipse.jet.controlTags
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="usePrefix" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The prefix to use for the tag library when the tag library is auto imported into the project&apos;s templates.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="autoImport" type="boolean" use="required">
+            <annotation>
+               <documentation>
+                  Indicates whether the project&apos;s templates should implicitly import the tags in this library.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="description" type="string">
+      <annotation>
+         <documentation>
+            A textual description of the transformation.
+         </documentation>
+      </annotation>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         Copyright (c) 2005, 2009 IBM Corporation and others.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+</schema>

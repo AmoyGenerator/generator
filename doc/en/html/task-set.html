@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>task-set</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">Task - Configure</div></h1>
+<hr />
+<h3>Catalog:</h3>
+<ul>
+<li>
+<a href="#1">Task List</a>
+<ul>
+<li><a href="#2">Structure</a></li>
+<li><a href="#3">Common actions</a></li>
+</ul>
+</li>
+<li><a href="#4">Task Content</a></li>
+</ul>
+<hr />
+<p><img src="image/task-set1.png" /></p>
+<h2><span id="1">Task List</span></h2>
+<p>In the task list, we can manage the tasks and select the tasks to run.</p>
+<h2><span id="2">Structure</span></h2>
+<p>Task three structures</p>
+<ul>
+<li><img src="image/task-set2.png" /> Project: The project is a large category, and there are multiple directories under the project.</li>
+<li><img src="image/task-set3.png" /> Directory: A directory is a small category that can have multiple tasks under a directory.</li>
+<li>
+Task: Execute the generated unit, a task that can only new,merge,overlay a file; it contains three types:
+<ul>
+<li><img src="image/task-set4.png" /> New: When the file does not exist, create a new file and generate new content based on the template.</li>
+<li><img src="image/task-set5.png" /> Merge: File already exists, According to the template merge the specified part, other parts remain unchanged.</li>
+<li><img src="image/task-set6.png" /> Overlay: The file already exists. Overlay all the contents again.</li>
+</ul>
+</li>
+</ul>
+<p>For example, here is a task structure for the Web project</p>
+<ul>
+<li>Project: According to the MVC structure, there are 3 projects.</li>
+<li>Directory: Directory structure is divided into entity, dao, service, action, jsp and so on.</li>
+<li>Task: Generated file.</li>
+</ul>
+<p><img src="image/task-set7.png" /></p>
+<h2><span id="3">Common actions</span></h2>
+<p>Right click menu or right button to see the following actions.</p>
+<p><img src="image/task-set8.png" /></p>
+<ul>
+<li>New Project, New Directory, New Task, Edit</li>
+</ul>
+<p>The name of the custom, but the same level cannot rename.</p>
+<ul>
+<li>Set Model, Clear Model</li>
+</ul>
+<p>We can modify the model in the task, but if multiple tasks need to modify the model, the efficiency will be low.</p>
+<p><img src="image/task-set9.png" /></p>
+<p>Select multiple tasks setting model</p>
+<p><img src="image/task-set10.png" /></p>
+<p>Select model group or model</p>
+<p><img src="image/task-set11.png" />
+<img src="image/task-set49.png" /></p>
+<p>Select model group</p>
+<p><img src="image/task-set12.png" /></p>
+<p>Select model</p>
+<p><img src="image/task-set50.png" /></p>
+<h3>Task State</h3>
+<p>The task has 3 following states, these states are automatically updated according to changes in the environment. For example, the template has syntax errors, and the file directory cannot be found.</p>
+<ul>
+<li>Normal: <img src="image/task-set15.png" /></li>
+<li>Warn: <img src="image/task-set14.png" /></li>
+<li>Error: <img src="image/task-set13.png" /></li>
+</ul>
+<pre>
+If there is a syntax error in the template, or other error or warn, the task status will change
+</pre>
+<p><img src="image/task-set16.png" /></p>
+<p><img src="image/task-set17.png" /></p>
+<ul>
+<li>Refresh</li>
+</ul>
+<p>Task status is automatically updated, but sometimes there is delay, you can use refresh.</p>
+<ul>
+<li>Up, Down</li>
+</ul>
+<p>The order of execution of the task is up and down, and the order of execution of the task can be changed up and down.</p>
+<p><img src="image/task-set18.png" /></p>
+<ul>
+<li>Copy, Paste</li>
+</ul>
+<p>Tasks can be copied and pasted.</p>
+<ul>
+<li>Delete</li>
+</ul>
+<p>Any element can be deleted, the project and directory are deleted, and its child elements are deleted at the same time.</p>
+<ul>
+<li>Drag</li>
+</ul>
+<p>You need to move the mouse to drag and drop, and the task moves from one position to another, which is equivalent to cutting.</p>
+<h2><span id="4">Task Content</span></h2>
+<p><img src="image/task-set19.png" /></p>
+<ul>
+<li>Model: Click Browse to select the model, and the model can select the model group or model.</li>
+</ul>
+<p><img src="image/task-set21.png" /></p>
+<p><img src="image/task-set51.png" /></p>
+<p>Model source is the list of models in current jmr file.</p>
+<p><img src="image/task-set22.png" /></p>
+<p>A task can only select one model group or model, and the use between them is different. Please read:<a href="model-structure-entity.html#5">entity usage</a></p>
+<p><img src="image/task-set23.png" />
+<img src="image/task-set52.png" /></p>
+<ul>
+<li>Action：Click Browse to select Action, Click
+<img src="image/task-set26.png" /> or <img src="image/task-set27.png" /> you can open the Action file. About the usage of Action, please read:<a href="action.html">Action</a></li>
+</ul>
+<p><img src="image/task-set24.png" /></p>
+<p>Action must select the class whose parent class is org.jmr.core.JmrActionSupport, and the dialog box matches these classes automatically. Enter ** can view all matching classes. The selected Action must be in the same project.</p>
+<p><img src="image/task-set25.png" /></p>
+<ul>
+<li>Template: Click Browse to select template, click
+<img src="image/task-set29.png" /> or <img src="image/task-set27.png" /> can create or open a template file.</li>
+</ul>
+<p><img src="image/task-set28.png" /></p>
+<p>The template selection dialog box can view all templates under the current project. You can enter name filtering in the search box. The selected template must be in the current project.</p>
+<p><img src="image/task-set30.png" /></p>
+<ul>
+<li>
+Task type:
+<ul>
+<li>New: Is new when the file does not exist. Automatically changes to overlay after the task run.</li>
+<li>Merge: The file already exists. The location of the merge id in the file will be merged, and the other will remain unchanged. For more details on the merge, please read: <a href="task-merge.html">Merge Usage</a></li>
+<li>Overlay: The file already exists. The task replace all the contents of the file.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/task-set31.png" /></p>
+<p>The state of the first run task is new, followed by merge and overlay.</p>
+<p>For example, the 2 tasks of spring and struts are adding registration information to the configuration file, and menu adds new link.</p>
+<p><img src="image/task-set32.png" /></p>
+<ul>
+<li>Directory: File directory, click Browse to select directory.</li>
+</ul>
+<p><img src="image/task-set33.png" /></p>
+<p>Click <img src="image/task-set34.png" /> to create a new directory, which can be found in any open project.</p>
+<p><img src="image/task-set36.png" /></p>
+<p>Click <img src="image/task-set35.png" /> expression can be used in a directory. By selecting the directory, you get the value of the directory, and then insert model variables. In the new mode, if the directory does not exist, it will be created automatically.</p>
+<p><img src="image/task-set37.png" /></p>
+<p>There are 2 kinds of expression:</p>
+<ul>
+<li>${property}</li>
+<li>${relation.property}</li>
+</ul>
+<p>When you select a model, you can use the ${property}. ${property} is the property of the selected model, you can also use ${relation.property}.</p>
+<p><img src="image/task-set54.png" /></p>
+<p>When you select a model group, you can only use ${relation.property}.</p>
+<p><img src="image/task-set53.png" /></p>
+<pre>
+Example: generating directory using expressions.
+</pre>
+<p>The model relation is one, and the property class value is book.</p>
+<p><img src="image/task-set38.png" /><img src="image/task-set39.png" /></p>
+<p>When you select a model, you can use the ${class}, also use ${one.class}.</p>
+<p><img src="image/task-set56.png" /></p>
+<p>The directory settings are as follows:</p>
+<p><img src="image/task-set57.png" /></p>
+<p>When you select a model group, you can only use ${one.class}.</p>
+<p><img src="image/task-set40.png" /></p>
+<p>The directory settings are as follows:</p>
+<p><img src="image/task-set41.png" /></p>
+<p>Generated file directory</p>
+<p><img src="image/task-set42.png" /></p>
+<ul>
+<li>Name: Generate the name of the file, Double click or enter can be edited.</li>
+</ul>
+<p><img src="image/task-set43.png" /></p>
+<ul>
+<li>Click <img src="image/task-set44.png" /> you can use expression in file name.</li>
+</ul>
+<p><img src="image/task-set45.png" /></p>
+<p>Like directories, you can also use ${property} and ${relation.property}.</p>
+<p><img src="image/task-set46.png" /></p>
+<p>Generated file:</p>
+<p><img src="image/task-set47.png" /></p>
+<ul>
+<li>Ext: Generate file extensions, double-click or enter to edit.</li>
+</ul>
+<p><img src="image/task-set48.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

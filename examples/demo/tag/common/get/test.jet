@@ -1,0 +1,6 @@
+<%@jet package="translated" class="Test"%>
+<set var="b" value='"Hello Jmr!"'/>
+<set var="list" value='{"e1","e2","e3"}'/>
+<get value='b'/>
+
+<% String a = "Hello World!"; %>

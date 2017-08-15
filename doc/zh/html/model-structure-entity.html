@@ -1,0 +1,576 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-structure-entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">模型结构 - entity（数据库、Java类）</div></h1>
+<hr />
+<h3>目录</h3>
+<ul>
+<li>
+<a href="#1">entity类别</a>
+<ul>
+<li><a href="#2">表(table)</a></li>
+<li><a href="#3">视图(view)</a></li>
+<li><a href="#4">Java类</a></li>
+</ul>
+</li>
+<li><a href="#5">entity的应用</a></li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml 任务中的 model/entity</li>
+</ul>
+<hr />
+<h2><span id="1">entity类别</span></h2>
+<p>entity模型包含了2种类型数据库和Java类。</p>
+<ul>
+<li>
+数据库
+<ul>
+<li>表（table） </li>
+<li>视图（view）</li>
+</ul>
+</li>
+<li>java类 </li>
+</ul>
+<h2><span id="2">表（table）</span></h2>
+<p>数据库中有张表book，id是主键，包括name，type，regist_time等字段。</p>
+<p><img src="image/model_structure_entity1.png" /></p>
+<p>转换成模型后的结构如下（如何转换模型请阅读：<a href="head-model-transform.html">模型转换</a>）</p>
+<p><img src="image/model_structure_entity2.png" /></p>
+<h3>Property（属性）</h3>
+<ul>
+<li>
+默认 
+<ul>
+<li>name：从表（table）名转换而来，和表名一致，可修改。 </li>
+<li>relation：模型在组中的关系，由用户自己填写，用来在模板中获取模型，可修改。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity3.png" /></p>
+<ul>
+<li>
+特性
+<ul>
+<li>from：因为模型来自数据库，所以from的值为db。</li>
+<li>type：因为模型是表（table）类型，所以type的值为table。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity4.png" /></p>
+<ul>
+<li>新设</li>
+</ul>
+<p>新设是用户自己定义属性的地方，可以在此定义额外的属性。</p>
+<p><img src="image/model_structure_entity5.png" /></p>
+<p>我们可在此新设修改属性，或者在预设中设置属性，更详细的内容，请阅读：<a href="model-structure-property.html">property - 属性</a>。</p>
+<p><img src="image/model_structure_entity8.png" /></p>
+<h3>Field（字段）</h3>
+<ul>
+<li>
+<p>默认</p>
+<ul>
+<li>id：字段id，和数据库表的（table）字段名一致，作为唯一标识，不可修改。</li>
+<li>name：字段名，和数据库表的（table）字段名一致，不同于id，可以修改。</li>
+<li>isUsed：字段是否被使用，默认为true。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity6.png" /></p>
+<p>我们可以新设修改属性，其中name可以通过转换和预设得到新的值，更详细的内容请阅读：<a href="model-structure-field-column-data.html">field - 字段</a>。</p>
+<ul>
+<li>
+<p>类型：type和fullType用作语言的类型和完整类型，jdbcType和dbType为数据库类型的映射。</p>
+<ul>
+<li>type：字段类型，默认为null。如Stirng、int、Integer。</li>
+<li>fullType：字段完整类型，默认为null。如java.lang.String、java.util.Date。</li>
+<li>jdbcType：jdbcType是jdbc统一标准的类型，我们通过jdbcType类型映射到实际的类型。 </li>
+<li>dbType：dbType是数据库实际类型，它也是按jdbc标准得到的，但是每个数据库都有自己的类型规则。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity7.png" /></p>
+<p>我们可以新设修改属性，其中type和fullType以jdbcType为原型，通过转换和预设得到新的值，更详细的内容，请阅读：<a href="model-structure-field.html">field - 字段</a>。</p>
+<p>关于jdbcType：</p>
+<pre>
+不同数据库所支持的SQL类型之间有很大的不同，比如Oracle中有DECIMAL类型，
+Mysql中则没有，Mysql的varchar类型对应到Oracle却是varchar2。类似的，
+大部分数据库都有自己的类型规则。
+
+幸运的是，各大数据库厂商都为自家的数据库提供了jdbc驱动包，它会按照jdbc标准，
+把自己的SQL类型转换成对应的jdbc类型，而这些jdbc类型都来自java.sql.Types中。
+
+以下是所有的类型：
+
+ARRAY, BIGINT, BINARY, BIT, BLOB, BOOLEAN, CHAR, CLOB,
+DATALINK, DATE, DECIMAL, DISTINCT, DOUBLE, FLOAT,
+INTEGER, JAVA_OBJECT, LONGNVARCHAR, LONGVARBINARY, LONGVARCHAR,
+NCHAR, NCLOB, NULL, NUMERIC, NVARCHAR,
+OTHER, REAL, REF, ROWID, SMALLINT, SQLXML, STRUCT,
+TIME, TIMESTAMP, TINYINT, VARBINARY, VARCHAR
+</pre>
+<ul>
+<li>
+<p>数据库：数据库表和视图所包含的一些固有属性。</p>
+<ul>
+<li>isNull：字段是否为空，如果在数据库中，表的字段设置了非空，则为true，否则为false。</li>
+<li>defaultValue：字段默认值，如果在数据库中，表的字段设置了默认值赋予defaultValue，否则为null。</li>
+<li>isAutoIncrement：字段是否自动增长，如果在数据库中，表字段设置了自动增长，则为true，否则为false，一般多见于主键。</li>
+<li>size：字段的长度，在数据库中，得到表的字段的长度赋予size。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity10.png" /></p>
+<ul>
+<li>
+表：数据库中表独有的属性（视图不包括）
+<ul>
+<li>isPk：字段是否为主键，如果数据库中字段为主键，则为true，否则为false。</li>
+<li>isFk：字段是否为外键，如果数据库中字段为外键，则为true，否则为false。</li>
+<li>fkEntityName：外键对应的主表。</li>
+<li>fkFieldName：外键对应的主表字段。</li>
+</ul>
+</li>
+</ul>
+<p>book表除了自己本身，还有一张从表chapter，它的book_id是外键，关联的是book表的id。</p>
+<p><img src="image/model_structure_entity11.png" /></p>
+<p>book表的字段id、name、type、regist_time，id是主键，所以isPk为true。</p>
+<p><img src="image/model_structure_entity12.png" /></p>
+<p>chapter表的字段id、name、book_id，主键是id，所以isPk为true，book_id是外键，所以isFk为true，外键对应的主表fkEntityName为book，对应的字段fkFieldName为id。</p>
+<p><img src="image/model_structure_entity13.png" /></p>
+<h3>Column（列）</h3>
+<p>除了id、name、type这些固定的列，用户还可以根据自己的需要新加列。新设列相当于给每个字段都添加了新的属性，在具体的业务需求中，我们还需要加入一些列来完善我们的模型。</p>
+<p>比如在界面中，我们需要新设fieldName、controlType、isQuery三个列。</p>
+<p><img src="image/model_structure_entity14.png" /></p>
+<p><img src="image/model_structure_entity15.png" /></p>
+<ul>
+<li>fieldName列：字段的名称，在新增和修改页面中使用到。</li>
+<li>controlType列：控件的类型，有text、select和date，在新增和修改页面中使用到。</li>
+<li>isQuery列：字段是否被查询，在查询页面使用到。</li>
+</ul>
+<p><img src="image/model_structure_entity16.png" /></p>
+<p>关于新设和修改Column，更详细的内容，请阅读：<a href="model-structure-field-column-data.html">column - 列</a>。</p>
+<h3>Data（字段数据）</h3>
+<p>字段除了Column这样的公共属性外，每个字段自己还有私有的属性，它就是data。在data中，我们可以设定多个键值。</p>
+<p>选中任何字段后，都可以设置它的data。</p>
+<p><img src="image/model_structure_entity17.png" /></p>
+<p>选中后可以设置字段的私有属性。</p>
+<p><img src="image/model_structure_entity18.png" /></p>
+<p>类型字段是一个下拉框select，select的option有2项，novel和magazine，value为0和1。</p>
+<p><img src="image/model_structure_entity19.png" /></p>
+<p>关于新设和修改Data，更详细的内容，请阅读：<a href="model-structure-field-column-data.html">data - 字段数据</a>。</p>
+<h2><span id="3">视图(view)</span></h2>
+<p>数据库中有张视图vw_book_chapter，它是book表和chapter的关联查询，查询的结果是2个字段
+name和chapter_name。</p>
+<p><img src="image/model_structure_entity20.png" /></p>
+<p>转换成模型后的结构如下（如何转换模型请阅读：<a href="head-model-transform.html">模型转换</a>），
+我们可以看到视图模型和数据库模型不同的一点在于，视图模型的Field中没有表的部分。</p>
+<p><img src="image/model_structure_entity21.png" /></p>
+<p>为什么没有表这个部分呢，很好理解，因为视图和表不同，它没有isPk（主键）、isFk（外键）、fkEntityName(外键对应的主表)、fkFieldName（外键对应的主表字段）。</p>
+<p><img src="image/model_structure_entity12.png" /></p>
+<p>视图模型其它部分的内容同表模型，请参考表模型。</p>
+<h2><span id="4">Java类</span></h2>
+<p>此类有4个属性id、name、type、registTime，还有默认构造方法，带参数构造方法和所有属性的get/set方法。</p>
+<p><img src="image/model_structure_entity22.png" /></p>
+<p>从Java类转换而来，转换成模型后的结构如下（如何转换模型请阅读：<a href="head-model-transform.html">模型转换</a>）</p>
+<p><img src="image/model_structure_entity23.png" /></p>
+<h3>Property（属性）</h3>
+<ul>
+<li>
+默认 
+<ul>
+<li>name：从类名转换而来，和类名一致。 </li>
+<li>relation：模型在组中的关系，由用户自己填写，用来在模板中获取模型。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity24.png" /></p>
+<ul>
+<li>
+特性
+<ul>
+<li>from：因为模型来java类，所以from的值为java。</li>
+<li>type：无。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity25.png" /></p>
+<ul>
+<li>新设</li>
+</ul>
+<p>新设是用户自己定义属性的地方，可以在此定义额外的属性。</p>
+<p><img src="image/model_structure_entity5.png" /></p>
+<p>我们可在此新设修改属性，更详细的内容请阅读：<a href="model-structure-property.html">property - 属性</a>。</p>
+<p><img src="image/model_structure_entity8.png" /></p>
+<h3>Field（字段）</h3>
+<ul>
+<li>
+<p>默认</p>
+<ul>
+<li>id：字段id，和Java类的字段名一致，作为唯一标识，不可修改。</li>
+<li>name：字段名，和Java类的字段名一致，不同于id，可以修改。</li>
+<li>isUsed：字段是否被使用，默认为true。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity26.png" /></p>
+<p>我们可以新设修改属性，其中name可以通过转换和预设得到新的值，更详细的内容，请阅读：<a href="model-structure-field.html">field - 字段</a>。</p>
+<ul>
+<li>
+<p>类型：type和fullType用作语言的类型和完整类型，jdbcType和dbType为数据库类型的映射。</p>
+<ul>
+<li>type：字段类型，和java字段类型一致。如Stirng、int、Integer。</li>
+<li>fullType：字段完整类型，和java字段完整类型一致。如java.lang.String，java.util.Date。</li>
+<li>jdbcType：默认为null，jdbcType是jdbc统一标准的类型，我们通过jdbcType类型映射到实际的类型。 </li>
+<li>dbType：默认为null，dbType是数据库实际类型，它也是按jdbc标准得到的，但是每个数据库都有自己的类型规则。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity27.png" /></p>
+<p>我们可以新设修改属性，其中type和fullType以jdbcType为原型，通过转换和预设得到新的值，更详细的内容，请阅读：<a href="model-structure-field.html">field - 字段</a>。</p>
+<p>区别于数据库模型，java类模的字段只有默认和类型2个部分。</p>
+<h2><span id="5">entity的应用</span></h2>
+<h3>entity有2种方式在模板中得到模型。</h3>
+<ul>
+<li>
+任务中选中模型组，在模板中通过entity标签的relation指定对应模型。
+<ul>
+<li>优点：可以在一个模板中得到多个模型，用来处理多模型的情况（如：一对多，多对一）</li>
+<li>缺点：模型需要设置relation，entity标签需要指定relation。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/entity_group_use.png" /></p>
+<ul>
+<li>
+任务中选中模型，在模板中直接使用entity标签即可。
+<ul>
+<li>优点：无需设置relation。</li>
+<li>缺点：entity标签没有指定relation只能得到被选中的模型，需要得到其他模型仍需要指定relation。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/entity_model_use.png" /></p>
+<p>&lt;entity&gt;有2个属性 </p>
+<ul>
+<li>var：设置新变量名，在模板中指向这个entity模型。</li>
+<li>relation：模型的关系，用户自定义，比如上面的book和chapter是一对多的关系，我们设置book的relation为one，chapterd的relation为many。</li>
+</ul>
+<p>var新设变量名object，这个object将指向这个entity模型。</p>
+<p><img src="image/model_structure_entity28.png" /></p>
+<pre>
+运行结果
+</pre>
+<p><img src="image/model_structure_entity30.png" /></p>
+<p>&lt;entity&gt;标签需要和其他标签配合使用：</p>
+<ul>
+<li><a href="tag-entity.html">entity - 实体标签</a></li>
+<li><a href="tag-get.html">get - 获取参数</a></li>
+<li><a href="tag-get.html">get - 获取参数</a> </li>
+<li><a href="tag-set.html">set - 设置参数</a> </li>
+<li><a href="tag-if.html">if - 判断</a>  </li>
+<li><a href="tag-elseif.html">elseif - 判断</a></li>
+<li><a href="tag-else.html">else - 判断</a> </li>
+<li><a href="tag-for.html">for - 循环迭代</a> </li>
+</ul>
+<p>更具体的使用方法，请阅读以下实战模板中的&lt;entity&gt;标签。</p>
+<ul>
+<li><a href="demo-java-entity.html">entity</a></li>
+<li><a href="demo-java-hibernate.html">hibernate</a></li>
+<li><a href="demo-java-spring.html">spring</a></li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

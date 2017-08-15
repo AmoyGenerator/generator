@@ -1,0 +1,27 @@
+<%@jet package="translated" class="Column_jsp"%>
+<entity var='object' relation="one"/>
+<\%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<body>
+<table>
+<for var="field" value='object.fields'>
+  <tr>
+    <th><get value='field.property("fieldName")'/></th>
+    <td>
+	<if test='field.property("controlType") == "text"'>
+    <input type="text"/>
+	</if>
+	<elseif test='field.property("controlType") == "select"'>
+	<select>
+	</select>
+	</elseif>
+    <elseif test='field.property("controlType") == "date"'>
+	<input class="Wdate"/>
+	</elseif>
+	</td>
+  </tr>
+</for>
+</table>
+</body>
+</html>

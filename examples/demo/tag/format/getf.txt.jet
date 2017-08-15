@@ -1,0 +1,17 @@
+<%@jet package="translated" class="Getf_txt"%>
+<set var="d" value="345.678"/>
+<set var="s" value='"Hello Jmr!"'/>
+<set var="i" value="6"/>
+<get value='d'/>
+<get value='s'/>
+<get value='i'/>
+<getf values="d">double:{0}</getf>
+<getf values="s">String:{0}</getf>
+<getf values="i">int:{0}</getf>
+
+<getf values='d,s,i'>
+double:{0}
+String:{1}
+int:{2}
+</getf>
+

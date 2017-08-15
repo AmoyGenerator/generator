@@ -1,0 +1,6 @@
+<%@jet package="translated" class="HelloJmr_java"%>
+package <java:package/>;
+
+public class <java:class/> {
+  
+}

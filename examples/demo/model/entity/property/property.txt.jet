@@ -1,0 +1,33 @@
+<%@jet package="translated" class="Property_txt"%>
+
+<entity var='object' relation="one"/>
+
+name:<get value='object.name'/>
+relation:<get value='object.relation'/>
+from:<get value='object.from'/>
+type:<get value='object.type'/>
+null:<get value='object.property("a")'/>
+<if test='object.property("b") == true'>
+<get value='object.property("b")'/>
+</if>
+<if test='object.property("c") == false'>
+<get value='object.property("c")'/>
+</if>
+<for var='each' value='object.property("d")'>
+<get value='each'/>
+</for>
+<for var='each' value='object.property("e")'>
+key: <get value='each.key'/>
+value: <get value='each.value'/>
+</for>
+
+
+
+
+
+
+
+
+
+
+

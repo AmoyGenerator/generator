@@ -1,0 +1,13 @@
+<%@jet package="translated" class="Medium_txt"%>
+<%@jet imports="java.util.List"%>
+<%
+  String bookName = (String)context.getVariable("bookName");
+  List<String> bookParts = (List<String>)context.getVariable("bookParts");
+%>
+
+book: <%=bookName%>
+    
+parts:
+<%for(int i = 0; i < bookParts.size(); i++){%>
+   part<%=i + 1%>: <%=bookParts.get(i)%>
+<%}%>

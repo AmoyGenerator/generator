@@ -1,0 +1,33 @@
+<%@jet package="translated" class="Ognl_txt"%>
+
+<set var="a" value='"str"'/>
+<set var="b" value="'str'"/>
+<set var="c" value='1'/>
+<set var="d" value='1.1'/>
+<set var="list" value='{1,"e2",true}'/>
+<set var="map" value='#{"key1":"value1","key2":"value2"}'/>
+<set var="test" value='1 == 1'/>
+
+String: <get value='a'/>
+String: <get value='b'/>
+Integer: <get value='c'/>
+Double: <get value='d'/>
+----list----
+<for var='e' value='list'>
+  <get value='e'/>
+</for>
+----map----
+<for var='e' value='map'>
+  <get value='e.key'/>:<get value='e.value'/>
+</for>
+Boolean: <get value='test'/>
+
+<set var="e" value='a.toUpperCase()'/>
+<set var="f" value='c * d * 2'/>
+<set var="g" value='list.size()'/>
+<set var="h" value='map.get("key2")'/>
+
+<get value='e'/>
+<get value='f'/>
+<get value='g'/>
+<get value='h'/>

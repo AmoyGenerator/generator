@@ -1,0 +1,492 @@
+<?xml version="1.0" ?>
+<jmr xmlns="http://www.eclipse-jmr.org/jmr-1.0.xsd">
+<model>
+      <group name="model">
+         <xml name="books" relation="xml">
+            <path>demo/model/xml/books.xml</path>
+         </xml>
+         <entity from="db" name="book" relation="db" type="table">
+            <field dbType="INT" fullType="java.lang.Integer" id="id" isNew="false" isUsed="true" jdbcType="INTEGER" name="id" type="Integer">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">true</database>
+               <database name="size">10</database>
+               <table name="isPk">true</table>
+               <table name="isFk">false</table>
+            </field>
+            <field dbType="VARCHAR" fullType="java.lang.String" id="name" isNew="false" isUsed="true" jdbcType="VARCHAR" name="name" type="String">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">50</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+            </field>
+            <field dbType="INT" fullType="java.lang.Integer" id="type" isNew="false" isUsed="true" jdbcType="INTEGER" name="type" type="Integer">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">10</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+            </field>
+            <field dbType="TIMESTAMP" fullType="java.util.Date" id="regist_time" isNew="false" isUsed="true" jdbcType="TIMESTAMP" name="regist_time" type="Date">
+               <database name="isNull">true</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">19</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+            </field>
+         </entity>
+         <entity from="java" name="Book" relation="java" type="">
+            <field fullType="java.lang.Integer" id="id" isNew="false" isUsed="true" name="id" type="Integer">
+            </field>
+            <field fullType="java.lang.String" id="name" isNew="false" isUsed="true" name="name" type="String">
+            </field>
+            <field fullType="java.lang.Integer" id="type" isNew="false" isUsed="true" name="type" type="Integer">
+            </field>
+            <field fullType="java.util.Date" id="registTime" isNew="false" isUsed="true" name="registTime" type="Date">
+            </field>
+         </entity>
+      </group>
+   </model>
+   <run>
+      <project name="model">
+         <directory name="entity">
+            <task name="entity">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/model/entity.txt.jet</templatePath>
+               <targetContainer>/demo/tag/model</targetContainer>
+               <targetName>entity</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+               <modelName>book</modelName>
+            </task>
+         </directory>
+         <directory name="field">
+            <task name="field">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/model/field.txt.jet</templatePath>
+               <targetContainer>/demo/tag/model</targetContainer>
+               <targetName>field</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="xml">
+            <task name="xml">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/model/xml.txt.jet</templatePath>
+               <targetContainer>/demo/tag/model</targetContainer>
+               <targetName>xml</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+               <modelName>books</modelName>
+            </task>
+         </directory>
+      </project>
+      <project name="common">
+         <directory name="get">
+            <task name="out">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/get/out.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/get</targetContainer>
+               <targetName>out</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="from">
+               <modelGroupName></modelGroupName>
+               <actionClass>actions.GetTagAction</actionClass>
+               <templatePath>demo/tag/common/get/from.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/get</targetContainer>
+               <targetName>from</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="ognl">
+               <modelGroupName></modelGroupName>
+               <actionClass>actions.GetTagAction</actionClass>
+               <templatePath>demo/tag/common/get/ognl.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/get</targetContainer>
+               <targetName>ognl</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="case">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/get/case.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/get</targetContainer>
+               <targetName>case</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="trim">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/get/trim.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/get</targetContainer>
+               <targetName>trim</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="set">
+            <task name="from">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/set/from.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/set</targetContainer>
+               <targetName>from</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="ognl">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/set/ognl.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/set</targetContainer>
+               <targetName>ognl</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="if">
+            <task name="if">
+               <modelGroupName></modelGroupName>
+               <actionClass>actions.IfTagAction</actionClass>
+               <templatePath>demo/tag/common/if/if.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/if</targetContainer>
+               <targetName>if</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="elseif">
+            <task name="elseif">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/elseif/elseif.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/elseif</targetContainer>
+               <targetName>elseif</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="for">
+            <task name="for">
+               <modelGroupName></modelGroupName>
+               <actionClass>actions.ForTagAction</actionClass>
+               <templatePath>demo/tag/common/for/for.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/for</targetContainer>
+               <targetName>for</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="delimiter">
+            <task name="delimiter">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/common/delimiter/delimiter.txt.jet</templatePath>
+               <targetContainer>/demo/tag/common/delimiter</targetContainer>
+               <targetName>delimiter</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="include">
+         <directory name="include">
+            <task name="include">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/include/include.txt.jet</templatePath>
+               <targetContainer>/demo/tag/include</targetContainer>
+               <targetName>include</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="format">
+         <directory name="date">
+            <task name="date">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/date.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>date</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="number">
+            <task name="number">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/number.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>number</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="ws">
+            <task name="ws">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/ws.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>ws</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="nl">
+            <task name="nl">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/nl.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>nl</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="f">
+            <task name="f">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/f.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>f</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="tab">
+            <task name="tab">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/tab.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>tab</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="getf">
+            <task name="getf">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/format/getf.txt.jet</templatePath>
+               <targetContainer>/demo/tag/format</targetContainer>
+               <targetName>getf</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="java">
+         <directory name="java">
+            <task name="HelloJmr">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/java/HelloJmr.java.jet</templatePath>
+               <targetContainer>/demo/src/tag/java</targetContainer>
+               <targetName>HelloJmr</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="task">
+         <directory name="task">
+            <task name="task">
+               <modelGroupName>model</modelGroupName>
+               <actionClass>actions.MyAction</actionClass>
+               <templatePath>demo/tag/task/task.txt.jet</templatePath>
+               <targetContainer>/demo/tag/task</targetContainer>
+               <targetName>task</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="xml">
+         <directory name="get">
+            <task name="get">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/xml/get/get.txt.jet</templatePath>
+               <targetContainer>/demo/tag/xml/get</targetContainer>
+               <targetName>get</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+               <modelName>books</modelName>
+            </task>
+         </directory>
+         <directory name="set">
+            <task name="set">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/xml/set/set.txt.jet</templatePath>
+               <targetContainer>/demo/tag/xml/set</targetContainer>
+               <targetName>set</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="if">
+            <task name="if">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/xml/if/if.txt.jet</templatePath>
+               <targetContainer>/demo/tag/xml/if</targetContainer>
+               <targetName>if</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="elseif">
+            <task name="elseif">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/xml/elseif/elseif.txt.jet</templatePath>
+               <targetContainer>/demo/tag/xml/elseif</targetContainer>
+               <targetName>elseif</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="for">
+            <task name="for">
+               <modelGroupName>model</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/tag/xml/for/for.txt.jet</templatePath>
+               <targetContainer>/demo/tag/xml/for</targetContainer>
+               <targetName>for</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+   </run>
+   <db>
+      <connection autolink="false" classname="com.mysql.jdbc.Driver"
+         name="mysql" password="root" savepassword="true" type="MySQL Connector/J"
+         url="jdbc:mysql://localhost:3306/jmr" username="root">
+         <jars>
+            <jar path="/demo/lib/mysql-connector-java-5.1.7-bin.jar" type="2"></jar>
+         </jars>
+      </connection>
+   </db>
+   <rule>
+      <types>
+         <type name="fullType">
+            <BIGINT>java.lang.Long</BIGINT>
+            <BINARY>java.lang.Byte[]</BINARY>
+            <BIT>java.lang.Boolean</BIT>
+            <BLOB>java.lang.Byte[]</BLOB>
+            <BOOLEAN>java.lang.Boolean</BOOLEAN>
+            <CHAR>java.lang.String</CHAR>
+            <CLOB>java.lang.String</CLOB>
+            <DATE>java.util.Date</DATE>
+            <DECIMAL>java.lang.Double</DECIMAL>
+            <DOUBLE>java.lang.Double</DOUBLE>
+            <FLOAT>java.lang.Double</FLOAT>
+            <INTEGER>java.lang.Integer</INTEGER>
+            <JAVA_OBJECT>java.lang.Object</JAVA_OBJECT>
+            <LONGNVARCHAR>java.lang.String</LONGNVARCHAR>
+            <LONGVARBINARY>java.lang.Byte[]</LONGVARBINARY>
+            <LONGVARCHAR>java.lang.String</LONGVARCHAR>
+            <NUMERIC>java.lang.Double</NUMERIC>
+            <NCHAR>java.lang.String</NCHAR>
+            <NCLOB>java.lang.String</NCLOB>
+            <NVARCHAR>java.lang.String</NVARCHAR>
+            <OTHER>java.lang.Object</OTHER>
+            <REAL>java.lang.Float</REAL>
+            <SMALLINT>java.lang.Integer</SMALLINT>
+            <TIME>java.util.Date</TIME>
+            <TIMESTAMP>java.util.Date</TIMESTAMP>
+            <TINYINT>java.lang.Byte</TINYINT>
+            <VARCHAR>java.lang.String</VARCHAR>
+            <VARBINARY>java.lang.Byte[]</VARBINARY>
+         </type>
+         <type name="type">
+            <BIGINT>Long</BIGINT>
+            <BINARY>Byte[]</BINARY>
+            <BIT>Boolean</BIT>
+            <BLOB>Byte[]</BLOB>
+            <BOOLEAN>Boolean</BOOLEAN>
+            <CHAR>String</CHAR>
+            <CLOB>String</CLOB>
+            <DATE>Date</DATE>
+            <DECIMAL>Double</DECIMAL>
+            <DOUBLE>Double</DOUBLE>
+            <FLOAT>Double</FLOAT>
+            <INTEGER>Integer</INTEGER>
+            <JAVA_OBJECT>Object</JAVA_OBJECT>
+            <LONGNVARCHAR>String</LONGNVARCHAR>
+            <LONGVARBINARY>Byte[]</LONGVARBINARY>
+            <LONGVARCHAR>String</LONGVARCHAR>
+            <NUMERIC>Double</NUMERIC>
+            <NCHAR>String</NCHAR>
+            <NCLOB>String</NCLOB>
+            <NVARCHAR>String</NVARCHAR>
+            <OTHER>Object</OTHER>
+            <REAL>Float</REAL>
+            <SMALLINT>Integer</SMALLINT>
+            <TIME>Date</TIME>
+            <TIMESTAMP>Date</TIMESTAMP>
+            <TINYINT>Byte</TINYINT>
+            <VARCHAR>String</VARCHAR>
+            <VARBINARY>Byte[]</VARBINARY>
+         </type>
+      </types>
+   </rule>
+   <inits>
+      <init name="exp_javaType">
+         <columns>
+            <column from="id" initType="convert" name="name" type="String" convert="name">
+            </column>
+            <column from="jdbcType" initType="convert" name="type" type="String" convert="type">
+            </column>
+            <column from="jdbcType" initType="convert" name="fullType" type="String" convert="fullType">
+            </column>
+         </columns>
+      </init>
+   </inits>
+</jmr>

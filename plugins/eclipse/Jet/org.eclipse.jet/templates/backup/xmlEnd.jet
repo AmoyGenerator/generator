@@ -1,0 +1,13 @@
+<%@jet class="XMLEndGenerator" %>
+<%@jet imports="org.eclipse.jet.internal.compiler.GenXMLElement"%>
+<%
+	GenXMLElement element = (GenXMLElement) context.getVariable("element"); //$NON-NLS-1$
+%>
+<%  if(element.hasBody()) { %>
+<c:get select="$indent"/>    <%= element.getTagVariable() %>.handleBodyContent(out);
+<c:get select="$indent"/>}
+<%     if(element.requiresNewWriter()) { %>
+<c:get select="$indent"/>out = <%= element.getTagVariable() %>_saved_out;
+<%     } %>
+<%  } %>
+<c:get select="$indent"/><%= element.getTagVariable() %>.doEnd();

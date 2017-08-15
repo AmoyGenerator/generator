@@ -1,0 +1,15 @@
+<%@jet package="translated" class="Date_txt"%>
+<%@jet imports="java.util.Date"%>
+
+<date pattern="yyyy-MM-dd"><%=new Date()%></date>
+<date pattern="yyyy-MM-dd hh:mm:ss">Tue Nov 11 16:59:08 CST 2014</date>
+
+<date type="time"><%=new Date()%></date>
+<date type="date">Tue Nov 11 16:59:08 CST 2014</date>
+<date type="both">Tue Nov 11 16:59:08 CST 2014</date>
+
+<date var="now" pattern="yyyy-MM-dd HH:mm:ss"><%=new Date()%></date>
+<date type="date" dateStyle="full" locale="en"><get value='now'/></date>
+<date type="time" timeStyle="long" locale="en"><get value='now'/></date>
+<date type="date" dateStyle="full" locale="zh"><get value='now'/></date>
+<date type="time" timeStyle="long" locale="zh"><get value='now'/></date>

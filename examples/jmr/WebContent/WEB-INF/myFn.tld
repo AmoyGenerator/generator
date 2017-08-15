@@ -1,0 +1,36 @@
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>My functions library</description>
+	<display-name>My functions</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>myFun</short-name>
+	<uri>http://www.myfun.com/functions</uri>
+
+
+
+	<!-- 取得图片路径 <function> <name>getImgUrlPath</name> <function-class>com.gk.util.PageUtil</function-class> 
+		<function-signature>java.lang.String getImgUrlPath(java.lang.String)</function-signature> 
+		</function> 
+	<function>
+		<name>getPublish</name>
+		<function-class>com.tkb.huayuschool.util.PageUtil</function-class>
+		<function-signature>java.lang.String getPublish(java.util.Date,
+			java.util.Date)</function-signature>
+	</function>
+-->
+
+
+	<function>
+		<name>getNotesName</name>
+		<function-class>com.tkb.jmr.PageUtil</function-class>
+		<function-signature>java.lang.String getNotesName(java.lang.String)</function-signature>
+	</function>
+</taglib>
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+ 
+
+book:Harry Potter
+    
+parts:
+   part1: Sorcerer's Stone
+   part2: Chamber of Secrets
+   part3: Prisoner of Azkaban
+   part4: Goblet of Fire
+   part5: Order of Phoenix
+   part6: Half-Blood Prince
+   part7: Deathly Hallows
+   
+  

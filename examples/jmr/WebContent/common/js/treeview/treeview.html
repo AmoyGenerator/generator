@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+        <title>TREEVIEW</title>
+		<link rel="stylesheet" href="jquery.treeview.css" />
+        <script type="text/javascript" src="jquery.js"></script>
+        <script type="text/javascript" src="jquery.treeview.js"></script>
+
+        <script type="text/javascript">
+			$(function(){
+				$("ul").Treeview();
+			});
+        </script>
+
+    </head>
+
+    <body>
+<h4>Sample 1 - default默認</h4>
+		<ul>
+		  <li>Item 1
+			<ul>
+			  <li>Item 1.1</li>
+			</ul>
+		  </li>
+		  <li class="closed">Item 2 (如果CLASS指定了closed,那么他默认是关闭的)
+			<ul>
+			  <li>Item 2.1
+				<ul>
+				  <li>Item 2.1.1</li>
+				  <li>Item 2.1.2</li>
+				</ul>
+			  </li>
+			  <li>Item 2.2</li>
+			</ul>
+		  </li>
+		  <li>Item 3</li>
+		</ul>
+
+
+<h4>Sample 2 - Folder</h4>
+	<ul id="browser" class="filetree">
+		<li><span class="folder">Folder 1</span>
+			<ul>
+				<li><span class="file">Item 1.1</span></li>
+			</ul>
+		</li>
+		<li><span class="folder">Folder 2</span>
+			<ul>
+				<li><span class="folder">Subfolder 2.1</span>
+					<ul id="folder21">
+						<li><span class="file">File 2.1.1</span></li>
+						<li><span class="file">File 2.1.2</span></li>
+					</ul>
+				</li>
+				<li><span class="file">File 2.2</span></li>
+			</ul>
+		</li>
+		<li class="closed"><span class="folder">Folder 3 (closed at start)</span>
+			<ul>
+				<li><span class="file">File 3.1</span></li>
+			</ul>
+		</li>
+		<li><span class="file">File 4</span></li>
+	</ul>
+
+
+
+    </body>
+
+</html>

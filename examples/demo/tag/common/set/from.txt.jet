@@ -1,0 +1,18 @@
+<%@jet package="translated" class="from_txt"%>
+
+<%
+  context.setVariable("id", 1);
+  context.setSessionVariable("name", "Peter");
+%>
+
+<set var="id_1" value='id'/>
+<set var="name_1" value='name' valueScope="session"/>
+
+<get value='id_1'/>
+<get value='name_1'/>
+
+<set var="id_2" setScope="session" value='id'/>
+<set var="name_2" setScope="session" value='name' valueScope="session"/>
+
+<get value='id_2' valueScope="session"/>
+<get value='name_2' valueScope="session"/>

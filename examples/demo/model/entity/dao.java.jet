@@ -1,0 +1,26 @@
+<%@jet package="translated" class="DaoImpl"%>
+
+<entity var='one' relation="one"/>
+<set var="Class" value='one.property("Class")'/>
+
+public class <get value="Class"/>Impl implements I<get value="Class"/>Dao{
+	
+	private IBaseDao baseDao;
+	
+	public ListPage find(int pageNo) {
+		return baseDao.find(<get value="Class"/>.class, pageNo);
+	}
+
+	public void delete(Integer id) {
+		baseDao.delete(<get value="Class"/>.class, id);
+	}
+	
+	public void save(Object object) {
+		baseDao.save(object);
+	}
+
+}
+
+
+
+

@@ -1,0 +1,16 @@
+org.eclipse.jet/debug=false
+org.eclipse.jet/debug/builder=false
+org.eclipse.jet/debug/projectBundleLoading=false
+org.eclipse.jet/debug/additionalBundleLoading=false
+org.eclipse.jet/debug/pluginBundleLoading=false
+org.eclipse.jet/debug/bundleLoading=false
+org.eclipse.jet/debug/traceTagExecution=false
+org.eclipse.jet/debug/ext/xpathFunctions=false
+org.eclipse.jet/debug/xpath/compilations=false
+org.eclipse.jet/debug/savedState=false
+org.eclipse.jet/debug/pluginProjectMonitor=false
+org.eclipse.jet/debug/modelLoaderExtensions=false
+org.eclipse.jet/debug/startup=false
+org.eclipse.jet/debug/javatag=false
+
+

@@ -1,0 +1,8 @@
+ 
+
+---------- book message ----------
+ 
+id:101
+name:Harry Potter
+price:20.0
+author:Rowling

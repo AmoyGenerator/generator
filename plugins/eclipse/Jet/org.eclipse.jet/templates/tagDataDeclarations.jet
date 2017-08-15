@@ -1,0 +1,31 @@
+<%@jet class="TagDataDeclGenerator"%>
+<%@jet imports="java.util.Iterator"%>
+<%@jet imports="org.eclipse.jet.taglib.JET2TagException"%>
+<%@jet imports="org.eclipse.jet.internal.JavaUtil"%>
+<%@jet imports="org.eclipse.jet.compiler.XMLElement"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.MethodBodyCreator"%>
+<%
+    XMLElement element;
+    try {
+	    element  = (XMLElement)context.getVariable("element"); //$NON-NLS-1$
+    } catch( JET2TagException e) {
+        out.write(e.toString());
+        return;
+    }
+		
+	String varName = MethodBodyCreator.tagInfoVariableName(element);
+%>
+        final TagInfo <%= varName %> = new TagInfo("<%=element.getName()%>", //$NON-NLS-1$
+            <%= element.getLine() %>, <%= element.getColumn() %>,
+            new String[] {
+<% 			for (Iterator i = element.getAttributes().keySet().iterator(); i.hasNext();) { 
+                String attrName = (String) i.next(); %>
+                "<%= attrName %>", //$NON-NLS-1$
+<%          } %>
+            },
+            new String[] {
+<% 			for (Iterator i = element.getAttributes().values().iterator(); i.hasNext();) { 
+                String attrValue = (String) i.next(); %>
+                "<%= JavaUtil.escapeJavaString(attrValue.toCharArray()) %>", //$NON-NLS-1$
+<%          } %>
+            } );

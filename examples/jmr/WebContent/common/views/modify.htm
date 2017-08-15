@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>全球華文網線上頻道課程專區--線上學習管理系統</title>
+<link href="css/backplate.css" rel="stylesheet" type="text/css" />
+<script type="text/JavaScript">
+<!-- 可單次點擊即展開的函式
+function getCurrentStyle(target,prop){
+	if(target.currentStyle){
+		return target.currentStyle[prop];//ie
+	}
+	else if(window.getComputedStyle){
+		return document.defaultView.getComputedStyle(target,null)[prop];//ff
+	}
+	return null;
+}
+//-->
+
+<!-- 左側選單點擊展開收合功能
+function hide(){
+	document.getElementById("menu1").style.display = "none";
+}
+
+function show(){
+	document.getElementById("menu1").style.display = "block";
+}
+
+function fmenu1(){
+	for(var i=1; i<=2; i++){
+	var target=document.getElementById("menu1_"+i);
+	if( getCurrentStyle(target,"display") == "none")
+				target.style.display = "block";
+			else
+				target.style.display = "none";	
+	}	
+}
+//-->
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+	<div class="sideMenu">
+    <img src="images/menu_top.gif" /><br />
+    <div class="sideMenuContent">
+    <ul class="menu">
+    <li onmousedown="fmenu1()"><a href="#">全球華文網</a></li>
+    	<li id="menu1_1" class="item"><a href="#">課程管理</a></li>
+		<li id="menu1_2" class="item"><a href="#">帳號管理</a></li>
+    <li><a href="#">全球華文網</a></li>
+    <li><a href="#">全球華文網</a></li>
+    <li><a href="#">全球華文網</a></li>
+    <li><a href="#">全球華文網</a></li>
+    </ul>
+    </div><!-- End of sideMenuContent -->
+    <div><img src="images/menu_bottom.gif" /></div>
+    </div><!-- End of sideMenu -->
+    
+    <div class="rightContent">
+    <span class="title">類別管理</span><!-- End of title -->
+    
+    <div class="mainContainer">
+    	<div class="function">請填寫下列基本資料。<span>前方有*標示為必填欄位。</span></div><!-- End of function -->
+		
+		<table width="634" class="tb2_green" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <th width="140"><span>*</span> 類別</th>
+            <td width="462"><select style="width:120px;" name="">請選擇</select></td>
+          </tr>
+          <tr>
+            <th><span>*</span> 名稱</th>
+            <td bgcolor="#ececec"><input style="width:300px;" name="" type="text" /></td>
+          </tr>
+		  <tr>
+            <th class="thLast"><span>*</span> 名稱</th>
+            <td><input style="width:240px;" name="" type="text" /></td>
+          </tr>
+          <tr>
+            <th><span>*</span> 名稱</th>
+            <td bgcolor="#ececec"><textarea rows="10" cols="45" ></textarea></td>
+          </tr>
+
+        </table>
+		
+		<div class="btnBlock"><input style="width:50px;" name="" value="返回" type="button" />&nbsp;&nbsp;<input style="width:50px;" name="" value="清除" type="button" />&nbsp;&nbsp;<input style="width:50px;" name="" value="儲存" type="button" /></div><!-- End of btnBlock -->
+    </div><!-- End of mainContainer -->
+    </div><!-- End of rightContent -->
+</div><!-- End of wrapper -->
+</body>
+</html>

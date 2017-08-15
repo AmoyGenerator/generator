@@ -1,0 +1,6 @@
+#Tue May 30 19:15:29 EDT 2006
+eclipse.preferences.version=1
+org.eclipse.jet.compiledTemplatePackage=org.eclipse.jet.internal.compiler.templates
+org.eclipse.jet.compiledTemplateSrcDir=src
+org.eclipse.jet.projectPrefs=true
+org.eclipse.jet.setJavaDerived=false

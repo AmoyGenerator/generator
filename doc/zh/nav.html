@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="noindex,follow">
+	<script src="source/lib/jquery.js"></script>
+	<script src="source/lib/jquery-ui.custom.js"></script>
+
+	<link href="source/src/skin-win8/ui.fancytree.css" rel="stylesheet">
+	<script src="source/src/jquery.fancytree.js"></script>
+	<script src="source/sample.js"></script>
+	<title>Fancytree - Example Browser Nav</title>
+
+<style type="text/css">
+body {
+	background-color: #39414A;
+	color: white;
+	font-size: smaller;
+	background-image: url("nav_bg.png");
+	background-repeat: repeat-x;
+}
+div#tree {
+	position: absolute;
+	height: 95%;
+	width: 95%;
+	padding: 5px;
+	margin-right: 16px;
+}
+ul.fancytree-container {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: transparent;
+}
+span.fancytree-node span.fancytree-title {
+	color: white;
+	text-decoration: none;
+}
+span.fancytree-focused span.fancytree-title {
+	outline-color: white;
+}
+span.fancytree-node:hover span.fancytree-title,
+span.fancytree-active span.fancytree-title,
+span.fancytree-active.fancytree-focused span.fancytree-title,
+.fancytree-treefocus span.fancytree-title:hover,
+.fancytree-treefocus span.fancytree-active span.fancytree-title {
+	color: #39414A;
+}
+span.external span.fancytree-title:after {
+	content: "";
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAFVBMVEVmmcwzmcyZzP8AZswAZv////////9E6giVAAAAB3RSTlP///////8AGksDRgAAADhJREFUGFcly0ESAEAEA0Ei6/9P3sEcVB8kmrwFyni0bOeyyDpy9JTLEaOhQq7Ongf5FeMhHS/4AVnsAZubxDVmAAAAAElFTkSuQmCC") 100% 50% no-repeat;
+	padding-right: 13px;
+}
+/* Remove system outline for focused container */
+.ui-fancytree.fancytree-container:focus {
+	outline: none;
+}
+.ui-fancytree.fancytree-container {
+	border: none;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	// --- Initialize sample trees
+	$("#tree").fancytree({
+		autoActivate: false, // we use scheduleAction()
+		autoCollapse: true,
+//			autoFocus: true,
+		autoScroll: true,
+		clickFolderMode: 4, // expand with single click
+		minExpandLevel: 1,
+		tabindex: "-1", // we don't want the focus frame
+		// toggleEffect: { effect: "blind", options: {direction: "vertical", scale: "box"}, duration: 2000 },
+		// scrollParent: null, // use $container
+		focus: function(event, data) {
+			var node = data.node;
+			// Auto-activate focused node after 1 second
+			if(node.data.href){
+				node.scheduleAction("activate", 1000);
+			}
+		},
+		blur: function(event, data) {
+			data.node.scheduleAction("cancel");
+		},
+		beforeActivate: function(event, data){
+			var node = data.node;
+
+			if( node.data.href && node.data.target === "_blank") {
+				window.open(node.data.href, "_blank");
+				return false; // don't activate
+			}
+		},
+		activate: function(event, data){
+			var node = data.node,
+				orgEvent = data.originalEvent || {};
+
+			// Open href (force new window if Ctrl is pressed)
+			if(node.data.href){
+				window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_blank" : node.data.target);
+			}
+			// When an external link was clicked, we don't want the node to become
+			// active. Also the URL fragment should not be changed
+			if( node.data.target === "_blank") {
+				return false;
+			}
+			// Append #HREF to URL without actually loading content
+			// (We check for this value on page load re-activate the node.)
+			if( window.parent &&  parent.history && parent.history.pushState ) {
+				parent.history.pushState({title: node.title}, "", "#" + (node.data.href || ""));
+			}
+		},
+		click: function(event, data){
+			// We implement this in the `click` event, because `activate` is not
+			// triggered if the node already was active.
+			// We want to allow re-loads by clicking again.
+			var node = data.node,
+				orgEvent = data.originalEvent;
+
+			// Open href (force new window if Ctrl is pressed)
+			if(node.isActive() && node.data.href){
+				window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_blank" : node.data.target);
+			}
+		}
+	});
+	// On page load, activate node if node.data.href matches the url#href
+	var tree = $(":ui-fancytree").fancytree("getTree"),
+		frameHash = window.parent && window.parent.location.hash;
+
+	if( frameHash ) {
+		frameHash = frameHash.replace("#", "");
+		tree.visit(function(n) {
+			if( n.data.href && n.data.href === frameHash ) {
+				n.setActive();
+				return false; // done: break traversal
+			}
+		});
+	}
+});
+
+</script>
+
+</head>
+
+<body>
+	<div id="tree">
+	<ul>
+	<li><a target="content" href="html/preface.html">欢迎</a>
+	<li><a target="content" href="html/install-and-uninstall.html">安装/卸载</a>
+	<li><a target="content" href="html/guide.html">初体验</a>
+	<li><a target="content" href="html/HelloJmr.html">初例子（Hello Jmr）</a>
+	<li class="folder"><a target="content" href="html/head-template.html">模板</a>
+		<ul>
+			<li><a target="content" href="html/template-preface.html">概览</a>
+			<li class="folder"><a target="content" href="html/head-template-standard.html">规范</a>
+				<ul>
+				<li><a target="content" href="html/template-name.html">模板命名</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-template-instruction.html">指令</a>
+				<ul>
+				<li><a target="content" href="html/template-compile.html">编译声明</a>
+				<li><a target="content" href="html/template-import.html">导入声明</a>
+				<li><a target="content" href="html/template-comment.html">注释</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-template-script.html">脚本标签</a>
+				<ul>
+				<li><a target="content" href="html/script-declare.html"><%! %> - 声明</a>
+				<li><a target="content" href="html/script-script.html"><% %> - 脚本</a>
+				<li><a target="content" href="html/script-expression.html"><%= %> - 表达式</a>
+				</ul>		
+			<li class="folder"><a target="content" href="html/head-template-script.html">内置对象</a>
+				<ul>
+				<li><a target="content" href="html/out.html">out - 打印</a>
+					<li class="folder"><a target="content" href="html/head-template-context.html">context - 上下文容器</a>
+				    <ul>
+				    <li><a target="content" href="html/template-var.html">var - 变量</a>
+		            <li><a target="content" href="html/template-session-var.html">sessionVar - 全局变量</a>
+				    </ul>		
+				</ul>			    																		
+	     </ul>
+	<li class="folder"><a target="content" href="html/head-model.html">模型</a>
+		<ul>
+			<li class="folder"><a target="content" href="html/head-model-transform.html">转换</a>
+				<ul>
+				<li><a target="content" href="html/model-db.html">数据库</a>
+			    <li><a target="content" href="html/model-java.html">Java类</a>
+				<li><a target="content" href="html/model-xml.html">Xml文件</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-model-structure.html">结构</a>
+				<ul>
+				<li><a target="content" href="html/model-structure-entity.html">entity（数据库、Java类）</a>
+			        <ul>
+				    <li><a target="content" href="html/model-structure-property.html">Property</a>
+			        <li><a target="content" href="html/model-structure-field-column-data.html">Field、Column、Data</a>
+				    </ul>
+				<li><a target="content" href="html/model-structure-xml.html">xml（xml文件）</a>	
+				</ul>
+			<li class="folder"><a target="content" href="html/head-model-init.html">预设</a>
+				<ul>
+				<li><a target="content" href="html/model-init-plan.html">预设方案</a>
+			    <li><a target="content" href="html/model-init-mapping.html">映射和转换</a>  
+				</ul>
+		</ul>
+	<li class="folder"><a target="content" href="html/head-template-tag.html">标签</a>
+		<ul>
+			<li class="folder"><a target="content" href="html/head-tag-entity.html">模型标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-entity.html">entity - 实体对象</a>
+			    <li><a target="content" href="html/tag-field.html">field - 字段</a>
+				<li><a target="content" href="html/tag-xml.html">xml - xml对象</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-common.html">常规标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-get.html">get - 获取变量</a>
+			    <li><a target="content" href="html/tag-set.html">set - 设置变量</a>
+				<li><a target="content" href="html/tag-if.html">if - 判断</a>
+				<li><a target="content" href="html/tag-elseif.html">elseif - 判断</a>
+				<li><a target="content" href="html/tag-else.html">else - 判断</a>
+				<li><a target="content" href="html/tag-for.html">for - 循环迭代</a>
+				<li><a target="content" href="html/tag-delimiter.html">delimiter - 是否打印分割符</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-xml.html">xml标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-xml-get.html">xml:get - 获取xml变量</a>
+			    <li><a target="content" href="html/tag-xml-set.html">xml:set - 设置xml变量</a>
+				<li><a target="content" href="html/tag-xml-if.html">xml:if - xml判断</a>
+				<li><a target="content" href="html/tag-xml-elseif.html">xml:elseif - xml判断</a>
+				<li><a target="content" href="html/tag-xml-else.html">xml:else - xml判断</a>
+				<li><a target="content" href="html/tag-xml-for.html">xml:for - xml循环迭代</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-merge.html">合并标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-insert.html">insert - 插入</a>
+			    <li><a target="content" href="html/tag-update.html">update - 更新</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-include.html">嵌套标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-include.html">include - 嵌套模板</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-format.html">格式化标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-f.html">f - 格式化</a>
+			    <li><a target="content" href="html/tag-getf.html">getf - 格式化获取变量</a>
+				<li><a target="content" href="html/tag-ws.html">ws - 空格</a>
+				<li><a target="content" href="html/tag-nl.html">nl - 换行</a>
+				<li><a target="content" href="html/tag-tab.html">tab - 制表</a>
+				<li><a target="content" href="html/tag-date.html">date - 格式化时间</a>
+				<li><a target="content" href="html/tag-number.html">number - 格式化数字</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-java.html">java标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-java-package.html">java:package - 得到包名</a>
+			    <li><a target="content" href="html/tag-java-class.html">java:class - 得到类名</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-task.html">任务标签</a>
+				<ul>
+				<li><a target="content" href="html/tag-task-group.html">task:group - 模型组</a>
+			    <li><a target="content" href="html/tag-task-action.html">task:action - action类</a>
+				<li><a target="content" href="html/tag-task-template.html">task:template - 模板路径</a>
+				<li><a target="content" href="html/tag-task-directory.html">task:directory - 生成文件所在目录</a>
+				<li><a target="content" href="html/tag-task-name.html">task:name - 生成文件名</a>
+				<li><a target="content" href="html/tag-task-ext.html">task:ext - 生成文件扩展名</a>
+				<li><a target="content" href="html/tag-task-encoding.html">task:encoding - 生成文件编码</a>
+				<li><a target="content" href="html/tag-task-mode.html">task:mode - 生成文件模式</a>
+				</ul>
+			<li><a target="content" href="html/tag-collision.html">标签冲突</a>	
+	    </ul>						
+	<li class="folder"><a target="content" href="html/head-task.html">任务</a>
+		<ul>
+		   <li><a target="content" href="html/task-set.html">配置</a>
+		   <li><a target="content" href="html/task-run.html">运行</a>
+		   <li><a target="content" href="html/task-merge.html">合并</a>			
+	    </ul>
+	<li><a target="content" href="html/action.html">action</a>
+	<li class="folder"><a target="content" href="html/demo-java.html">实例</a>
+		<ul>
+		   <li><a target="content" href="html/demo-java-model.html">模型</a>
+		   <li class="folder"><a target="content">模板</a>
+		      <ul>
+		         <li><a target="content" href="html/demo-java-entity.html">entity</a>
+		         <li><a target="content" href="html/demo-java-hibernate.html">hibernate</a>
+		         <li><a target="content" href="html/demo-java-dao.html">dao</a>
+				 <li><a target="content" href="html/demo-java-daoImpl.html">daoImpl</a>	
+				 <li><a target="content" href="html/demo-java-service.html">service</a>	
+				 <li><a target="content" href="html/demo-java-serviceImpl.html">serviceImpl</a>	
+				 <li><a target="content" href="html/demo-java-spring.html">spring</a>	
+				 <li><a target="content" href="html/demo-java-action.html">action</a>	
+				 <li><a target="content" href="html/demo-java-struts.html">struts</a>	
+				 <li><a target="content" href="html/demo-java-menu.html">menu</a>	
+				 <li><a target="content" href="html/demo-java-view.html">view</a>	
+				 <li><a target="content" href="html/demo-java-add.html">add</a>
+				 <li><a target="content" href="html/demo-java-update.html">update</a>					 		
+	          </ul>			
+	    </ul>
+	<li><a target="content" href="html/question-and-answer.html">常见问题解答</a>												 
+	</div>
+</body>
+</html>

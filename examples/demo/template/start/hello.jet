@@ -1,0 +1,9 @@
+<%@jet package="translated" class="Hello"%>
+
+  Hello Jmr!
+
+  <%out.write("Hello Jmr!");%>
+
+  <%="Hello Jmr!"%>
+
+  <get value="'Hello Jmr'"/>  

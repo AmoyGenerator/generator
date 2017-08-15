@@ -1,0 +1,7 @@
+<%@jet package="translated" class="Include_txt"%>
+
+<include src="head.txt.jet"/>
+
+This is content page
+
+<include src="tag/include/tail.txt.jet"/>

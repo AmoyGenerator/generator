@@ -1,0 +1,11 @@
+   345.68
+  +345.68
+345.6780 
++345.678 
+1234
+2322
+4d2
+0x4d2
+Hello Jmr!
+This is a float number：345.678000，This is a int number: 1234，This is a string: Hello Jmr!
+String: Hello Jmr!, 1234 hexadecimal number is: 0x4d2

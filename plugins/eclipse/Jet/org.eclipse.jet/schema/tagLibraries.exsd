@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.jet">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.jet" id="tabLibraries" name="Tag Libraries"/>
+      </appInfo>
+      <documentation>
+         Defines JET tag libraries.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <element ref="tagLibrary" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="tagLibrary">
+      <annotation>
+         <documentation>
+            Declares a tag library. That is, a collection of related JET2 tags.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <choice minOccurs="1" maxOccurs="unbounded">
+               <element ref="functionTag"/>
+               <element ref="iteratingTag"/>
+               <element ref="conditionalTag"/>
+               <element ref="emptyTag"/>
+               <element ref="containerTag"/>
+            </choice>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique name, within this plug-in for the library. For API purposes, the tag library id will be the concatenation of the plug-in id, a period (&apos;.&apos;) and this value.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A short, descriptive name of the purpose of the tags in the library.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="standardPrefix" type="string">
+            <annotation>
+               <documentation>
+                  The standard prefix used by tags in this library.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the tag library is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="tagFactory" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.jet.taglib.TagInstanceFactory"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="functionTag">
+      <annotation>
+         <documentation>
+            Define a tag that writes a value to the template output which is calculated from the elements content and any attribute values. Function tags require content in order to create output. An empty function tag, for example &amp;lt;myFunction/&amp;gt; will produce no output.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The tag name, without prefix. The name must start with a letter or underscore (_), and the remaining characters may be letters, digits, underscores(_), hyphens(-) or periods(.).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The class that implements that tag.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jet.taglib.AbstractFunctionTag"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the tag is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="whenContainingLineIsEmpty" use="default" value="preserve">
+            <annotation>
+               <documentation>
+                  Defines the compiler behavior when the tag occurs on an otherwise empty line. If &apos;remove&apos; is selected, the whitespace and trailing new line are not included in the templates output. In general, if a tag writes content, then this attribute should be set to &apos;preserve&apos;. 
+&lt;p&gt;
+The default for function tags is &apos;preserve&apos;.
+&lt;/p&gt;
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="preserve">
+                  </enumeration>
+                  <enumeration value="remove">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="iteratingTag">
+      <annotation>
+         <documentation>
+            Define a tag that causes repeated evaluation of its contents based on its attribute values.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The tag name, without prefix. The name must start with a letter or underscore (_), and the remaining characters may be letters, digits, underscores(_), hyphens(-) or periods(.).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The class that implements that tag.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jet.taglib.AbstractIteratingTag"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the tag is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="processContents" use="default" value="standard">
+            <annotation>
+               <documentation>
+                  When set to &apos;custom&apos;, the tag handler is passed its processed contents, and is responsible for handling it appropriately. Otherwise, the enclosing template handles the contents automatically on the tag handler&apos;s behalf. The default is &apos;standard&apos;.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="custom">
+                  </enumeration>
+                  <enumeration value="standard">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="whenContainingLineIsEmpty" use="default" value="remove">
+            <annotation>
+               <documentation>
+                  Defines the compiler behavior when the tag occurs on an otherwise empty line. If &apos;remove&apos; is selected, the whitespace and trailing new line are not included in the templates output. In general, if a tag writes content, then this attribute should be set to &apos;preserve&apos;.
+&lt;p&gt;The default for iterating tags is &apos;remove&apos;.&lt;/p&gt;
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="preserve">
+                  </enumeration>
+                  <enumeration value="remove">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="conditionalTag">
+      <annotation>
+         <documentation>
+            Define a tag that conditionally writes its contents to the output depending on some calculation.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The tag name, without prefix. The name must start with a letter or underscore (_), and the remaining characters may be letters, digits, underscores(_), hyphens(-) or periods(.).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The class that implements that tag.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jet.taglib.AbstractConditionalTag"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the tag is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="processContents" use="default" value="standard">
+            <annotation>
+               <documentation>
+                  When set to &apos;custom&apos;, the tag handler is passed its processed contents, and is responsible for handling it appropriately. Otherwise, the enclosing template handles the contents automatically on the tag handler&apos;s behalf. The default is &apos;standard&apos;.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="custom">
+                  </enumeration>
+                  <enumeration value="standard">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="whenContainingLineIsEmpty" use="default" value="remove">
+            <annotation>
+               <documentation>
+                  Defines the compiler behavior when the tag occurs on an otherwise empty line. If &apos;remove&apos; is selected, the whitespace and trailing new line are not included in the templates output. In general, if a tag writes content, then this attribute should be set to &apos;preserve&apos;.
+&lt;p&gt;The default for conditional tags is &apos;remove&apos;.&lt;/p&gt;
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="preserve">
+                  </enumeration>
+                  <enumeration value="remove">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="emptyTag">
+      <annotation>
+         <documentation>
+            Define a tag creates output or causes actions based on its context and attribute values only. An empty tag may have no content, and must be of the form &amp;lt;myEmptyTag ... /&amp;gt;
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The tag name, without prefix. The name must start with a letter or underscore (_), and the remaining characters may be letters, digits, underscores(_), hyphens(-) or periods(.).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The class that implements that tag.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jet.taglib.AbstractEmptyTag"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the tag is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="whenContainingLineIsEmpty" use="default" value="preserve">
+            <annotation>
+               <documentation>
+                  Defines the compiler behavior when the tag occurs on an otherwise empty line. If &apos;remove&apos; is selected, the whitespace and trailing new line are not included in the templates output. In general, if a tag writes content, then this attribute should be set to &apos;preserve&apos;. 
+&lt;p&gt;
+The default for empty tags is &apos;preserve&apos;.
+&lt;/p&gt;
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="preserve">
+                  </enumeration>
+                  <enumeration value="remove">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="attribute">
+      <complexType>
+         <sequence>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The attribute name. The name must start with a letter or underscore (_), and the remaining characters may be letters, digits, underscores(_), hyphens(-) or periods(.).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="use" use="default" value="required">
+            <annotation>
+               <documentation>
+                  Indicates whether all tag instances must use this attribute or not.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="required">
+                  </enumeration>
+                  <enumeration value="optional">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the attribute is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type" use="default" value="string">
+            <annotation>
+               <documentation>
+                  The type of the attribute.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="string">
+                  </enumeration>
+                  <enumeration value="boolean">
+                  </enumeration>
+                  <enumeration value="xpath">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="containerTag">
+      <complexType>
+         <sequence>
+            <element ref="attribute" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="description" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The tag name, without prefix. The name must start with a letter or underscore (_), and the remaining characters may be letters, digits, underscores(_), hyphens(-) or periods(.).
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The class that implements that tag.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jet.taglib.AbstractContainerTag"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="deprecated" type="boolean">
+            <annotation>
+               <documentation>
+                  If set to &apos;true&apos;, indicates that use of the tag is discourage.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="processContents" use="default" value="standard">
+            <annotation>
+               <documentation>
+                  When set to &apos;custom&apos;, the tag handler is passed its processed contents, and is responsible for handling it appropriately. Otherwise, the enclosing template handles the contents automatically on the tag handler&apos;s behalf. The default is &apos;standard&apos;.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="standard">
+                  </enumeration>
+                  <enumeration value="custom">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="allowAsEmpty" type="boolean">
+            <annotation>
+               <documentation>
+                  Determines if the container can be expressed as an empty xml tag of the form &amp;lt;tag/&amp;gt;. The empty tag form
+is permitted if &lt;code&gt;true&lt;/code&gt; is specified. If not specified, then &lt;code&gt;false&lt;/code&gt; is assumed.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="whenContainingLineIsEmpty" use="default" value="remove">
+            <annotation>
+               <documentation>
+                  Defines the compiler behavior when the tag occurs on an otherwise empty line. If &apos;remove&apos; is selected, the whitespace and trailing new line are not included in the templates output. In general, if a tag writes content, then this attribute should be set to &apos;preserve&apos;.
+&lt;p&gt;The default for container tags is &apos;remove&apos;.&lt;/p&gt;
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="remove">
+                  </enumeration>
+                  <enumeration value="preserve">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="description" type="string">
+      <annotation>
+         <appInfo>
+            <meta.element translatable="true"/>
+         </appInfo>
+      </annotation>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         [Enter API information here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

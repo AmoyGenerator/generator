@@ -1,0 +1,4 @@
+<%@jet package="translated" class="Ws"%>
+Welcome to jmr world!
+Welcome<ws/>to<ws/>jmr<ws/>world!
+Welcome<ws count="1"/>to<ws count="2"/>jmr<ws count="3"/>world!

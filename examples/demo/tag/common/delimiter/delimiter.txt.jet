@@ -1,0 +1,18 @@
+<%@jet package="translated" class="Delimiter_txt"%>
+
+<set var="list" value='{1, 2, 3}'/>
+
+<for var='e' value='list' delimiter=", ">
+  <get value='e'/>
+</for>
+
+
+<for var='e' value='list' delimiter=", ">
+  <get value='e'/>
+  <if test='e == 1'>
+   <delimiter run="false"/>
+  </if>
+  <else>
+    <delimiter run="true"/>
+  </else>
+</for>

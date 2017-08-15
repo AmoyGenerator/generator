@@ -1,0 +1,25 @@
+<%@jet package="translated" class="For_txt"%>
+
+<xml var="xml" relation="xml"/>
+
+<xml:set var="bookstore" select="$xml/bookstore"/>
+  
+<xml:for var="each" select="$bookstore/book">
+<xml:get select="$each/title"/>
+</xml:for>
+
+<xml:for var="each" select="$bookstore/book" trim="true">
+<xml:get select="$each/title"/>
+</xml:for>
+
+
+<xml:for var="each" select="$bookstore/book" status="s">
+count: <get value='s.count'/>
+index: <get value='s.index'/>
+isFirst: <get value='s.isFirst'/>
+isLast: <get value='s.isLast'/>
+</xml:for>
+
+<xml:for var="each" select="$bookstore/book" delimiter=",">
+<xml:get select="$each/title"/>: <xml:get select="$each/price"/>
+</xml:for>

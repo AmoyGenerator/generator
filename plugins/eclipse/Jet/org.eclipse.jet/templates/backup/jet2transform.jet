@@ -1,0 +1,102 @@
+<%@jet package="org.eclipse.jet.internal.compiler.templates" 
+       class="JET2TransformGenerator" 
+               %>
+<%-- @header
+Copyright (c) 2006, 2009 IBM Corporation and others.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+ *
+Contributors:
+  IBM - Initial API and implementation
+--%>
+<%@jet imports="java.util.Iterator"%>
+<%@jet imports="java.util.Map"%>
+<%@jet imports="java.util.SortedMap"%>
+<%@jet imports="java.util.TreeMap"%>
+<%@jet imports="org.eclipse.jet.internal.JavaUtil"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.LoaderGenerationParameters"%>
+<%
+LoaderGenerationParameters parms = (LoaderGenerationParameters)context.getVariable("args"); //$NON-NLS-1$
+SortedMap templateMap = new TreeMap(parms.getTemplateMap());
+boolean useJava5 = context.hasVariable("useJava5") ? Boolean.valueOf((String)context.getVariable("useJava5")).booleanValue() : false; //$NON-NLS-1$  //$NON-NLS-2$  
+%>
+package <%= parms.getPackageName() %>;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.jet.JET2Template;
+import org.eclipse.jet.JET2TemplateLoader;
+import org.eclipse.jet.JET2TemplateLoaderExtension;
+
+public class <%= parms.getClassName() %> implements JET2TemplateLoader,
+        JET2TemplateLoaderExtension {
+
+    private JET2TemplateLoader delegate = null;
+
+<% if(useJava5){ %>
+    private final static Map<String, Integer> pathToTemplateOrdinalMap = new HashMap<String,Integer>(<%=templateMap.size()%>);
+<% } else { %>
+    private final static Map pathToTemplateOrdinalMap = new HashMap(<%=templateMap.size()%>);
+<% } %>
+    static {
+<% int ordinal = 0;
+   for(Iterator i=templateMap.keySet().iterator(); i.hasNext(); ordinal++) { 
+       String templatePath = (String)i.next(); %>
+        pathToTemplateOrdinalMap.put(<%= JavaUtil.asJavaQuotedString(templatePath) %>, //$NON-NLS-1$
+<% if(useJava5) { %>
+                Integer.valueOf(<%= ordinal %>));
+<% } else { %>
+                new Integer(<%= ordinal %>));
+<% } %>
+<% } %>
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.jet.JET2TemplateLoader#getTemplate(java.lang.String)
+     */
+    public JET2Template getTemplate(final String templatePath) {
+<% if(useJava5) { %>
+        final Integer ordinal = pathToTemplateOrdinalMap.get(templatePath);
+<% } else { %>
+        final Integer ordinal = (Integer)pathToTemplateOrdinalMap.get(templatePath);
+<% } %>
+        if(ordinal != null) {
+           switch (ordinal.intValue()) {
+<% ordinal = 0;
+   for(Iterator i=templateMap.entrySet().iterator(); i.hasNext(); ordinal++) { 
+       Map.Entry entry = (Map.Entry)i.next(); %>
+            case <%= ordinal %>: // <%= entry.getKey() %>
+                return new <%= entry.getValue() %>();
+<% } %>
+            default:
+                break;
+            }
+        }
+        return this.delegate != null ? this.delegate.getTemplate(templatePath) : null;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.jet.JET2TemplateLoaderExtension#getDelegateLoader()
+     */
+    public JET2TemplateLoader getDelegateLoader() {
+        return this.delegate;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.jet.JET2TemplateLoaderExtension#setDelegateLoader(org.eclipse
+     * .jet.JET2TemplateLoader)
+     */
+    public void setDelegateLoader(final JET2TemplateLoader loader) {
+        this.delegate = loader;
+    }
+}

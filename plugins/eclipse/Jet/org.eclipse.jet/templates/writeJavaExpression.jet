@@ -1,0 +1,7 @@
+<%@jet class="WriteJavaExpressionTemplate" %>
+<%@jet imports="org.eclipse.jet.compiler.JET2Expression"%>
+<%
+final String indent = (String)context.getVariable("indent"); //$NON-NLS-1$
+final JET2Expression expr = (JET2Expression)context.getVariable("element"); //$NON-NLS-1$
+%>
+<%= indent %>out.write(<%= expr.getJavaContent() %>);

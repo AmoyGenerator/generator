@@ -1,0 +1,10 @@
+hibernate
+包：
+hiberante3.2.jar
+c3p0-0.9.1.2.jar
+cglib-2.1.3.jar
+ehcache-1.2.jar
+asm.jar
+antlr-2.3.6rc1.jar
+dom4j.jar
+spring.jar(dao中要用到提出）

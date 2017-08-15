@@ -1,0 +1,18 @@
+<%@jet class="XMLStartGenerator" %>
+<%@jet imports="org.eclipse.jet.internal.compiler.GenXMLElement"%>
+<%
+	GenXMLElement element = (GenXMLElement) context.getVariable("element"); //$NON-NLS-1$
+%>
+<c:get select="$indent"/>RuntimeTagElement <%= element.getTagVariable() %> = context.getTagFactory().createRuntimeTag(_jetns_<%= element.getNSPrefix() %>, "<%= element.getTagNCName() %>", "<%= element.getName() %>", <%= element.getTagInfoVariable() %>); //$NON-NLS-1$ //$NON-NLS-2$
+<c:get select="$indent"/><%= element.getTagVariable() %>.setRuntimeParent(<%= element.getParentTagVariable() %>);
+<c:get select="$indent"/><%= element.getTagVariable() %>.setTagInfo(<%= element.getTagInfoVariable() %>);
+<c:get select="$indent"/><%= element.getTagVariable() %>.doStart(context, out);
+<%  if(element.hasBody()) { %>
+<%     if(element.requiresNewWriter()) { %>
+<c:get select="$indent"/>JET2Writer <%= element.getTagVariable() %>_saved_out = out;
+<%     } %>
+<c:get select="$indent"/>while (<%= element.getTagVariable() %>.okToProcessBody()) {
+<%     if(element.requiresNewWriter()) { %>
+<c:get select="$indent"/>    out = out.newNestedContentWriter();
+<%     } %>
+<%  } %>

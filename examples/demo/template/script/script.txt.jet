@@ -1,0 +1,18 @@
+<%@jet package="translated" class="Script"%>
+ 
+<%  
+   String bookName = "Harry Potter";
+   String[] bookParts = {"Sorcerer's Stone", "Chamber of Secrets", 
+                         "Prisoner of Azkaban", "Goblet of Fire",
+                         "Order of Phoenix", "Half-Blood Prince", 
+                         "Deathly Hallows"};
+%>
+
+book:<%=bookName%>
+    
+parts:
+<%for(int i = 0; i < bookParts.length; i++){%>
+   part<%=i + 1%>: <%=bookParts[i]%>
+<%}%>     
+   
+  

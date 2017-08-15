@@ -1,0 +1,10 @@
+<%@ jet package="translated" class="IdaoImpl_java"%>
+package <java:package />;
+
+/**
+ * Dao interface
+ */
+<%-- Generate class name, the same file name (Java name naming)  --%>
+public interface <java:class /> extends IBeanDao{
+
+}

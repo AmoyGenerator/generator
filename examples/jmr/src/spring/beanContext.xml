@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<bean id="usersDao" class="com.jmr.dao.impl.UsersDaoImpl">
+	    <property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	
+	<bean id="usersService" class="com.jmr.service.impl.UsersServiceImpl">
+	    <property name="usersDao">
+			<ref bean="usersDao" />
+		</property>
+	</bean>
+		
+	<!-- insert_start id="bean" -->
+    <bean id="bookDao" class="com.jmr.dao.impl.BookDaoImpl">
+	    <property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+    
+	<bean id="bookService" class="com.jmr.service.impl.BookServiceImpl">
+	    <property name="bookDao">
+			<ref bean="bookDao" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+	<!-- insert_end -->
+	
+</beans>

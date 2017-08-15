@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.jet">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="org.eclipse.jet" id="modelLoaders" name="Model Loaders"/>
+      </appInfo>
+      <documentation>
+         Define how models consumed by JET transformations and the JET &amp;lt;c:load&amp;gt; tag are loaded from the file system.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <complexType>
+         <sequence>
+            <choice minOccurs="1" maxOccurs="unbounded">
+               <element ref="loader"/>
+               <element ref="defaultTypeLoader"/>
+               <element ref="loadableType"/>
+            </choice>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="loader">
+      <annotation>
+         <documentation>
+            Defines a model loader, which is a Java class responsible for loading a model into memory given an URL to the model, or given a string representation of the model.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="type" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  An unique identifier within the declaring plug-in for the loader. This is typically a value that begins with a letter is is followed by a sequence of letters, numbers, hyphens(-) and underscores(_). This value is prefixed with the declaring plug-in id and a period (.) to form a fully qualified identifier for the model loader.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A descriptive name for the model loader.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A class that implements the model loader.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.jet.runtime.model.IModelLoader"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="dynamicTypes" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  Indicates whether the model loader dynamically determines whether it handles a particular file type. If &apos;true&apos;, then the model loader must implement IModelLoader.canLoad(String). If &apos;false&apos;, then the types supported by the model loader are determined by child &amp;lt;type&amp;gt; elements, and by &amp;lt;loadableType&amp;gt; elements.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="defaultTypeLoader">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="fileType"/>
+         </appInfo>
+         <documentation>
+            Defines the default model loader for a given file type.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="fileType" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The file type (extension) for which the default loader is being defined.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The fully qualified id of the model loader.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="loadableType">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="fileType"/>
+         </appInfo>
+         <documentation>
+            Extends the types supported a Model Loader. This element may be used by plug-ins other than the plug-in declaring the model loader.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="fileType" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The file type that is loadable.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The fully qualified id of the model loader that is capable of loading the type. This is the id of the plug-in defining the model loader, followed by a period (.) and the id of the model loader (from the &amp;lt;loader&amp;gt;) element.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="type">
+      <annotation>
+         <appInfo>
+            <meta.element labelAttribute="fileType"/>
+         </appInfo>
+         <documentation>
+            Defines a file type that is understood by the model loader.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="fileType" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A file type (file extension).
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         1.0
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         [Enter extension point usage example here.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiInfo"/>
+      </appInfo>
+      <documentation>
+         The method &lt;code&gt;org.eclipse.jet.JET2Platform.getModelLoaderManager()&lt;/code&gt; returns an instance
+of &lt;code&gt;org.eclipse.jet.runtime.model.ILoaderManager&lt;/code&gt; which provides access to model loaders created with this extension point.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="copyright"/>
+      </appInfo>
+      <documentation>
+         
+      </documentation>
+   </annotation>
+
+</schema>

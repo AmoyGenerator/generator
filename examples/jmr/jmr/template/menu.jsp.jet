@@ -1,0 +1,7 @@
+<%@jet package="translated" class="Menu_jsp"%>
+<entity var="object"/>
+<set var="menu" value='object.property("menu")'/>
+<set var="class" value='object.property("class")'/>
+    <insert id="menu">   
+    <li><a href="${basePath}<get value='class'/>.do?act=find"><get value='menu'/></a></li>
+	</insert>

@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<jmr xmlns="http://www.eclipse-jmr.org/jmr-1.0.xsd">
+   <run>
+      <project name="action">
+         <directory name="junior">
+            <task name="junior">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/action/junior.txt.jet</templatePath>
+               <targetContainer>/demo/action</targetContainer>
+               <targetName>junior</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="medium">
+            <task name="medium">
+               <modelGroupName></modelGroupName>
+               <actionClass>action.MyAction</actionClass>
+               <templatePath>demo/action/medium.txt.jet</templatePath>
+               <targetContainer>/demo/action</targetContainer>
+               <targetName>medium</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="advanced">
+            <task name="advanced">
+               <modelGroupName></modelGroupName>
+               <actionClass>action.MyAction</actionClass>
+               <templatePath>demo/action/advanced.txt.jet</templatePath>
+               <targetContainer>/demo/action</targetContainer>
+               <targetName>advanced</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+   </run>
+   <db>
+   </db>
+   <model>
+   </model>
+   <rule>
+      <types>
+         <type name="fullType">
+            <BIGINT>java.lang.Long</BIGINT>
+            <BINARY>java.lang.Byte[]</BINARY>
+            <BIT>java.lang.Boolean</BIT>
+            <BLOB>java.lang.Byte[]</BLOB>
+            <BOOLEAN>java.lang.Boolean</BOOLEAN>
+            <CHAR>java.lang.String</CHAR>
+            <CLOB>java.lang.String</CLOB>
+            <DATE>java.util.Date</DATE>
+            <DECIMAL>java.lang.Double</DECIMAL>
+            <DOUBLE>java.lang.Double</DOUBLE>
+            <FLOAT>java.lang.Double</FLOAT>
+            <INTEGER>java.lang.Integer</INTEGER>
+            <JAVA_OBJECT>java.lang.Object</JAVA_OBJECT>
+            <LONGNVARCHAR>java.lang.String</LONGNVARCHAR>
+            <LONGVARBINARY>java.lang.Byte[]</LONGVARBINARY>
+            <LONGVARCHAR>java.lang.String</LONGVARCHAR>
+            <NUMERIC>java.lang.Double</NUMERIC>
+            <NCHAR>java.lang.String</NCHAR>
+            <NCLOB>java.lang.String</NCLOB>
+            <NVARCHAR>java.lang.String</NVARCHAR>
+            <OTHER>java.lang.Object</OTHER>
+            <REAL>java.lang.Float</REAL>
+            <SMALLINT>java.lang.Integer</SMALLINT>
+            <TIME>java.util.Date</TIME>
+            <TIMESTAMP>java.util.Date</TIMESTAMP>
+            <TINYINT>java.lang.Byte</TINYINT>
+            <VARCHAR>java.lang.String</VARCHAR>
+            <VARBINARY>java.lang.Byte[]</VARBINARY>
+         </type>
+         <type name="type">
+            <BIGINT>Long</BIGINT>
+            <BINARY>Byte[]</BINARY>
+            <BIT>Boolean</BIT>
+            <BLOB>Byte[]</BLOB>
+            <BOOLEAN>Boolean</BOOLEAN>
+            <CHAR>String</CHAR>
+            <CLOB>String</CLOB>
+            <DATE>Date</DATE>
+            <DECIMAL>Double</DECIMAL>
+            <DOUBLE>Double</DOUBLE>
+            <FLOAT>Double</FLOAT>
+            <INTEGER>Integer</INTEGER>
+            <JAVA_OBJECT>Object</JAVA_OBJECT>
+            <LONGNVARCHAR>String</LONGNVARCHAR>
+            <LONGVARBINARY>Byte[]</LONGVARBINARY>
+            <LONGVARCHAR>String</LONGVARCHAR>
+            <NUMERIC>Double</NUMERIC>
+            <NCHAR>String</NCHAR>
+            <NCLOB>String</NCLOB>
+            <NVARCHAR>String</NVARCHAR>
+            <OTHER>Object</OTHER>
+            <REAL>Float</REAL>
+            <SMALLINT>Integer</SMALLINT>
+            <TIME>Date</TIME>
+            <TIMESTAMP>Date</TIMESTAMP>
+            <TINYINT>Byte</TINYINT>
+            <VARCHAR>String</VARCHAR>
+            <VARBINARY>Byte[]</VARBINARY>
+         </type>
+      </types>
+   </rule>
+   <inits>
+      <init name="init_java">
+         <columns>
+            <column from="id" initType="convert" name="name" type="String" convert="name">
+            </column>
+            <column from="jdbcType" initType="convert" name="type" type="String" convert="type">
+            </column>
+            <column from="jdbcType" initType="convert" name="fullType" type="String" convert="fullType">
+            </column>
+         </columns>
+      </init>
+   </inits>
+</jmr>

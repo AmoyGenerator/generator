@@ -1,0 +1,22 @@
+<%@jet package="translated" class="If_txt"%>
+
+<xml var="xml" relation="xml"/>
+
+<xml:set var="book1" select="$xml/bookstore/book[1]"/>
+<xml:set var="book2" select="$xml/bookstore/book[2]"/>
+
+<xml:if test="$book1/title = 'Harry Potter'">
+This book is Harry Potter.
+</xml:if>
+
+<xml:if test="$book1/title = 'Harry Potter' and $book1/price < 30">
+I want to buy Harry Potter.
+</xml:if>
+
+<xml:if test="1 = 1">
+<xml:get select="$book2/title"/>
+</xml:if>
+
+<xml:if test="1 = 1" trim="true">
+<xml:get select="$book2/title"/>
+</xml:if>

@@ -1,0 +1,175 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Eclipse-LazyStart: true
+Bundle-SymbolicName: org.eclipse.jet.ui;singleton:=true
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.jet,
+ org.eclipse.debug.ui,
+ org.eclipse.debug.core,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching
+Bundle-Activator: org.eclipse.jet.ui.Activator
+Export-Package: org.eclipse.jet.internal.ui.filters;x-internal:=true,o
+ rg.eclipse.jet.internal.ui.l10n;x-internal:=true,org.eclipse.jet.inte
+ rnal.ui.launch;x-internal:=true,org.eclipse.jet.internal.ui.popup.act
+ ions;x-internal:=true,org.eclipse.jet.internal.ui.prefs;x-internal:=t
+ rue,org.eclipse.jet.ui,org.eclipse.jet.ui.newproject
+Bundle-Version: 1.0.0.qualifier
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage2Controls.class
+SHA1-Digest: 7w5HhNd52SYntw6NAEy9gtT6F1c=
+
+Name: icons/JETRuntimeError.gif
+SHA1-Digest: bZrT38rI0PDMLD7cqeDhxN+AahU=
+
+Name: org/eclipse/jet/internal/ui/filters/JavaFilter.class
+SHA1-Digest: UuE/xyA2YdRN7GZ/UpDExLie7ro=
+
+Name: org/eclipse/jet/internal/ui/launch/LaunchShortcut.class
+SHA1-Digest: YokijsXbrnbD1AcwZVAWJ4TR1H4=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage1Controls$1.class
+SHA1-Digest: b4IHG6mOx4gt1yURzlXadSHRCpM=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage2Controls$1.class
+SHA1-Digest: tuJwqZGhv3ET4f+L318uE/BMusc=
+
+Name: icons/sample.gif
+SHA1-Digest: AFju2Q2+1Vh+Fu1wE08m60Jwc0g=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage1Controls$3.class
+SHA1-Digest: Wm0YTEGLxwSCuNebrqvZuwvfwSk=
+
+Name: org/eclipse/jet/internal/ui/prefs/CompilePreferencePage.class
+SHA1-Digest: ywoxpK549yNWUpnUCVT+PkX6X4M=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage2Controls$3.class
+SHA1-Digest: w3c7bF+UZ1fNdla4PET0jECtLHg=
+
+Name: org/eclipse/jet/internal/ui/launch/JETLaunchHelper.class
+SHA1-Digest: db8oJYKIBYdcjz5Kp3WhUF8lRw4=
+
+Name: icons/JET2File.gif
+SHA1-Digest: 1oHGcEmL++MqKzBH2fr3urEIQuE=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/jet/internal/ui/popup/actions/UnloadAction.class
+SHA1-Digest: glJin2c9eiOcvr9QEQtskaTscak=
+
+Name: org/eclipse/jet/internal/ui/launch/JETLaunchHelper$2.class
+SHA1-Digest: lL1GgsQ1ewZ5k9Xzct4eXxNW+h4=
+
+Name: org/eclipse/jet/internal/ui/launch/JETTransformMainTab.class
+SHA1-Digest: 32HQmiIjqee2waSR2y0+mZ4ln0Q=
+
+Name: icons/JET2ProjectWizard.gif
+SHA1-Digest: wqJ3PRtlX2OKC9dwwBFKOLktZ84=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage2.class
+SHA1-Digest: hairBVykLG2GHPpVy0u3CdWyjfw=
+
+Name: org/eclipse/jet/ui/newproject/messages.properties
+SHA1-Digest: YsmuOvaM8rQFViFUxLjQ7EQAMJE=
+
+Name: org/eclipse/jet/ui/newproject/NewProjectWizard.class
+SHA1-Digest: cAHvXi0lqTXA0ekj/8pBjnw9bVI=
+
+Name: org/eclipse/jet/internal/ui/launch/JETTransformMainTab$1.class
+SHA1-Digest: pA5y5wftf/j80EoeGJsXwimxbtM=
+
+Name: org/eclipse/jet/internal/ui/launch/JETConsoleColorProvider.class
+SHA1-Digest: phnjDIMWCLIwP9frWzxGpqqhBCI=
+
+Name: org/eclipse/jet/internal/ui/launch/JETTransformMainTab$3.class
+SHA1-Digest: fE7HbQCvXjl/BpXUSWVOc9hh1uw=
+
+Name: org/eclipse/jet/internal/ui/launch/JETTransformMainTab$Listener.
+ class
+SHA1-Digest: 10RuqX8MlN+99paCJA3eqZBfNws=
+
+Name: org/eclipse/jet/internal/ui/prefs/ExtensionListEditor.class
+SHA1-Digest: zRztd2p5mhZiyZe5SDNSc2z8Wa8=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage1Controls.class
+SHA1-Digest: SydGNxHHxr7dSrsTJMWS5LvkVQk=
+
+Name: org/eclipse/jet/ui/Activator.class
+SHA1-Digest: qMAPIc9/DhbMUEkK7I0Nv2QK+7A=
+
+Name: plugin.properties
+SHA1-Digest: La3DnTsrybg1Gli5wvE1sgGJRnc=
+
+Name: org/eclipse/jet/internal/ui/prefs/ExtensionListEditor$1.class
+SHA1-Digest: YvxinjTbPvTHTtee/sv9wnkGfwU=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage1Controls$2.class
+SHA1-Digest: 4uA8mAZWjAk/rdhgQKhQznNdG6c=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage2Controls$2.class
+SHA1-Digest: SNtBFOM0cX8nq6ZJrEbFRxlWpzE=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage1Controls$4.class
+SHA1-Digest: cQTpFY3q87z9+QuLjekv98WmPgE=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage2Controls$4.class
+SHA1-Digest: QK48s7bK1sf7T1lLO3Dl8WDQ1+U=
+
+Name: org/eclipse/jet/ui/newproject/Messages.class
+SHA1-Digest: 2TJyOzeOoBuUdl78UHyzAz5+pWc=
+
+Name: org/eclipse/jet/internal/ui/l10n/messages.properties
+SHA1-Digest: QBrZklu2gL4vGUX8tH3kfGAf4Lg=
+
+Name: plugin.xml
+SHA1-Digest: 9coSLaX6TdY0ZQmiMILDEl9oAeY=
+
+Name: org/eclipse/jet/internal/ui/launch/JET2TransformationTabGroup.cl
+ ass
+SHA1-Digest: tIUGCqsq6vRtK0oWrD7i6IXS/Eg=
+
+Name: icons/JET2Project.gif
+SHA1-Digest: mYl2kdx+Xyvy3Zt5QDYDSgDgYsA=
+
+Name: org/eclipse/jet/internal/ui/prefs/CompilePreferencePage$1.class
+SHA1-Digest: 495J/3Yh4QoA4QZslFNYWrUtmcQ=
+
+Name: org/eclipse/jet/internal/ui/launch/JETLaunchHelper$1.class
+SHA1-Digest: 1q1TEbyR4NFsjxdq1pxmq6RterU=
+
+Name: about.html
+SHA1-Digest: pDSgFSJT6fRI+zo3RLgV+9RIAuw=
+
+Name: icons/JET2LaunchIcon.gif
+SHA1-Digest: 2WBwyJU7jyiug5ghTEG/KQU10p8=
+
+Name: org/eclipse/jet/internal/ui/l10n/Messages.class
+SHA1-Digest: 5rJGvEmktXlWKFYNbfKVWgi+tlU=
+
+Name: org/eclipse/jet/ui/newproject/NewJETProjectPage1.class
+SHA1-Digest: G2QNzdiKDm4jE2eg2BJ4swkcBcg=
+
+Name: org/eclipse/jet/ui/newproject/NewProjectInfo.class
+SHA1-Digest: 1FofXlHHoV7OxnyHln4b9w0hSrA=
+
+Name: org/eclipse/jet/internal/ui/launch/JETTransformMainTab$2.class
+SHA1-Digest: X76zlXmbWZmn10FA3Kh2ZNEGv74=
+
+Name: icons/JET2ProjectWizardBanner.gif
+SHA1-Digest: nxhiZZ5IK1MHI1zTFK3pWh4LwWc=
+
+Name: org/eclipse/jet/internal/ui/prefs/JETPreferencePage.class
+SHA1-Digest: uRxor6Oo9PvWEJVDeLgls5U1tTs=
+
+Name: org/eclipse/jet/ui/newproject/NewProjectWizard$1.class
+SHA1-Digest: KaFzqhQUeVGFbu5dvWKMZVa75M4=
+

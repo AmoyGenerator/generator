@@ -1,0 +1,55 @@
+<%@jet package="translated" class="For_txt"%>
+
+<set var="list" value='{"e1","e2","e3"}'/>
+
+<for var='e' value='list'>
+  <get value='e'/>
+</for>
+
+<for var='e' value='list' status="s">
+  <get value='e'/>  
+  count: <get value='s.count'/>
+  index: <get value='s.index'/>
+  isFirst: <get value='s.isFirst'/>
+  isLast: <get value='s.isLast'/>
+</for>
+
+<set var="map" value='#{"key1":"value1","key2":"value2"}'/>
+
+<for var='e' value='map'>
+   <get value='e.key'/>: <get value='e.value'/>
+</for>
+
+<for var='book' value='books' test='book.price >= 50'>
+   <get value='book.id'/><tab/><get value='book.price'/><tab/><get value='book.name'/>
+</for>
+
+<set var="poems" 
+value='{"Work while you work;", "Play while you play;", "This is the way;", "To be cheerful and gay."}'/>
+
+<for var='poem' value='poems'>
+    <get value='poem'/>
+</for>
+
+<for var='poem' value='poems' trim="true">
+    <get value='poem'/>
+</for>
+
+<set var="params" value='#{"String":"str", "int":"num"}'/>
+
+public void method(<for var='param' value='params' delimiter=", ">
+                     <get value='param.key'/> <get value='param.value'/>
+                   </for>){
+
+}
+
+<set var="imports" value='{"java.util.List", "java.util.Date", "java.util.Date", "java.util.Map"}'/>
+
+<for var='import' value='imports'>
+import <get value='import'/>;
+</for>
+
+<for var='import' value='imports' duplicate="false">
+import <get value='import'/>;
+</for>
+

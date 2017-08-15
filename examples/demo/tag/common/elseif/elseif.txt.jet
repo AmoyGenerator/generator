@@ -1,0 +1,26 @@
+<%@jet package="translated" class="Elseif_txt"%>
+
+<set var="A" value='90'/>
+<set var="B" value='80'/>
+<set var="C" value='70'/>
+<set var="D" value='60'/>
+
+<set var="score" value='75'/>
+
+<if test='score > A'>
+   Level A!
+</if>
+<elseif test='score > B'>
+   Level B!
+</elseif>
+<elseif test='score > C'>
+   Level C!
+</elseif>
+<elseif test='score > D'>
+   Level D!
+</elseif>
+<else>
+   Level E!
+</else>
+
+

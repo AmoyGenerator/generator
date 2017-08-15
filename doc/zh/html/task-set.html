@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>task-set</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">任务 - 配置</div></h1>
+<hr />
+<h3>目录:</h3>
+<ul>
+<li>
+<a href="#1">任务列表</a>
+<ul>
+<li><a href="#2">结构</a></li>
+<li><a href="#3">常用操作</a></li>
+</ul>
+</li>
+<li><a href="#4">任务内容</a></li>
+</ul>
+<hr />
+<p><img src="image/task-set1.png" /></p>
+<h2><span id="1">任务列表</span></h2>
+<p>在任务列表中，我们可以管理任务，并选择要执行的任务运行。</p>
+<h2><span id="2">结构</span></h2>
+<p>任务包括三层结构</p>
+<ul>
+<li><img src="image/task-set2.png" /> 项目：一个大类可以归为一个项目，项目下可以有多个目录。</li>
+<li><img src="image/task-set3.png" /> 目录：一个大类下的次级分类归为一个目录，目录下可以有多个任务。</li>
+<li>
+任务：执行生成的具体单元，一个任务只能（新建/合并/覆盖)一个文件；它包含三种类型：
+<ul>
+<li><img src="image/task-set4.png" /> 新建：文件不存在时，新建文件并根据模板生成新内容。</li>
+<li><img src="image/task-set5.png" /> 合并：文件已经存在，根据模板合并指定的部分，其它内容不变。</li>
+<li><img src="image/task-set6.png" /> 覆盖：文件已经存在，重新执行并覆盖所有内容。</li>
+</ul>
+</li>
+</ul>
+<p>例如：下面是一个Web项目的任务结构</p>
+<ul>
+<li>项目：按MVC结构分别有3个项目。</li>
+<li>目录：目录结构又细分成entity(实体)、dao、service、action、jsp等。</li>
+<li>任务：具体生成不同文件。</li>
+</ul>
+<p><img src="image/task-set7.png" /></p>
+<h2><span id="3">常用操作</span></h2>
+<p>右键菜单或者右侧按钮可以看到操作。</p>
+<p><img src="image/task-set8.png" /></p>
+<ul>
+<li>新项目、新目录、新任务、编辑</li>
+</ul>
+<p>（项目/目录/任务）名称自定义，不影响生成，但是同级别的不能重名。</p>
+<ul>
+<li>设置模型、清除模型</li>
+</ul>
+<p>我们可以在任务中修改对应的模型，但是如果多个任务都需要修改模型时，效率就会很低。</p>
+<p><img src="image/task-set9.png" /></p>
+<p>使用批量的方式设置模型，选中多个任务</p>
+<p><img src="image/task-set10.png" /></p>
+<p>选择新的模型组或者模型</p>
+<p><img src="image/task-set11.png" />
+<img src="image/task-set49.png" /></p>
+<p>选择模型组。</p>
+<p><img src="image/task-set12.png" /></p>
+<p>选择模型。</p>
+<p><img src="image/task-set50.png" /></p>
+<h3>任务的状态</h3>
+<p>任务有以下3种提示状态，
+这些状态会根据环境的变化而自动更新，比如模板有语法错误，文件目录找不到等。</p>
+<ul>
+<li>正常：<img src="image/task-set15.png" /></li>
+<li>警告：<img src="image/task-set14.png" /></li>
+<li>错误：<img src="image/task-set13.png" /></li>
+</ul>
+<pre>
+如模板中有语法错误，或者找不到文件等其他错误警告，对应的任务状态也会改变
+</pre>
+<p><img src="image/task-set16.png" /></p>
+<p><img src="image/task-set17.png" /></p>
+<ul>
+<li>刷新</li>
+</ul>
+<p>任务的状态虽然会自动更新，但有时候会有延迟，可以使用刷新手动刷新状态。</p>
+<ul>
+<li>向上、向下</li>
+</ul>
+<p>任务的执行顺序是由上到下，可以通过向上向下来更换任务的执行顺序。</p>
+<p><img src="image/task-set18.png" /></p>
+<ul>
+<li>复制、粘贴</li>
+</ul>
+<p>任务可以复制，粘贴到需要的位置。</p>
+<ul>
+<li>删除</li>
+</ul>
+<p>可以删除任何元素，项目和目录被删除将同时删除它的子元素。</p>
+<ul>
+<li>拖拽</li>
+</ul>
+<p>需要移动鼠标拖拽，任务会从一个位置移动到另一个位置，等同于剪切。</p>
+<h2><span id="4">任务内容</span></h2>
+<p><img src="image/task-set19.png" /></p>
+<ul>
+<li>任务名：可通过点击<img src="image/task-set20.png" />修改。</li>
+<li>模型：点击浏览选择模型，模型可以选择模型组或者模型。</li>
+</ul>
+<p><img src="image/task-set21.png" /></p>
+<p><img src="image/task-set51.png" /></p>
+<p>模型来源为当前文件的模型列表</p>
+<p><img src="image/task-set22.png" /></p>
+<p>一个任务只能选择一个模型组或者模型，它们之间的使用是有区别的，请阅读：<a href="model-structure-entity.html#5">entity应用</a></p>
+<p><img src="image/task-set23.png" />
+<img src="image/task-set52.png" /></p>
+<ul>
+<li>Action：点击浏览选择Action，点击
+<img src="image/task-set26.png" />或者<img src="image/task-set27.png" />可以打开Action文件。关于Action的用法请阅读：<a href="action.html">Action</a></li>
+</ul>
+<p><img src="image/task-set24.png" /></p>
+<p>Action必须选择父类是org.jmr.core.JmrActionSupport的类，对话框会自动匹配这些类，输入**会列出所有符合条件的类。选择的Action必须在同一个项目中（jmr文件所在项目）。</p>
+<p><img src="image/task-set25.png" /></p>
+<ul>
+<li>模板：点击浏览选择模板，点击
+<img src="image/task-set29.png" />或者<img src="image/task-set27.png" />可以打开模板文件。</li>
+</ul>
+<p><img src="image/task-set28.png" /></p>
+<p>模板选择对话框，会列出当前项目下的所有模板，可以在搜索框中输入名称过滤。选择的模板必须是当前项目的（jmr文件所在项目）。</p>
+<p><img src="image/task-set30.png" /></p>
+<ul>
+<li>
+任务类型：选择好任务类型能够更方便的执行任务。
+<ul>
+<li>新建：当文件不存在时为新建，执行任务，生成文件后会自动选择为覆盖。</li>
+<li>合并：文件已经存在，文件中有合并标识的位置会被更新，其余部分不变。关于合并的详细内容请阅读：<a href="task-merge.html">合并使用</a>。</li>
+<li>覆盖：文件已经存在，执行任务替换掉文件的所有内容。</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/task-set31.png" /></p>
+<p>第一次运行任务的状态是新建，接下来都是以合并和覆盖为主。</p>
+<p>例如，spring、struts这2个任务都是往配置文件中添加注册信息，menu是在左侧栏目的界面中添加新的链接，所以它们的模式都是合并，其余的都是覆盖。</p>
+<p><img src="image/task-set32.png" /></p>
+<ul>
+<li>目录：文件所在目录，点击浏览选择目录。</li>
+</ul>
+<p><img src="image/task-set33.png" /></p>
+<p>点击<img src="image/task-set34.png" />创建新目录，位置可以在打开的任何项目中。</p>
+<p><img src="image/task-set36.png" /></p>
+<p>点击<img src="image/task-set35.png" />可以使用表达式自定义目录结构。通过选择目录，得到目录的值，再插入模型变量，可以通过模型变量来生成目录。在新建模式下，如果目录不存在，会自动创建。</p>
+<p><img src="image/task-set37.png" /></p>
+<p>表达式有2种写法：</p>
+<ul>
+<li>${属性}</li>
+<li>${relation.属性}</li>
+</ul>
+<p>当选中的是模型，可以使用${属性}，此时${属性}指向被选中的模型，也可以使用${relation.属性}。</p>
+<p><img src="image/task-set54.png" /></p>
+<p>当选中的是模型组，只能使用${relation.属性}。</p>
+<p><img src="image/task-set53.png" /></p>
+<pre>
+例子：使用表达式生成目录。
+</pre>
+<p>模型组中，relation为one的模型有属性class，值为book。</p>
+<p><img src="image/task-set38.png" /><img src="image/task-set39.png" /></p>
+<p>如果模型选的是模型，那么使用${class}，也可以使用${one.class}</p>
+<p><img src="image/task-set56.png" /></p>
+<p>目录设置如下：</p>
+<p><img src="image/task-set57.png" /></p>
+<p>如果模型选的是模型组，只能使用${one.class}</p>
+<p><img src="image/task-set40.png" /></p>
+<p>目录设置如下：</p>
+<p><img src="image/task-set41.png" /></p>
+<p>生成的文件目录</p>
+<p><img src="image/task-set42.png" /></p>
+<ul>
+<li>文件名：生成文件的名称，双击或者回车可以编辑。</li>
+</ul>
+<p><img src="image/task-set43.png" /></p>
+<ul>
+<li>点击<img src="image/task-set44.png" />可以使用表达式构成文件名。</li>
+</ul>
+<p><img src="image/task-set45.png" /></p>
+<p>和目录一样，也可以使用表达式${属性}和${relation.属性}</p>
+<p><img src="image/task-set46.png" /></p>
+<p>生成的文件名</p>
+<p><img src="image/task-set47.png" /></p>
+<ul>
+<li>扩展名：生成文件的扩展名，双击或者回车可以编辑。</li>
+</ul>
+<p><img src="image/task-set48.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

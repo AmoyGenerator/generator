@@ -1,0 +1,87 @@
+<%@ jet package="translated" class="ServiceImpl_java"%>
+<entity var="object"/>
+<set var="Class" value='object.property("Class")'/>
+<set var="class" value='object.property("class")'/>
+package <java:package />;
+
+import java.util.Map;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+import org.springframework.transaction.support.TransactionTemplate;
+import ssh.hibernate.page.ListPage;
+import com.jmr.dao.I<get value="Class"/>Dao;
+import com.jmr.service.I<get value="Class"/>Service;
+
+/**
+ * Service implementation class
+ *
+ */
+ public class <java:class /> implements I<get value="Class"/>Service{
+ 	private I<get value="Class"/>Dao <get value="class"/>Dao;
+	private TransactionTemplate transactionTemplate;
+	
+	//Transaction
+	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+		this.transactionTemplate = transactionTemplate;
+	}
+	
+	public I<get value="Class"/>Dao get<get value="Class"/>Dao() {
+		return <get value="class"/>Dao;
+	}
+	
+	public void set<get value="Class"/>Dao(I<get value="Class"/>Dao <get value="class"/>Dao) {
+		this.<get value="class"/>Dao = <get value="class"/>Dao;
+	}
+		
+	/**
+	 * Paging query
+	 * @param pageNo
+	 * @param pageCount
+	 * @param queryMap
+	 * @return
+	 */
+	public ListPage find(int pageNo, int pageCount, Map queryMap) {
+		return <get value="class"/>Dao.find(pageNo, pageCount, queryMap);
+	}
+	
+	/**
+	 * Get object by id
+	 * @param id
+	 * @return
+	 */
+	 public Object getById(Integer id) {
+		return <get value="class"/>Dao.getById(id);
+	}
+	
+	/**
+	 * delete
+	 * @param id
+	 */
+	 public void delete(final Integer id) {
+		transactionTemplate.execute(new TransactionCallback() {
+			public Object doInTransaction(TransactionStatus ts) {
+				<get value="class"/>Dao.delete(id);
+				return null;
+			}
+		});
+	}
+		
+	/**
+	 * save
+	 * @param news
+	 */
+	 public void save(Object object) {
+		<get value="class"/>Dao.save(object);
+	}
+	
+	/**
+	 * update
+	 * @param news
+	 */
+	 public void update(Object object) {
+		<get value="class"/>Dao.update(object);
+	}
+	
+}
+ 
+ 

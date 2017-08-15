@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jmr.entity">
+	<class name="Users" table="Users">
+		<id name="id" type="java.lang.Integer">
+			<column name="id" />
+			<generator class="identity" />			
+		</id>
+		<property name="account" type="java.lang.String">
+			<column name="account" />
+		</property>	
+		<property name="password" type="java.lang.String">
+			<column name="password" />
+		</property>	
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>	
+		<property name="status" type="java.lang.Integer">
+			<column name="status" />
+		</property>			
+		
+		<property name="creator" type="java.lang.Integer">
+			<column name="cuserid" />
+		</property>	
+		<property name="createDT" type="java.sql.Timestamp">
+			<column name="createdatetime" />
+		</property>	
+		<property name="modifier" type="java.lang.Integer">
+			<column name="uuserid" />
+		</property>	
+		<property name="modifyDT" type="java.sql.Timestamp">
+			<column name="lastupdatetime" />
+		</property>	
+	</class>
+</hibernate-mapping>

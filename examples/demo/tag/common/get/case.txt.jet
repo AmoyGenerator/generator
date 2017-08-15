@@ -1,0 +1,20 @@
+<%@jet package="translated" class="Case_txt"%>
+<set var="class" value='"book"'/>
+<set var="id" value='"id"'/>
+<set var="name" value='"name"'/>
+
+public <get value='class' case="headUpper|plural"/> {
+
+   private int <get value='id'/>
+   
+   private String <get value='name'/>
+   
+   public int get<get value='id' case="headUpper"/>(){
+      return <get value='id'/>;
+   }
+
+   public String get<get value='name' case="headUpper"/>(){
+      return <get value='name'/>;
+   }
+
+}

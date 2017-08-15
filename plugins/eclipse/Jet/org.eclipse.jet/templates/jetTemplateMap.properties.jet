@@ -1,0 +1,19 @@
+<%@jet package="org.eclipse.jet.internal.compiler.templates" class="JETTemplateMapGenerator" %> 
+<%@jet imports="java.util.ArrayList"%>
+<%@jet imports="java.util.Collections"%>
+<%@jet imports="java.util.Iterator"%>
+<%@jet imports="java.util.List"%>
+<%@jet imports="java.util.Map"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.PreferenceValueUtil"%>
+<%
+Map templateMap = (Map)context.getVariable("args"); //$NON-NLS-1$
+List templatePaths = new ArrayList(templateMap.keySet());
+Collections.sort(templatePaths);
+%>
+<% 
+    for(Iterator i = templatePaths.iterator(); i.hasNext();){ 
+        String key = (String)i.next();
+        String value = (String)templateMap.get(key);
+%>
+<%= PreferenceValueUtil.encode(key) %> = <%= PreferenceValueUtil.encode(value) %>
+<% } %>

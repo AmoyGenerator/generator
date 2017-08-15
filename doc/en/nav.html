@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="robots" content="noindex,follow">
+	<script src="source/lib/jquery.js"></script>
+	<script src="source/lib/jquery-ui.custom.js"></script>
+
+	<link href="source/src/skin-win8/ui.fancytree.css" rel="stylesheet">
+	<script src="source/src/jquery.fancytree.js"></script>
+	<script src="source/sample.js"></script>
+	<title>Fancytree - Example Browser Nav</title>
+
+<style type="text/css">
+body {
+	background-color: #39414A;
+	color: white;
+	font-size: smaller;
+	background-image: url("nav_bg.png");
+	background-repeat: repeat-x;
+}
+div#tree {
+	position: absolute;
+	height: 95%;
+	width: 95%;
+	padding: 5px;
+	margin-right: 16px;
+}
+ul.fancytree-container {
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background-color: transparent;
+}
+span.fancytree-node span.fancytree-title {
+	color: white;
+	text-decoration: none;
+}
+span.fancytree-focused span.fancytree-title {
+	outline-color: white;
+}
+span.fancytree-node:hover span.fancytree-title,
+span.fancytree-active span.fancytree-title,
+span.fancytree-active.fancytree-focused span.fancytree-title,
+.fancytree-treefocus span.fancytree-title:hover,
+.fancytree-treefocus span.fancytree-active span.fancytree-title {
+	color: #39414A;
+}
+span.external span.fancytree-title:after {
+	content: "";
+	background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAFVBMVEVmmcwzmcyZzP8AZswAZv////////9E6giVAAAAB3RSTlP///////8AGksDRgAAADhJREFUGFcly0ESAEAEA0Ei6/9P3sEcVB8kmrwFyni0bOeyyDpy9JTLEaOhQq7Ongf5FeMhHS/4AVnsAZubxDVmAAAAAElFTkSuQmCC") 100% 50% no-repeat;
+	padding-right: 13px;
+}
+/* Remove system outline for focused container */
+.ui-fancytree.fancytree-container:focus {
+	outline: none;
+}
+.ui-fancytree.fancytree-container {
+	border: none;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	// --- Initialize sample trees
+	$("#tree").fancytree({
+		autoActivate: false, // we use scheduleAction()
+		autoCollapse: true,
+//			autoFocus: true,
+		autoScroll: true,
+		clickFolderMode: 4, // expand with single click
+		minExpandLevel: 1,
+		tabindex: "-1", // we don't want the focus frame
+		// toggleEffect: { effect: "blind", options: {direction: "vertical", scale: "box"}, duration: 2000 },
+		// scrollParent: null, // use $container
+		focus: function(event, data) {
+			var node = data.node;
+			// Auto-activate focused node after 1 second
+			if(node.data.href){
+				node.scheduleAction("activate", 1000);
+			}
+		},
+		blur: function(event, data) {
+			data.node.scheduleAction("cancel");
+		},
+		beforeActivate: function(event, data){
+			var node = data.node;
+
+			if( node.data.href && node.data.target === "_blank") {
+				window.open(node.data.href, "_blank");
+				return false; // don't activate
+			}
+		},
+		activate: function(event, data){
+			var node = data.node,
+				orgEvent = data.originalEvent || {};
+
+			// Open href (force new window if Ctrl is pressed)
+			if(node.data.href){
+				window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_blank" : node.data.target);
+			}
+			// When an external link was clicked, we don't want the node to become
+			// active. Also the URL fragment should not be changed
+			if( node.data.target === "_blank") {
+				return false;
+			}
+			// Append #HREF to URL without actually loading content
+			// (We check for this value on page load re-activate the node.)
+			if( window.parent &&  parent.history && parent.history.pushState ) {
+				parent.history.pushState({title: node.title}, "", "#" + (node.data.href || ""));
+			}
+		},
+		click: function(event, data){
+			// We implement this in the `click` event, because `activate` is not
+			// triggered if the node already was active.
+			// We want to allow re-loads by clicking again.
+			var node = data.node,
+				orgEvent = data.originalEvent;
+
+			// Open href (force new window if Ctrl is pressed)
+			if(node.isActive() && node.data.href){
+				window.open(node.data.href, (orgEvent.ctrlKey || orgEvent.metaKey) ? "_blank" : node.data.target);
+			}
+		}
+	});
+	// On page load, activate node if node.data.href matches the url#href
+	var tree = $(":ui-fancytree").fancytree("getTree"),
+		frameHash = window.parent && window.parent.location.hash;
+
+	if( frameHash ) {
+		frameHash = frameHash.replace("#", "");
+		tree.visit(function(n) {
+			if( n.data.href && n.data.href === frameHash ) {
+				n.setActive();
+				return false; // done: break traversal
+			}
+		});
+	}
+});
+
+</script>
+
+</head>
+
+<body>
+	<div id="tree">
+	<ul>
+	<li><a target="content" href="html/preface.html">Welcome</a>
+	<li><a target="content" href="html/install-and-uninstall.html">Install/Uninstall</a>
+	<li><a target="content" href="html/guide.html">Guide</a>
+	<li><a target="content" href="html/HelloJmr.html">First Example (Hello Jmr)</a>
+	<li class="folder"><a target="content" href="html/head-template.html">Template</a>
+		<ul>
+			<li><a target="content" href="html/template-preface.html">Overview</a>
+			<li class="folder"><a target="content" href="html/head-template-standard.html">Convention</a>
+				<ul>
+				<li><a target="content" href="html/template-name.html">Template Naming Conventions</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-template-instruction.html">Directive</a>
+				<ul>
+				<li><a target="content" href="html/template-compile.html">Compile</a>
+				<li><a target="content" href="html/template-import.html">Import</a>
+				<li><a target="content" href="html/template-comment.html">Comment</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-template-script.html">Script Tag</a>
+				<ul>
+				<li><a target="content" href="html/script-declare.html"><%! %> - Declaration</a>
+				<li><a target="content" href="html/script-script.html"><% %> - Script</a>
+				<li><a target="content" href="html/script-expression.html"><%= %> - Expression</a>
+				</ul>		
+			<li class="folder"><a target="content" href="html/head-template-script.html">Built-in Object</a>
+				<ul>
+				<li><a target="content" href="html/out.html">out - Print out</a>
+					<li class="folder"><a target="content" href="html/head-template-context.html">context - Context container</a>
+				    <ul>
+				    <li><a target="content" href="html/template-var.html">var - Template variable</a>
+		            <li><a target="content" href="html/template-session-var.html">sessionVar - Global variable</a>
+				    </ul>		
+				</ul>			    																		
+	     </ul>
+	<li class="folder"><a target="content" href="html/head-model.html">Model</a>
+		<ul>
+			<li class="folder"><a target="content" href="html/head-model-transform.html">Transform</a>
+				<ul>
+				<li><a target="content" href="html/model-db.html">Database</a>
+			    <li><a target="content" href="html/model-java.html">Java</a>
+				<li><a target="content" href="html/model-xml.html">Xml</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-model-structure.html">Model Structure</a>
+				<ul>
+				<li><a target="content" href="html/model-structure-entity.html">Entity(database、java class)</a>
+			        <ul>
+				    <li><a target="content" href="html/model-structure-property.html">Property</a>
+			        <li><a target="content" href="html/model-structure-field-column-data.html">Field, Column, Data</a>
+				    </ul>
+				<li><a target="content" href="html/model-structure-xml.html">Xml</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-model-init.html">Init Scheme</a>
+				<ul>
+				<li><a target="content" href="html/model-init-plan.html">Init</a>
+			    <li><a target="content" href="html/model-init-mapping.html">Mapping And Convert</a>  
+				</ul>
+		</ul>
+	<li class="folder"><a target="content" href="html/head-template-tag.html">Tag</a>
+		<ul>
+			<li class="folder"><a target="content" href="html/head-tag-entity.html">Model tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-entity.html">entity</a>
+			    <li><a target="content" href="html/tag-field.html">field</a>
+				<li><a target="content" href="html/tag-xml.html">xml</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-common.html">Common tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-get.html">get - Get variable</a>
+			    <li><a target="content" href="html/tag-set.html">set - Set variable</a>
+				<li><a target="content" href="html/tag-if.html">if - If statement</a>
+				<li><a target="content" href="html/tag-elseif.html">elseif - Elseif statement</a>
+				<li><a target="content" href="html/tag-else.html">else - Else statement</a>
+				<li><a target="content" href="html/tag-for.html">for - Iterate</a>
+				<li><a target="content" href="html/tag-delimiter.html">delimiter - Whether to output delimiter</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-xml.html">Xml tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-xml-get.html">xml:get - Get xml variable</a>
+			    <li><a target="content" href="html/tag-xml-set.html">xml:set - Set xml variable</a>
+				<li><a target="content" href="html/tag-xml-if.html">xml:if - If xml statement</a>
+				<li><a target="content" href="html/tag-xml-elseif.html">xml:elseif - Elseif xml statement</a>
+				<li><a target="content" href="html/tag-xml-else.html">xml:else - Else xml statement</a>
+				<li><a target="content" href="html/tag-xml-for.html">xml:for - Iterate xml</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-merge.html">Merge tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-insert.html">insert - Merge insert</a>
+			    <li><a target="content" href="html/tag-update.html">update - Merge update</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-include.html">Nest tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-include.html">include - Include template</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-format.html">Format tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-f.html">f - Format</a>
+			    <li><a target="content" href="html/tag-getf.html">getf - Format variable</a>
+				<li><a target="content" href="html/tag-ws.html">ws - Space</a>
+				<li><a target="content" href="html/tag-nl.html">nl - Newline</a>
+				<li><a target="content" href="html/tag-tab.html">tab - Tab</a>
+				<li><a target="content" href="html/tag-date.html">date - Format date</a>
+				<li><a target="content" href="html/tag-number.html">number - Format number</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-java.html">Java tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-java-package.html">java:package - Get java package</a>
+			    <li><a target="content" href="html/tag-java-class.html">java:class - Get java class</a>
+				</ul>
+			<li class="folder"><a target="content" href="html/head-tag-task.html">Task tag</a>
+				<ul>
+				<li><a target="content" href="html/tag-task-group.html">task:group - Group</a>
+			    <li><a target="content" href="html/tag-task-action.html">task:action - Action</a>
+				<li><a target="content" href="html/tag-task-template.html">task:template - Template Path</a>
+				<li><a target="content" href="html/tag-task-directory.html">task:directory - Generate file directory</a>
+				<li><a target="content" href="html/tag-task-name.html">task:name - Generate file name</a>
+				<li><a target="content" href="html/tag-task-ext.html">task:ext - Generate file extension</a>
+				<li><a target="content" href="html/tag-task-encoding.html">task:encoding - Generate file encoding</a>
+				<li><a target="content" href="html/tag-task-mode.html">task:mode - Generate mode</a>
+				</ul>
+			<li><a target="content" href="html/tag-collision.html">Tag collision</a>	
+	    </ul>						
+	<li class="folder"><a target="content" href="html/head-task.html">Task</a>
+		<ul>
+		   <li><a target="content" href="html/task-set.html">Configure</a>
+		   <li><a target="content" href="html/task-run.html">Run</a>
+		   <li><a target="content" href="html/task-merge.html">Merge</a>			
+	    </ul>
+	<li><a target="content" href="html/action.html">action</a>
+	<li class="folder"><a target="content" href="html/demo-java.html">Demo Project</a>
+		<ul>
+		   <li><a target="content" href="html/demo-java-model.html">Model</a>
+		   <li class="folder"><a target="content">Templates</a>
+		      <ul>
+		         <li><a target="content" href="html/demo-java-entity.html">entity</a>
+		         <li><a target="content" href="html/demo-java-hibernate.html">hibernate</a>
+		         <li><a target="content" href="html/demo-java-dao.html">dao</a>
+				 <li><a target="content" href="html/demo-java-daoImpl.html">daoImpl</a>	
+				 <li><a target="content" href="html/demo-java-service.html">service</a>	
+				 <li><a target="content" href="html/demo-java-serviceImpl.html">serviceImpl</a>	
+				 <li><a target="content" href="html/demo-java-spring.html">spring</a>	
+				 <li><a target="content" href="html/demo-java-action.html">action</a>	
+				 <li><a target="content" href="html/demo-java-struts.html">struts</a>	
+				 <li><a target="content" href="html/demo-java-menu.html">menu</a>	
+				 <li><a target="content" href="html/demo-java-view.html">view</a>	
+				 <li><a target="content" href="html/demo-java-add.html">add</a>
+				 <li><a target="content" href="html/demo-java-update.html">update</a>					 		
+	          </ul>			
+	    </ul>
+	<li><a target="content" href="html/question-and-answer.html">FAQ</a>												 
+	</div>
+</body>
+</html>

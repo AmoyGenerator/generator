@@ -1,0 +1,15 @@
+<%@jet package="translated" class="Elseif_txt"%>
+
+<xml var="xml" relation="xml"/>
+
+<xml:set var="book" select="$xml/bookstore/book[1]"/>
+
+<xml:if test="$book/price < 30">
+I want to buy Harry Potter.
+</xml:if>
+<xml:elseif test="$book/price < 40">
+I want to borrow Harry Potter.
+</xml:elseif>
+<xml:else>
+Change book to see.
+</xml:else>

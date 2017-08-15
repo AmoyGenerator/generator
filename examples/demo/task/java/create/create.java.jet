@@ -1,0 +1,33 @@
+<%@jet package="translated" class="Merge_java"%>
+package task.java.create;
+
+public class Employee extends Company implements IPerson{
+
+	private String name;
+	private int age;
+	private double salary;
+
+	public Employee(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
+	}
+
+    public Employee(String name, int age, double salary) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.salary = salary;
+	}
+
+	public void printEmployee(){
+      System.out.println("Name:"+ name );
+      System.out.println("Age:" + age );
+    }
+   
+    public void printEmployeeNew(){
+      System.out.println("Name:"+ name );
+      System.out.println("Age:" + age );
+      System.out.println("Salary:" + Math.round(salary));
+    }
+}

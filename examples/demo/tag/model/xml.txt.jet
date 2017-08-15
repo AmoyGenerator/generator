@@ -1,0 +1,11 @@
+<%@jet package="translated" class="Xml_txt"%>
+<xml var="xml"/>
+
+<xml:get select="$xml/bookstore/book[1]/title"/>
+
+<xml:set var="bookstore" select="$xml/bookstore"/>
+  
+<xml:for var="each" select="$bookstore/book">
+<xml:get select="$each/title"/>
+</xml:for>
+

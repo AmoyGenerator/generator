@@ -1,0 +1,10 @@
+#Sun Jul 09 17:17:57 CST 2017
+eclipse.preferences.version=1
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.JET2Platform.execute(java.lang.String_java.lang.Object_org.eclipse.core.runtime.IProgressMonitor).xml=utf-8
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.JET2Platform.execute(java.lang.String_java.lang.String_java.lang.String_org.eclipse.core.runtime.IProgressMonitor).xml=utf-8
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.JET2Platform.execute(java.lang.String_java.lang.String_org.eclipse.core.runtime.IProgressMonitor).xml=utf-8
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.JET2Platform.execute(java.lang.String_org.eclipse.core.resources.IResource_org.eclipse.core.runtime.IProgressMonitor).xml=utf-8
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.taglib.java.JavaImportsUtil.getImportManager(org.eclipse.jet.JET2Writer).xml=utf-8
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.taglib.workspace.ActionsUtil.checkpointWorkspace(boolean).xml=utf-8
+encoding//.deprecations/DEPRECATE_org.eclipse.jet.taglib.workspace.ActionsUtil.ensureProjectIsBuilt(org.eclipse.core.runtime.IProgressMonitor).xml=utf-8
+encoding//src/org/eclipse/jet/internal/l10n/JET2Messages.properties=8859_1

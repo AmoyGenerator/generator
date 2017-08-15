@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <!-- 配置邮件服务器 -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	<!-- SMTP服务器 -->
+	<property name="host">
+	     <value>${email.host}</value>
+	</property>
+	
+	<!-- 设置发送邮件的相关属性 -->
+	<property name="javaMailProperties">
+	    <props>
+	         <!-- 是否需要用户密码  -->
+	        <prop key="mail.smtp.auth">true</prop>
+	        <!-- 超时时间（单位：毫秒) -->
+	        <prop key="mail.smtp.timeout">25000</prop>
+	        <!-- gmail smtp server必须参数
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.smtp.prot">${email.port}</prop>
+            <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+            <prop key="mail.smtp.socketFactory.fallback">false</prop>
+	        <prop key="mail.smtp.socketFactory.port">${email.port}</prop> 
+	        -->
+	    </props>	
+	</property>
+	
+	<!-- 设置用户和密码 -->
+	<property name="username">
+	    <value>${email.username}</value>
+	</property>
+	
+	<property name="password">
+	    <value>${email.password}</value>
+	</property>
+	
+</bean>
+	
+
+</beans>

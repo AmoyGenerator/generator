@@ -1,0 +1,24 @@
+<%@jet package="translated" class="SessionVar_txt"%>
+<%@jet imports="java.util.List"%>
+<%@jet imports="java.util.ArrayList"%>
+
+<%
+  int a = (Integer)context.getVariable("a");
+  String b = (String)context.getVariable("b");
+  Double c = (Double)context.getSessionVariable("c");
+  List<Integer> list = (ArrayList<Integer>)context.getSessionVariable("list");
+%>
+
+<%=a%>
+<%=b%>
+<%=c%>
+<%for(int i : list){%>
+  <%=i%>
+<%}%>
+
+<get value='a'/>
+<get value='b'/>
+<get value='list' valueScope="session"/>
+<for var='e' value='list' valueScope="session">
+  <get value='e'/>
+</for>

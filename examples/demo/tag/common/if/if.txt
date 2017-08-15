@@ -1,0 +1,21 @@
+
+   Congratulations, you passed!
+
+   Harry Potter: 40.5
+   Sherlock Holmes: 55.25
+   The history of Europe: 63.65
+
+
+   Knowledge makes humble.
+
+   String use "==" is equal
+   String use equals method also equal 
+
+
+All for 
+           one
+        , one for 
+                         all
+                       .
+
+All for one, one for all.

@@ -1,0 +1,20 @@
+<%@jet package="translated" class="Declare_txt"%>
+ 
+<%! private int id = 101; %>
+<%! public final String name = "Harry Potter"; %>
+<%!
+    public double price = 20;   
+    public String author = "Rowling";
+    
+    public String printTitle(){
+    
+       return "---------- book message ----------";
+    }  
+%>
+
+<%=printTitle()%>
+ 
+id:<%=id%>
+name:<%=name%>
+price:<%=price%>
+author:<%=author%>

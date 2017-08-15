@@ -1,0 +1,5 @@
+<%@jet package="translated" class="Trim_txt"%>
+<set var="song" value='"  Baby I Love You!  "'/>
+
+<get value='song'/>
+<get value='song' trim="true"/>

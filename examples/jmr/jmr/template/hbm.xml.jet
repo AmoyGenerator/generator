@@ -1,0 +1,24 @@
+<%@jet package="translated" class="Hbm_xml"%>
+<entity var="object"/>
+<set var="table" value='object.name'/>
+<set var="Class" value='object.property("Class")'/>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.jmr.entity">
+	<class name="<get value="Class"/>" table="<get value="table"/>">
+	<for var="field" value="object.fields">
+	  <if test='field.isPk == true'>
+	  <id name="<get value="field.name"/>" type="<get value="field.fullType"/>">
+		<column name="<get value="field.name"/>" />
+		<generator class="identity" />
+	  </id>
+	  </if>
+	  <else>
+      <property name="<get value="field.name"/>" type="<get value="field.fullType"/>">
+		<column name="<get value="field.id"/>" />
+	  </property>
+      </else>
+	</for>
+	</class>
+</hibernate-mapping>

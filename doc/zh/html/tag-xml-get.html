@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>tag-xml-get</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">xml:get - 获取xml变量</div></h1>
+<p>&lt;xml:get&gt;</p>
+<pre>
+得到xml变量值
+</pre>
+<h4>说明</h4>
+<pre>
+使用Xpath表达式得到xml的值
+</pre>
+<h4>属性</h4>
+<pre>
+<b>select（必须）</b>
+使用Xpath表达式得到Xml的值
+</pre>
+<pre>
+<b>value（可选）</b>
+得到变量值，也可以得到变量相关的Ognl值
+</pre>
+<pre>
+<b>valueScope（可选）</b>
+变量的作用域
+
+<b>属性</b>
+context:从context中得到变量（默认）
+session:从session中得到变量
+</pre>
+<pre>
+<b>case（可选）</b>
+字符串大小写转换，可以使用“|”包含多个操作，如 lower|plural
+
+<b>属性</b>
+lr:字符串转成小写（同lower）
+ur:字符串转成大写（同upper）
+hlr:头字母转成小写（同headLower）
+hur:头字母转成大写（同headUpper）
+lower:字符串转成小写
+upper:字符串转成大写
+headLower:头字母转成小写
+headUpper:头字母转成大写
+plural:复数格式
+singular:单数格式
+</pre>
+<pre>
+<b>trim（可选）</b>
+是否保留输出值的前后空白字符
+
+<b>属性</b>
+false:保留输出值的前后空白字符（默认）
+true:删除输出值的前后空格（包括换行符）
+</pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 xml/get/get</li>
+</ul>
+<h2>使用方法</h2>
+<p>在select属性中，使用Xpath表达式得到xml的值。</p>
+<p>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历。</p>
+<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/">Xpath教程</a>。</p>
+<pre>这是一个xml文件</pre>
+<p><img src="image/tag_xml_add1.png" /></p>
+<p>我们将它添加到我们的模型后。</p>
+<p><img src="image/tag_xml_add2.png" /> </p>
+<p>(添加Xml模型的方法请参考：<a href="model-xml.html">转换xml模型</a>)</p>
+<p>在模板中，我们选择这个模型，以便我们在模板中能提示出对应的内容。</p>
+<p>如果选的只是模型组，则xml标签需要指定relation</p>
+<p><img src="image/tag_xml_add5.png" /></p>
+<p><img src="image/tag_xml_add4.png" /></p>
+<p>如果选的是模型，则xml标签不需要指定relation</p>
+<p><img src="image/tag_xml_add3.png" /></p>
+<p><img src="image/tag_xml_add6.png" /></p>
+<p>关于Xml标签的使用方法请参考：<a href="tag-xml.html">xml标签</a></p>
+<p>然后我们使用select属性输出以下几个属性，select属性必须以$开头+Xpath表达式的格式。</p>
+<p><img src="image/tag_xml_get2.png" /></p>
+<ul>
+<li>xml/bookstore/book[1]/title：第一个book节点的title节点值</li>
+<li>xml/bookstore/book/title[@lang='eng']：包含属性lang='eng'的title节点的值</li>
+<li>xml/bookstore/book[price&gt;35.00]/price：price&gt;35.00的price节点的值</li>
+</ul>
+<pre>
+输出结果
+</pre>
+<p><img src="image/tag_xml_get3.png" /></p>
+<pre>
+小贴士：我们在select中输入内容时，可以提到出xml的结构，还可以查看它们的内容。
+</pre>
+<p><img src="image/tag_xml_tip1.png" /></p>
+<h2>case和trim的使用方法</h2>
+<ul>
+<li>case：对得到的值进行大小写和单复数转换。  </li>
+<li>trim：判断是否保留输出值的前后空白字符，默认false，也就是说原样输出所有字符。</li>
+</ul>
+<p>此例中，我们得到book2的title值，它的值是&quot; Learning XML &quot;，前后都有空格。我们做以下操作：</p>
+<ul>
+<li>原样输出</li>
+<li>转成小写</li>
+<li>去掉前后空白符</li>
+</ul>
+<p><img src="image/tag_xml_get4.png" /></p>
+<pre>
+输出结果
+</pre>
+<p><img src="image/tag_xml_get5.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

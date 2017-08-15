@@ -1,0 +1,30 @@
+<%@jet package="translated" class="Merge_java"%>
+package task.java.merge;
+
+import task.java.University;
+import task.java.IPerson;
+
+public class Employee extends University implements IPerson{
+
+	public String name;
+	private int age = 25;
+	private double salary = 3000;
+
+    private Employee(String name, int age, double salary) throws Exception {
+		super();
+		this.name = name;
+		this.age = age;
+		this.salary = salary;
+	}
+   
+	public String printEmployee(String title) {
+      System.out.println("News:" + news);
+      <insert id="print1">
+      System.out.println("Name:" + name);
+	  System.out.println("Age:" + age );
+      </insert>
+      <update id="print2">
+      System.out.println("Salary:" + Math.round(salary));
+      </update>
+	}
+}

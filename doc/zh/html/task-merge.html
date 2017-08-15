@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>task-merge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">合并</div></h1>
+<hr />
+<h3>目录:</h3>
+<ul>
+<li><a href="#1">前言</a></li>
+<li>
+<a href="#2">文件的通用合并</a> 
+<ul>
+<li><a href="#3">插入式合并：insert</a></li>
+<li><a href="#4">更新式合并：update</a>  
+</li>
+</ul>
+</li>
+<li>
+<a href="#5">Java的合并</a>
+<ul>
+<li><a href="#6">创建：@create @create include{} @create exclude{}</a></li>
+<li>
+<a href="#7">合并：@merge、@merge all、@merge include{}、@merge exclude{}</a>
+<ul>
+<li><a href="#8">body可使用通用的合并方式</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/task/merge.jmr.xml 任务中的 task</li>
+</ul>
+<hr />
+<h2><span id="1">前言</span></h2>
+<p>我们知道，任务有3种模式，新建、合并和覆盖。新建和覆盖都很好理解，新建是文件不存在时执行任务会生成新的文件，覆盖是文件已经存在了，重新生成替换掉之前的内容。而合并，则是需要遵循一定的规则。</p>
+<p>合并目前分成2类，一类是文件的合并，另一类是Java的合并，Java是文件的特例。</p>
+<h2><span id="2">文件的通用合并</span></h2>
+<p>任何文本类型的文件，都可以通过简单的2种方式运行合并操作：</p>
+<ul>
+<li>插入式合并：在标记位置的末尾插入新的内容。</li>
+<li>更新式合并：替换标记位置的所有内容。</li>
+</ul>
+<h2><span id="3">插入式合并：insert</span></h2>
+<ul>
+<li>标记开始符：insert_start id=&quot;...&quot;</li>
+<li>标记结束符：insert_end</li>
+<li>可以使用&lt;insert&gt;标签作用相同</li>
+</ul>
+<p>合并演示：</p>
+<pre>
+模版中：
+insert_start id="..."             &lt;insert id="..."&gt;
+  ..(2)..                或者        ..(2)..
+insert_end                        &lt;/insert&gt;
+
+文件合并位置同样id的部分：
+//insert_start id="..."
+  ..(1)..
+//insert_end
+
+合并后：
+//insert_start id="..."
+  ..(1)..
+  ..(2)..
+//insert_end
+</pre>
+<p>不管是在模板还是Java或者各种类型的文件，都是以这2个符号作为识别标识的。
+只不过在不同的文件中，我们可以使用一些注释符号，避免语法错误。</p>
+<p>比如在Java中，我们可以用//或者//TODO。我们输入insert，可以出现提示</p>
+<p><img src="image/task-merge24.png" /></p>
+<p><img src="image/task-merge25.png" /></p>
+<p><img src="image/task-merge26.png" /></p>
+<p>在其它文件中，比如xml或者html、jsp等，可以使用&lt;!-- --&gt;；输入insert，可以出现提示。</p>
+<p><img src="image/task-merge27.png" /></p>
+<p><img src="image/task-merge28.png" /></p>
+<pre>
+例子：在菜单栏中插入新的链接。
+</pre>
+<p><img src="image/task-merge34.png" /></p>
+<p>在模板中，除了用标记符外，还可以使用&lt;insert&gt;标签，效果一样。</p>
+<p><img src="image/task-merge35.png" /></p>
+<p>常用insert的地方如struts、spring配置文件注册bean、action，菜单栏注册新链接等。
+实战用例请阅读：</p>
+<ul>
+<li><a href="demo-java-spring.html">spring注册bean</a></li>
+<li><a href="demo-java-struts.html">struts注册action</a></li>
+<li><a href="demo-java-menu.html">menu注册链接</a></li>
+</ul>
+<h2><span id="4">更新式合并：update</span></h2>
+<ul>
+<li>标记开始符：update_start id=&quot;...&quot;</li>
+<li>标记结束符：update_end</li>
+<li>可以使用&lt;update&gt;标签作用相同</li>
+</ul>
+<p>合并演示：</p>
+<pre>
+模版中：
+update_start id="..."             &lt;update id="..."&gt;
+  ..(2)..                或者        ..(2)..
+update_end                        &lt;/update&gt;
+
+文件合并位置同样id的部分：
+//update_start id="..."
+  ..(1)..
+//update_end
+
+合并后：
+//update_start id="..."
+  ..(2)..
+//update_end
+</pre>
+<p>不管是在模板还是Java或者各种类型的文件，都是以这2个符号作为识别标识的。
+只不过在不同的文件中，我们可以加入一些符号，避免语法错误。</p>
+<p>比如在Java中，我们可以用//或者//TODO。我们输入update，可以出现提示</p>
+<p><img src="image/task-merge29.png" /></p>
+<p><img src="image/task-merge30.png" /></p>
+<p><img src="image/task-merge31.png" /></p>
+<p>在其它文件中，比如xml或者html、jsp等，可以使用&lt;!-- --&gt;；输入insert，可以出现提示。</p>
+<p><img src="image/task-merge32.png" /></p>
+<p><img src="image/task-merge33.png" /></p>
+<pre>
+例子：在菜单栏中更新链接。
+</pre>
+<p><img src="image/task-merge36.png" /></p>
+<p>在模板中，除了用标记符外，还可以使用&lt;update&gt;标签，效果一样。</p>
+<p><img src="image/task-merge37.png" /></p>
+<h2><span id="5">Java的合并</span></h2>
+<p>Java的合并是粗细粒度可以控制的系统，通过在多行注释中使用@tag。同时，方法体中也可以使用通用的insert、update合并，合并的标识有2种</p>
+<ul>
+<li>
+<p>@create：在模板中有的新属性（field）、新构造方法（constructor）、新方法（method）后，添加到Java类中。</p>
+</li>
+<li>
+<p>@merge：在模版中被改变的类(class)、属性(field)、构造方法（constructor）、方法（method），同步更新到Java类中。</p>
+</li>
+</ul>
+<p>本章后续会用到的术语说明</p>
+<ul>
+<li>package：包名声明。</li>
+<li>import：导入声明。</li>
+<li>flag：public、protected、private或者不填（不填为protected）。</li>
+<li>className：类名或接口名。</li>
+<li>superClass：父类声明。</li>
+<li>superInterface：父接口声明。</li>
+<li>field：类的属性。</li>
+<li>type：属性的类型。</li>
+<li>initializer：属性的初始化值。</li>
+<li>constructor：构造方法。</li>
+<li>method：方法。</li>
+<li>returnType：返回类型（可以为void）。</li>
+<li>parameter：构造方法或者方法的参数声明。</li>
+<li>exception：异常抛出声明。</li>
+<li>body：构造方法或者方法的方法体。</li>
+</ul>
+<p><img src="image/task-merge1.png" /></p>
+<h3><span id="6">创建：@create @create include{} @create exclude{}</span></h3>
+<ul>
+<li>
+<p>@create：默认的结构都会被添加，属性（field）、构造方法（constructor）、方法（method）都是默认结构；合并时都会被添加。</p>
+</li>
+<li>
+<p>@create include{}：只有包含的结构才会添加。</p>
+</li>
+<li>
+<p>@create exclude{}：与include相反，只有排除的结构才不会添加。</p>
+</li>
+</ul>
+<pre>
+如何得到提示：
+</pre>
+<p>在类的多行注释中，输入@可以提示出来。</p>
+<p><img src="image/task-merge2.png" /></p>
+<p>在@create include{}中按提示键可以提示出属性</p>
+<p><img src="image/task-merge12.png" /></p>
+<p>在@create exclude{}中按提示键可以提示出属性</p>
+<p><img src="image/task-merge13.png" /></p>
+<pre>
+@create例子：可以看到所有结构都被添加。
+</pre>
+<p><img src="image/task-merge3.png" /></p>
+<pre>
+@create include{}例子：可以看到只有属性（field）被添加。
+</pre>
+<p><img src="image/task-merge8.png" /></p>
+<pre>
+@create exclude{}例子：可以看到只有属性（field）没被添加。
+</pre>
+<p><img src="image/task-merge10.png" /></p>
+<h3><span id="7">合并：@merge、@merge all、@merge include{}、@merge exclude{}</span></h3>
+<ul>
+<li>
+<p>@merge：合并类、属性、构造方法、方法的结构。</p>
+</li>
+<li>
+<p>@merge include{}：只有包含的结构才会合并。</p>
+</li>
+<li>
+<p>@merge exclude{}：与include相反，只有排除的结构才不会合并。</p>
+</li>
+</ul>
+<p>类的合并结构：package、import、flag、className、superClass、superInterface。</p>
+<p><img src="image/task-merge14.png" /></p>
+<p>属性（field）的合并结构：flag, type, initializer。</p>
+<p><img src="image/task-merge15.png" /></p>
+<p>构造方法（constructor）的合并结构：flag、parameter、exception、body。</p>
+<p><img src="image/task-merge16.png" /></p>
+<p>方法（method）的合并结构：flag、returnType、parameter、exception、body。</p>
+<p><img src="image/task-merge17.png" /></p>
+<pre>
+如何得到提示：
+</pre>
+<p>在类、属性、构造方法、方法的多行注释中，输入@可以提示出来。</p>
+<p><img src="image/task-merge18.png" /></p>
+<p>在@merge include{}中按提示键可以提示出属性，每个结构属性都不同。</p>
+<p><img src="image/task-merge19.png" /></p>
+<p>在@merge exclude{}中按提示键可以提示出属性，每个结构属性都不同</p>
+<p><img src="image/task-merge20.png" /></p>
+<pre>
+@merge例子：可以看到所有结构都被合并。
+</pre>
+<p><img src="image/task-merge21.png" /></p>
+<pre>
+@merge include{}例子：可以看到模版中改了flag、parameter、exception、returnType、body，
+但只有parameter、expection、body合并了，flag和exception没有变化。
+</pre>
+<p><img src="image/task-merge22.png" /></p>
+<pre>
+@merge exclude{}例子：可以看到模版中改了flag、parameter、exception、returnType、body，
+但只有flag和exception合并了，parameter、expection、body没有变化。
+</pre>
+<p><img src="image/task-merge23.png" /></p>
+<h2><span id="8">body可使用通用的合并方式</span></h2>
+<p>Java类和接口的合并除了使用@create和@merge外，构造方法和方法的方法体（body）中，还可以使用insert和update的方式。</p>
+<p><img src="image/task-merge38.png" /></p>
+<p>如果方法的注释中有@merge，原本会把方法体（body）全部合并，但是如果有insert、update的合并时，body的合并将会无效。</p>
+<p>不过更好的建议是，如果既要使用@merge，又要在方法体中使用insert、update，最好写成@merge exclude{body}。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

@@ -1,0 +1,82 @@
+
+
+
+
+
+<html>
+<head>
+<title>故宮文物數位學習網 - 課程類別樹狀結構</title>
+<meta http-equiv="Content-Type" content="text/html;">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<script language="JavaScript" type="text/javascript" src="ua.js"></script>
+<script language="JavaScript" type="text/javascript" src="ftiens4.js"></script>
+<script language="JavaScript">
+<!--
+  function setData(classId,name) {
+      window.opener.document.CourseInfoForm.ClassId.value = classId;
+      window.opener.document.CourseInfoForm.ClassName.value = name;
+
+  }
+
+  function clearData() {
+      window.opener.document.CourseInfoForm.ClassId.value = "";
+      window.opener.document.CourseInfoForm.ClassName.value = "";
+  }
+
+  function ok() {
+      top.w.focus();
+      top.window.close();
+  }
+
+  function cancel() {
+      clearData();
+      ok();
+  }
+//-->
+</script>
+</head>
+<body>
+      <!--*****************************************************************************************************-->
+            <p>請點選適合之課程類別，並確定資料有回傳至課程視窗中。</p>
+
+            <p><a style="font-size:7pt;text-decoration:none;color:silver" href=http://www.treeview.net/treemenu/userhelp.asp target=_top></a>
+            </p>
+            <p>
+              <script language="JavaScript1.2">
+// You can find instructions for this file at http://www.treeview.net
+//Environment variables are usually set at the top of this file.
+USETEXTLINKS = 1
+STARTALLOPEN = 1
+USEFRAMES = 0
+USEICONS = 0
+ICONPATH = ''
+WRAPTEXT = 1
+PERSERVESTATE = 1
+HIGHLIGHT = 1
+HIGHLIGHT_BG = '#7D007D'
+
+foldersTree = gFld("<b>課程類別樹狀結構</b>", "")
+//Set this string if Treeview and other configuration files may also be loaded in the same request
+
+            tree1 = insFld(foldersTree,gFld("ccc","javascript:setData(1, 'ccc')"))
+            
+            tree2 = insFld(foldersTree,gFld("bbb","javascript:setData(2, 'bbb')"))
+            
+            tree4 = insFld(foldersTree,gFld("中文類別",""))
+            
+            tree6 = insFld(foldersTree,gFld("測試0908","javascript:setData(6, '測試0908')"))
+            
+            tree5 = insFld(tree4,gFld("中文子類別","javascript:setData(5, '中文子類別')"))
+            
+    foldersTree.treeID = "t2"
+</script>
+              <script>initializeDocument()</script>
+            </p>
+<p align = "center"><a href="javascript:clearData();">清除資料</a></p>
+<p align = "center"><a href="javascript:window.close();">關閉視窗</a></p>
+      <!--*****************************************************************************************************-->
+
+</body>
+</html>
+

@@ -1,0 +1,207 @@
+<%@jet package="org.eclipse.jet.internal.compiler.templates.v2" 
+               class="JET2JavaGeneratorNew" 
+               %>
+<%@jet imports="org.eclipse.jet.core.parser.ast.*"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.V2CodeGenVisitor"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.HasNewlinesUtil"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.TagUsageVisitor"%>
+<%@jet imports="org.eclipse.jet.taglib.TagLibraryReference"%>
+<%@jet imports="java.util.Arrays"%>
+<%@jet imports="java.util.Comparator"%>
+<%@jet imports="java.util.Iterator"%>
+<%@jet imports="org.eclipse.jet.internal.JavaUtil"%>
+<%
+    JETCompilationUnit cu = (JETCompilationUnit)context.getVariable("cu"); //$NON-NLS-1$
+    TagUsageVisitor tuv = new TagUsageVisitor();
+    cu.accept(tuv);
+    TagLibraryReference[] tlrefs = tuv.getUsedTagLibraryReferences(cu);
+    Arrays.sort(tlrefs, new Comparator() {
+       public int compare(Object o1, Object o2) {
+          return ((TagLibraryReference)o1).getTagLibraryId().compareTo(((TagLibraryReference)o2).getTagLibraryId());
+       }
+    });
+    final String nlConstantName = "NL"; //$NON-NLS-1$
+%>
+<%cu.accept(new V2CodeGenVisitor(context,out, "") { //$NON-NLS-1$ 
+    public boolean visit(Comment comment) {
+        final String text = comment.getCommentText();
+        final String leadIn = " * "; //$NON-NLS-1$
+        if(isHeaderComment(text)) {
+%>
+/*
+<% out.write(formatComment(text, leadIn)) ;%>
+ */
+<%
+        }
+        return true;
+    }
+});
+%>
+package <%= cu.getOutputJavaPackage() %>;
+
+import org.eclipse.jet.JET2Context;
+import org.eclipse.jet.JET2Template;
+import org.eclipse.jet.JET2Writer;
+<% if(tuv.hasTags()) { %>
+import org.eclipse.jet.taglib.RuntimeTagElement;
+import org.eclipse.jet.taglib.TagInfo;
+<% } %>
+<% for(Iterator i=cu.getImports().iterator();i.hasNext();) { %>
+import <%= (String)i.next() %>;
+<% } %>
+
+<%cu.accept(new V2CodeGenVisitor(context,out, "") { //$NON-NLS-1$ 
+    public boolean visit(Comment comment) {
+        final String text = comment.getCommentText();
+        final String leadIn = " * "; //$NON-NLS-1$
+        if(isClassComment(text)) {
+%>
+/**
+<% out.write(formatComment(text, leadIn)) ;%>
+ */
+<%
+        }
+        return true;
+    }
+});
+%>
+public class <%= cu.getOutputJavaClassName() %> implements JET2Template {
+<%    for(int i = 0; i < tlrefs.length; i++ ) { %>
+    private static final String _jetns_<%= tlrefs[i].getPrefix() %> = "<%= tlrefs[i].getTagLibraryId() %>"; //$NON-NLS-1$
+<%    } %>
+
+<% cu.accept(new V2CodeGenVisitor(context,out) {
+      public boolean visit(JavaDeclaration decl) {
+%>
+    <% writeAndRecord(decl); %>
+
+<%
+        return true;
+      }
+   });
+%>
+    public <%= cu.getOutputJavaClassName() %>() {
+        super();
+    }
+<% if(HasNewlinesUtil.test(cu)) { %>
+
+    private static final String <%=nlConstantName%> = System.getProperty("line.separator"); //$NON-NLS-1$
+<% } %>
+<% if(tuv.hasTags()) { %>
+    
+<% cu.accept(new V2CodeGenVisitor(context,out, "    ") { //$NON-NLS-1$
+      public boolean visit(XMLBodyElement e) {
+          doElementVisit(e);
+          return true;
+      }
+      public boolean visit(XMLEmptyElement e) {
+          doElementVisit(e);
+          return true;
+      }
+      public void doElementVisit(XMLElement e) {
+%>
+    private static final TagInfo _td_<%= tagInfoVar(e) %> = new TagInfo("<%=e.getName()%>", //$NON-NLS-1$
+            <%= e.getLine() %>, <%= e.getColumn() %>,
+            new String[] {
+<%          for (Iterator i = e.getAttributes().keySet().iterator(); i.hasNext();) { %>
+                "<%= (String) i.next() %>", //$NON-NLS-1$
+<%          } %>
+            },
+            new String[] {
+<%          for (Iterator i = e.getAttributes().values().iterator(); i.hasNext();) { 
+                String attrValue = (String) i.next(); %>
+                "<%= JavaUtil.escapeJavaString(attrValue.toCharArray()) %>", //$NON-NLS-1$
+<%          } %>
+            } );
+<%    } 
+   }); %>
+<% } %>
+
+    public void generate(final JET2Context context, final JET2Writer __out) {
+        JET2Writer out = __out;
+<% cu.accept(new V2CodeGenVisitor(context,out, "    ") { //$NON-NLS-1$
+    public boolean visit(TextElement text) {
+        if(text.getText().length > 0) {
+            String[] strings = textConstants(text, nlConstantName);
+            for(int i = 0; i < strings.length; i++) {
+%>
+        out.write(<%=strings[i]%>); <% if(strings[i].startsWith("\"")) { //$NON-NLS-1$ %> //$NON-NLS-1$<%}%>        
+<%
+            }
+        }
+        return true;
+      }
+      public boolean visit(JavaScriptlet scriptlet) {
+%>
+        <% writeAndRecord(scriptlet); %>
+
+<%
+          return true;
+      }
+      public boolean visit(JavaExpression expr) {
+%>
+        out.write(<% writeAndRecord(expr); %>);
+<%
+          return true;
+      }
+      public boolean visit(EmbeddedExpression expr) {
+%>
+        out.write(context.embeddedExpressionAsString(<%= JavaUtil.asJavaQuotedString(expr.getExpression().toCharArray()) %>, <%= expr.getLine() %>, <%= expr.getColumn()%>)); //$NON-NLS-1$ //$NON-NLS-2$
+<%
+          return true;
+      }
+      public boolean visit(XMLBodyElement e) {
+%>
+        RuntimeTagElement <%= tagVar(e) %> = context.getTagFactory().createRuntimeTag(_jetns_<%= e.getNSPrefix() %>, "<%= e.getTagNCName() %>", "<%= e.getName() %>", _td_<%= tagInfoVar(e) %>); //$NON-NLS-1$ //$NON-NLS-2$
+        <%= tagVar(e) %>.setRuntimeParent(<%= parentTagVar(e) %>);
+        <%= tagVar(e) %>.setTagInfo(_td_<%= tagInfoVar(e) %>);
+        <%= tagVar(e) %>.doStart(context, out);
+<% if(requiresOwnWriter(e)) { %>
+        JET2Writer <%= tagVar(e) %>_saved_out = out;
+<% } %>
+        while (<%= tagVar(e) %>.okToProcessBody()) {
+<% if(requiresOwnWriter(e)) { %>
+            out = out.newNestedContentWriter();
+<% } %>
+<%
+          in();
+          return true;
+      }
+      public void endVisit(XMLBodyElement e) {
+          out();
+%>
+            <%= tagVar(e) %>.handleBodyContent(out);
+        }
+<% if(requiresOwnWriter(e)) { %>
+        out = <%= tagVar(e) %>_saved_out;
+<%  } %>
+        <%= tagVar(e) %>.doEnd();
+<%
+ 
+      }
+      public boolean visit(XMLEmptyElement e) {
+%>
+        RuntimeTagElement <%= tagVar(e) %> = context.getTagFactory().createRuntimeTag(_jetns_<%= e.getNSPrefix() %>, "<%= e.getTagNCName() %>", "<%= e.getName() %>", _td_<%= tagInfoVar(e) %>); //$NON-NLS-1$ //$NON-NLS-2$
+        <%= tagVar(e) %>.setRuntimeParent(<%= parentTagVar(e) %>);
+        <%= tagVar(e) %>.setTagInfo(_td_<%= tagInfoVar(e) %>);
+        <%= tagVar(e) %>.doStart(context, out);
+        <%= tagVar(e) %>.doEnd();
+<%
+          return true;
+      }
+  %>
+ <%
+      public boolean visit(Comment comment) {
+        final String text = comment.getCommentText();
+        final String leadIn = "        //";  //$NON-NLS-1$
+        if(isNormalComment(text)) {
+			out.write(formatComment(text, leadIn)) ;
+         }
+          return true;
+      }
+  %>
+<%
+   });
+%>
+    }
+}

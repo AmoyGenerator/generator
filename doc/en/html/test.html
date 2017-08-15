@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>模仿树形菜单效果的导航菜单</title>
+<style type="text/css">
+<!--
+a:link, a:visited {
+	text-decoration: none;
+	color: #666666
+}
+a:hover {
+	text-decoration: underline
+}
+#hor1 {
+	position:absolute;
+	left:320px;
+	top:20px;
+	width:220px;
+	height:20px;
+	z-index:1;
+	background-color: #999900;
+}
+#hor2 {
+	position:absolute;
+	left:320px;
+	top:40px;
+	width:220px;
+	height:20px;
+	z-index:2;
+	background-color: #FFCC00;
+}
+#hor3 {
+	position:absolute;
+	left:320px;
+	top:60px;
+	width:220px;
+	height:20px;
+	z-index:3;
+	background-color: #99CC00;
+}
+#board1 {
+	position:absolute;
+	left:320px;
+	top:40px;
+	width:220px;
+	height:120px;
+	z-index:-100;
+	background-color: #333333;
+	visibility: hidden;
+}
+body, td, th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+body {
+	background-color: #666666;
+}
+#board2 {
+	position:absolute;
+	left:320px;
+	top:60px;
+	width:220px;
+	height:120px;
+	z-index:-90;
+	background-color: #333333;
+	visibility: hidden;
+}
+#board3 {
+	position:absolute;
+	width:220px;
+	height:120px;
+	z-index:-80;
+	left: 320px;
+	top: 80px;
+	background-color: #333333;
+	visibility: hidden;
+}
+#hor4 {
+	position:absolute;
+	left:320px;
+	top:80px;
+	width:220px;
+	height:20px;
+	z-index:4;
+	background-color: #99CCCC;
+}
+#board4 {
+	position:absolute;
+	left:320px;
+	top:100px;
+	width:220px;
+	height:100px;
+	z-index:-70;
+	background-color: #333333;
+	visibility: hidden;
+}
+-->
+</style>
+<script type="text/javascript">
+var curr=0;//全局变量
+lastNo=0
+function re(menu_no){
+if(lastNo!=menu_no){
+cur=menu_no+1
+lastNo=menu_no
+rest()
+}else{
+cur=100
+}
+document.getElementById("board"+menu_no).style.visibility="visible"
+}
+function rest(){
+for(i=1;i<=4;i++){
+document.getElementById("hor"+i).style.top=20*i;
+document.getElementById("board"+i).style.visibility="hidden"
+}
+menu_num=4;
+act=1
+height=120+20
+speed=0;
+posY=0;
+}
+function huke(){
+if(act==1&&cur<100){
+speed=(height-posY)*1+speed*1
+posY+=speed
+for(i=cur;i<=menu_num;i++){
+document.getElementById("hor"+i).style.top=posY+(i-2)*20
+}
+if(Math.abs(height-posY)<0.5){
+for(i=cur;i<=menu_num;i++){
+document.getElementById("hor"+i).style.top=height+(i-2)*20
+}
+act=0
+}
+setTimeout("huke()",50)
+}
+}
+
+</script>
+</head>
+<body>
+<div id="hor1" onmouseover="if (curr!=1){curr=1;re(1);huke()}">热搜</div>
+<div id="hor2" onmouseover="if (curr!=2){curr=2;re(2);huke()}">地方</div>
+<div id="hor3" onmouseover="if (curr!=3){curr=3;re(3);huke()}">新闻</div>
+<div id="hor4" onmouseover="if (curr!=4){curr=4;re(4);huke()}">论坛</div>
+<div id="board1">
+  <ul>
+    <li><a href="#">江南style</a></li>
+    <li><a href="#">奥巴马精选style</a></li>
+    <li><a href="#">12306 style</a></li>
+    <li><a href="#">凹凸曼style</a></li>
+    <li><a href="#">程序员style</a></li>
+  </ul>
+</div>
+<div id="board2">
+  <ul>
+    <li><a href="#">广东</a></li>
+    <li><a href="#">上海</a></li>
+    <li><a href="#">河南</a></li>
+    <li><a href="#">北京</a></li>
+    <li><a href="#">浙江</a></li>
+  </ul>
+</div>
+<div id="board3">
+  <ul>
+    <li><a href="#">国际新闻</a></li>
+    <li><a href="#">国内新闻</a></li>
+    <li><a href="#">娱乐新闻</a></li>
+    <li><a href="#">财经新闻</a></li>
+    <li><a href="#">体育新闻</a></li>
+  </ul>
+</div>
+<div id="board4">
+  <ul>
+    <li><a href="#">游戏论坛</a></li>
+    <li><a href="#">安卓论坛</a></li>
+    <li><a href="#">新浪论坛</a></li>
+    <li><a href="#">网易论坛</a></li>
+    <li><a href="#">天涯论坛</a></li>
+  </ul>
+</div>
+</body>
+</html>

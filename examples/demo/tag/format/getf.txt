@@ -1,0 +1,11 @@
+345.678
+Hello Jmr!
+6
+double:345.678
+String:Hello Jmr!
+int:6
+
+double:345.678
+String:Hello Jmr!
+int:6
+

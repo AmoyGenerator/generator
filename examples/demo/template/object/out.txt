@@ -1,0 +1,14 @@
+Hello Jmr!
+true
+false
+99.0
+c
+abc
+1
+1
+3.141592
+3.141592
+3.14
+3.14
+java.lang.Object@bd053f
+Tue Jul 04 16:14:42 CST 2017

@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>demo-java-view</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">view(view.jsp.jet) - Generate the query page</div></h1>
+<h2>Introduce</h2>
+<p>Generate the query page.</p>
+<h2>Related knowledge:</h2>
+<h4>Task</h4>
+<ul>
+<li><a href="task-set.html">Configure</a></li>
+</ul>
+<h4>Model</h4>
+<ul>
+<li><a href="head-model-structure.html">Model Structure</a></li>
+</ul>
+<h4>Tag</h4>
+<ul>
+<li><a href="tag-entity.html">entity</a></li>
+<li><a href="tag-set.html">set</a></li>
+<li><a href="tag-get.html">get</a></li>
+<li><a href="tag-for.html">for</a></li>
+<li><a href="tag-if.html">if</a></li>
+<li><a href="tag-elseif.html">elseif</a></li>
+<li><a href="tag-else.html">else</a></li>
+</ul>
+<hr />
+<h2>Task And Model</h2>
+<p><img src="image/demo-java-view-task.png" /></p>
+<ul>
+<li>Model Group: shop</li>
+<li>Model: book</li>
+</ul>
+<pre>
+The model group of the current task is shop, 
+which contain a Java entity model book, 
+and the relation value of book is one;
+
+More about the model structure of this demo, please click: <a href="demo-java-model.html">Demo model structure</a> 
+</pre>
+<p>There are 2 ways to select the model:</p>
+<ul>
+<li>Select Model Group(Such as shop): &lt;entity&gt; tag need select the relation. This way is used in template, which require multiple models, such as many-to-one, many-to-many.</li>
+</ul>
+<p><img src="image/demo-java-model1.png" /></p>
+<ul>
+<li>Select Model(Such as book)<b>(This demo)</b>: &lt;entity&gt; tag no need to select the relation. This way is used in template, which require only one model. Of course, you can also select relation together.</li>
+</ul>
+<p><img src="image/demo-java-model2.png" /></p>
+<ul>
+<li>Template: view.jsp.jet</li>
+</ul>
+<pre>
+We have created the following properties for this model:
+Class: A head uppercase property, 
+       which can be used as the class name or a part that need head uppercase.
+       It's value is "Book".
+class: A lowercase property, 
+       which can be used as a part that need lowercase.
+       It's value is "book".
+menu: The name of the menu bar, and it's value is "Book".
+</pre>
+<p><img src="image/demo-java-model3.png" /></p>
+<ul>
+<li>Directory: /jmr/WebContent/views/${class}</li>
+</ul>
+<p><img src="image/demo-java-view-template1.png" /></p>
+<ul>
+<li>Name: ${class}</li>
+</ul>
+<p><img src="image/demo-java-view-template2.png" /></p>
+<p><img src="image/demo-java-view-template3.png" /></p>
+<ul>
+<li>Ext: The extension is jsp</li>
+</ul>
+<h2>Initialization</h2>
+<p><img src="image/demo-java-view-template4.png" /></p>
+<ul>
+<li>Entity tag set the new variable object to get the selected model.</li>
+<li>Set the variable Class as the head uppercase part, get it by object.property(&quot;Class&quot;). </li>
+<li>Set the variable class as the lowercase part, get it by object.property(&quot;class&quot;). </li>
+</ul>
+<h2>title and form</h2>
+<p><img src="image/demo-java-view-template5.png" /></p>
+<pre>
+Result
+</pre>
+<p><img src="image/demo-java-view-template6.png" /></p>
+<p><img src="image/demo-java-view-template7.png" /></p>
+<h2>Query</h2>
+<p><img src="image/demo-java-view-template18.png" /></p>
+<pre>
+logic:
+--If the field is the query field, iterate over the field.
+for field : object.fields object.isQuery
+  --Output field name         
+  field.name
+  --If the control is text
+  if field.controlType == text
+    --Output input control
+    &lt;input ...&gt;
+  --If the control is select
+  elseif field.controlType == select
+    --Output select control
+    &lt;select ...&gt;
+      --The data of the field                 
+      for data : field.datas
+      --The value of the option is data.value, and the name of the option is data.name
+      &lt;option value="data.value"/&gt;data.name&lt;/option&gt;
+    &lt;/select ...&gt;
+  --If the control is date
+  elseif field.controlType == date
+    --Output start date control
+    &lt;input class="Wdate"...&gt;
+    to
+    --Output end date control
+    &lt;input class="Wdate"...&gt;
+</pre>
+<h6>description above:</h6>
+<ul>
+<li>If the field is the query field, iterate over the field.</li>
+<li>Output field name  </li>
+</ul>
+<p><img src="image/demo-java-view-template8.png" /></p>
+<p>field.property(&quot;isQuery&quot;) == true, isQuery is used to determine whether the field is queried.</p>
+<p><img src="image/demo-java-view-template9.png" /></p>
+<ul>
+<li>If the control is text </li>
+<li>Output input control</li>
+</ul>
+<p><img src="image/demo-java-view-template10.png" /></p>
+<pre>
+You can see controlType for different fields
+</pre>
+<p><img src="image/demo-java-view-template12.png" /></p>
+<ul>
+<li>If the control is select</li>
+<li>Output select control</li>
+<li>Iterate over the field datas</li>
+<li>The value of the option is data.value, and the name of the option is data.name</li>
+</ul>
+<p><img src="image/demo-java-view-template11.png" /></p>
+<pre>
+The data settings for the type field are as follows:
+</pre>
+<p><img src="image/demo-java-view-template13.png" /></p>
+<pre>
+Select data.name, and we can see the value
+</pre>
+<p><img src="image/demo-java-view-template14.png" /></p>
+<pre>
+Assign select a value
+</pre>
+<p><img src="image/demo-java-view-template15.png" /></p>
+<ul>
+<li>If the control is date</li>
+<li>Output start date control</li>
+<li>Output end date control</li>
+</ul>
+<p><img src="image/demo-java-view-template16.png" /></p>
+<pre>
+The way to query dates is to use the json array:
+&lt;input name="[name]" value="{[name]_start: start date, [name]_end: end date}"/&gt;
+When date control is selected, the method call set[Name]{}, set the json array input.
+</pre>
+<pre>
+Result
+</pre>
+<p><img src="image/demo-java-view-template17.png" /></p>
+<h2>Query list</h2>
+<p><img src="image/demo-java-view-template21.png" /></p>
+<pre>
+logic:
+--If the field is the edit field, iterate over the field.
+for field : object.fields object.isEdit
+  --If the control is text                                      
+  if field.controlType == text
+    --Output field value
+    &lt;td&gt;field value&lt;td/&gt;
+  --If the control is select
+  elseif field.controlType == select
+    --The data of the field
+    for data : field.datas
+      --output jsp tag &lt;c:if&gt;
+      --output data.name
+      &lt;td&gt;data.name&lt;td/&gt;
+  --If the control is date
+  elseif field.controlType == date
+    --Output date
+    &lt;td&gt;date value&lt;td/&gt;
+</pre>
+<p><img src="image/demo-java-view-template19.png" /></p>
+<p>field.property(&quot;isEdit&quot;) == true whether the field is editable, editable fields need to be displayed in the list, and id as the primary key is not displayed in the list.</p>
+<p><img src="image/demo-java-view-isEdit.png" /></p>
+<p><img src="image/demo-java-view-template23.png" /></p>
+<pre>
+Result
+</pre>
+<p><img src="image/demo-java-view-template20.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

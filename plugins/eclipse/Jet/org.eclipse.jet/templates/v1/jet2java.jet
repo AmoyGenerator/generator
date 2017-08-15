@@ -1,0 +1,85 @@
+<%@jet package="org.eclipse.jet.internal.compiler.templates.v1" 
+               class="JET1JavaGenerator" 
+               %>
+<%@jet imports="org.eclipse.jet.core.parser.ast.*"%>
+<%@jet imports="org.eclipse.jet.internal.compiler.SafeJETASTVisitor"%>
+<%@jet imports="java.util.Iterator"%>
+<%@jet imports="org.eclipse.jet.internal.JavaUtil"%>
+<%
+	JETCompilationUnit cu = (JETCompilationUnit)context.getVariable("cu"); //$NON-NLS-1$
+%>
+package <%= cu.getOutputJavaPackage() %>;
+
+<% for(Iterator i=cu.getImports().iterator();i.hasNext();) { 
+	String importName = (String)i.next();%>
+import <%=importName%>;
+<% } %>
+
+public class <%= cu.getOutputJavaClassName() %>
+{
+<% cu.accept(new SafeJETASTVisitor(context,out) {
+      public boolean visit(JavaDeclaration decl) {
+%>
+	<% writeAndRecord(decl); %>
+	
+<%
+		return true;
+      }
+   });
+%>
+  protected static String nl;
+  public static synchronized <%= cu.getOutputJavaClassName() %> create(String lineSeparator)
+  {
+    nl = lineSeparator;
+    <%= cu.getOutputJavaClassName() %> result = new <%= cu.getOutputJavaClassName() %>();
+    nl = null;
+    return result;
+  }
+
+  protected final String NL = nl == null ? (System.getProperties().getProperty("line.separator")) : nl; //$NON-NLS-1$
+<% cu.accept(new SafeJETASTVisitor(context,out) {
+	  private int textCount = 0;
+      public boolean visit(TextElement text) {
+          if(text.getText().length > 0) {
+              textCount++;
+%>
+  protected final String TEXT_<%=textCount%> = <%=JavaUtil.asJavaQuoteStringWithNLRemoved(text.getText())%>;<%=JavaUtil.nlsCommentsForJavaQuoteStringWithNLRemoved(text.getText())%>
+<%
+         }
+		 return true;
+      }
+   });
+%>
+
+  public String generate(Object argument)
+  {
+    final StringBuffer stringBuffer = new StringBuffer();
+<% cu.accept(new SafeJETASTVisitor(context,out) {
+	  private int textCount = 0;
+      public boolean visit(TextElement text) {
+          if(text.getText().length > 0) {
+              textCount++;
+%>
+    stringBuffer.append(TEXT_<%=textCount%>);
+<%
+          }
+		  return true;
+      }
+      public boolean visit(JavaScriptlet scriptlet) {
+%>
+    <% writeAndRecord(scriptlet); %>
+
+<%
+		return true;
+      }
+      public boolean visit(JavaExpression expr) {
+%>
+    stringBuffer.append(<% writeAndRecord(expr); %>);
+<%
+		return true;
+  }
+   });
+%>
+    return stringBuffer.toString();
+  }
+}

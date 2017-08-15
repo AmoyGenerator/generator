@@ -1,0 +1,574 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-structure-entity</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">Model Structure - Entity(database、java class)</div></h1>
+<hr />
+<h3>Catalog:</h3>
+<ul>
+<li>
+<a href="#1">entity</a>
+<ul>
+<li><a href="#2">Table</a></li>
+<li><a href="#3">View</a></li>
+<li><a href="#4">Java Class</a></li>
+</ul>
+</li>
+<li><a href="#5">entity usage</a></li>
+</ul>
+<hr />
+<h3>Example:</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml - model/entity</li>
+</ul>
+<hr />
+<h2><span id="1">entity</span></h2>
+<p>The entity model consists of 2 types of databases and the Java class.</p>
+<ul>
+<li>
+database
+<ul>
+<li>table </li>
+<li>view</li>
+</ul>
+</li>
+<li>java class </li>
+</ul>
+<h2><span id="2">Table</span></h2>
+<p>The database has a table book, id is the primary key, including name, type, regist_time fields.</p>
+<p><img src="image/model_structure_entity1.png" /></p>
+<p>The structure transformed the model is as follows(How to transform the model please read: <a href="head-model-transform.html">Model Transform</a>)</p>
+<p><img src="image/model_structure_entity2.png" /></p>
+<h3>Property</h3>
+<ul>
+<li>
+Default 
+<ul>
+<li>name: From table name transform, consistent with table name, can be modified.</li>
+<li>relation: The relationship between the models in the group is used to get the model in the template.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity3.png" /></p>
+<ul>
+<li>
+Special
+<ul>
+<li>from: Because the model comes from the database, the value of from is db.</li>
+<li>type: Because the model is a table, the value is table.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity4.png" /></p>
+<ul>
+<li>New</li>
+</ul>
+<p>New is the place where the user defines the property itself, where additional properties can be defined.</p>
+<p><img src="image/model_structure_entity5.png" /></p>
+<p>We can modify the property here, more detailed reading: <a href="model-structure-property.html">Property</a>。</p>
+<p><img src="image/model_structure_entity8.png" /></p>
+<h3>Field</h3>
+<ul>
+<li>
+<p>Default</p>
+<ul>
+<li>id: Field id, which is consistent with the field name of the database table, as a unique identifier.</li>
+<li>name: Field name, which is consistent with the field name of the database, different from the id, you can modify.</li>
+<li>isUsed： Weather the field is used, the default is true.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity6.png" /></p>
+<p>We can modify the value, more detailed reading: <a href="model-structure-field-column-data.html">Field</a>。</p>
+<ul>
+<li>
+<p>Type: type and fullType are used as the language type and the full type, jdbcType and dbType for the mapping of database types.</p>
+<ul>
+<li>type: field shot type, default is null. Such as Stirng, int, Integer。</li>
+<li>fullType: field full type, default is null. Such as java.lang.String, java.util.Date.</li>
+<li>jdbcType: jdbcType is the type of jdbc unified standard, we map to the language type by it. </li>
+<li>dbType: dbType is the type of the database, it is also based on the jdbc standard, but each database has its own type rules.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity7.png" /></p>
+<p>We can modify the value, more detailed reading: <a href="model-structure-field-column-data.html">Field</a>。</p>
+<p>About jdbcType:</p>
+<pre>
+There is a big difference between the types of SQL
+supported by different databases, such as DECIMAL in Oracle, Mysql is not,
+Mysql varchar type corresponds to Oracle is varchar2.
+Most databases have their own type rules.
+
+Fortunately, the major database vendors are providing
+their own database jdbc driver, it will follow the jdbc standard,
+Convert your SQL type to the corresponding jdbc type, 
+which is derived from java.sql.Types.
+
+The following are all types:
+
+ARRAY, BIGINT, BINARY, BIT, BLOB, BOOLEAN, CHAR, CLOB,
+DATALINK, DATE, DECIMAL, DISTINCT, DOUBLE, FLOAT,
+INTEGER, JAVA_OBJECT, LONGNVARCHAR, LONGVARBINARY, LONGVARCHAR,
+NCHAR, NCLOB, NULL, NUMERIC, NVARCHAR,
+OTHER, REAL, REF, ROWID, SMALLINT, SQLXML, STRUCT,
+TIME, TIMESTAMP, TINYINT, VARBINARY, VARCHAR
+</pre>
+<ul>
+<li>
+<p>Db： Some of the properties inherent in the database table and view.</p>
+<ul>
+<li>isNull: Weather the field is null, If in the database, the field is not empty, then true, otherwise false.</li>
+<li>defaultValue: The default value of field, In the database, is the field defaultValue</li>
+<li>isAutoIncrement: Field is automatically increased, if in the database, the table field set increase automatically, then true, otherwise false.</li>
+<li>size: Field size in database.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity10.png" /></p>
+<ul>
+<li>
+Table: Property of table in database (view not included)
+<ul>
+<li>isPk: Weather the field is a primary key, it is true, otherwise it is false.</li>
+<li>isFk: Weather the field is a foreign key, it is true, otherwise it is false.</li>
+<li>fkEntityName: Foreign key table name。</li>
+<li>fkFieldName: Foreign key table field name。</li>
+</ul>
+</li>
+</ul>
+<p>book table has a foreign table chapter, its book_id is a foreign key,  associated book table id.</p>
+<p><img src="image/model_structure_entity11.png" /></p>
+<p>Book table fields id, name, type, regist_time, id is the primary key, so isPk is true.</p>
+<p><img src="image/model_structure_entity12.png" /></p>
+<p>Chapter table fields id, name, book_id, the primary key is id, so isPk is true, book_id is a foreign key, so isFk is true, the foreign key corresponding to the main table fkEntityName is book, the corresponding field fkFieldName is id.</p>
+<p><img src="image/model_structure_entity13.png" /></p>
+<h3>Column</h3>
+<p>We can also add new column. The new column is equivalent to adding a new property to each field, in the specific business needs, we also need to add some columns to extend our model.</p>
+<p>For example, we need three new columns of fieldName, controlType, isQuery.</p>
+<p><img src="image/model_structure_entity14.png" /></p>
+<p><img src="image/model_structure_entity15.png" /></p>
+<ul>
+<li>fieldName column: Field name in UI page.</li>
+<li>controlType column: Field control type in UI page, include text, select and date.</li>
+<li>isQuery column: Weather the field is queried.</li>
+</ul>
+<p><img src="image/model_structure_entity16.png" /></p>
+<p>About Column, more detailed reading: <a href="model-structure-field-column-data.html">column</a>。</p>
+<h3>Data</h3>
+<p>Private property for each field, it is data. we can set multiple key values.</p>
+<p>When you select any field, you can set its data.</p>
+<p><img src="image/model_structure_entity17.png" /></p>
+<p>After the selection, you can set the private data of the field.</p>
+<p><img src="image/model_structure_entity18.png" /></p>
+<p>The type field is a drop-down box, select option has 2 items, novel and magazine, value is 0 and 1.</p>
+<p><img src="image/model_structure_entity19.png" /></p>
+<p>About data, more detailed reading: <a href="model-structure-field-column-data.html">data</a>。</p>
+<h2><span id="3">View</span></h2>
+<p>The database has a view of vw_book_chapter, which is the book table and the chapter join query, the query results are 2 fields name and chapter_name.</p>
+<p><img src="image/model_structure_entity20.png" /></p>
+<p>The structure transformed the model is as follows(How to transform the model please read: <a href="head-model-transform.html">Model Transform</a>)</p>
+<p>We can see that the difference between the view model and the database model is that there is no table part column.</p>
+<p><img src="image/model_structure_entity21.png" /></p>
+<p>Why not this table part, is well understood, because of view not isPk (key), isFk (foreign) and so on.</p>
+<p><img src="image/model_structure_entity12.png" /></p>
+<p>The other parts of the view model are the same as the table model.</p>
+<h2><span id="4">Java Class</span></h2>
+<p>This class has 4 properties: id, name, type, registTime.</p>
+<p><img src="image/model_structure_entity22.png" /></p>
+<p>The structure transformed the model is as follows(How to transform the model please read: <a href="head-model-transform.html">Model Transform</a>)</p>
+<p><img src="image/model_structure_entity23.png" /></p>
+<h3>Property</h3>
+<ul>
+<li>
+Default 
+<ul>
+<li>name: From the class name, consistent with the class name. </li>
+<li>relation: The relationship between the models in the group is used to get the model in the template.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity24.png" /></p>
+<ul>
+<li>
+Special
+<ul>
+<li>from: Because the model comes from the Java class, the value of from is java.</li>
+<li>type: Empty.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity25.png" /></p>
+<ul>
+<li>New</li>
+</ul>
+<p>New is the place where the user defines the property itself, where additional properties can be defined.</p>
+<p><img src="image/model_structure_entity5.png" /></p>
+<p>We can add the property here, more detailed reading: <a href="model-structure-property.html">Property</a>。</p>
+<p><img src="image/model_structure_entity8.png" /></p>
+<h3>Field</h3>
+<ul>
+<li>
+<p>Default</p>
+<ul>
+<li>id: Field id, which is consistent with the field name of the java class as a unique identifier.</li>
+<li>name: Field name, which is consistent with the field name of the java class, different from the id, you can modify.</li>
+<li>isUsed: Weather the field is used, the default is true.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity26.png" /></p>
+<ul>
+<li>
+<p>Type: type and fullType are used as the language type and the full type, jdbcType and dbType for the mapping of database types.</p>
+<ul>
+<li>type: field shot type, default is null. Such as Stirng, int, Integer。</li>
+<li>fullType: field full type, default is null. Such as java.lang.String, java.util.Date.</li>
+<li>jdbcType: jdbcType is the type of jdbc unified standard, we map to the language type by it. </li>
+<li>dbType: dbType is the type of the database, it is also based on the jdbc standard, but each database has its own type rules.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/model_structure_entity27.png" /></p>
+<p>Different from the database model, the Java model has only 2 column parts of default and type.</p>
+<h2><span id="5">entity usage</span></h2>
+<h3>entity has 2 ways to get the model in the template.</h3>
+<ul>
+<li>
+<p>Select the model group in the task, and the relation attribute of the entity tag specifies the model.</p>
+<ul>
+<li>Advantage: Multiple models can be geted in a template(e.g., one to many, many to one).</li>
+<li>Disadvantage: The model need to be set relation, entity tag need to specify relation.
+<img src="image/entity_group_use.png" /></li>
+</ul>
+</li>
+<li>
+<p>Select the model in the task, entity tag do not specify relation.</p>
+<ul>
+<li>Advantage: No need to set relation.</li>
+<li>Disadvantage: Entity tags do not specify the relation can only get the selected model, need to get other models still need to specify relation.</li>
+</ul>
+</li>
+</ul>
+<p><img src="image/entity_model_use.png" /></p>
+<p>&lt;entity&gt; has 2 attributes</p>
+<ul>
+<li>var: Set the new variable name to the entity model in the template.</li>
+<li>relation: Model relation, for example, the above book and chapter is a one to many relationship, we set the book relation for one, chapter relation for many.</li>
+</ul>
+<p>The new variable named object, this object will point to the entity model.</p>
+<p><img src="image/model_structure_entity28.png" /></p>
+<pre>
+Result
+</pre>
+<p><img src="image/model_structure_entity30.png" /></p>
+<p>Other tag to be used:</p>
+<ul>
+<li><a href="tag-entity.html">entity</a></li>
+<li><a href="tag-get.html">get</a></li>
+<li><a href="tag-get.html">get</a> </li>
+<li><a href="tag-set.html">set</a> </li>
+<li><a href="tag-if.html">if</a>  </li>
+<li><a href="tag-elseif.html">elseif</a></li>
+<li><a href="tag-else.html">else</a> </li>
+<li><a href="tag-for.html">for</a> </li>
+</ul>
+<p>For more use, please read the following:</p>
+<ul>
+<li><a href="demo-java-entity.html">entity</a></li>
+<li><a href="demo-java-hibernate.html">hibernate</a></li>
+<li><a href="demo-java-spring.html">spring</a></li>
+</ul>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

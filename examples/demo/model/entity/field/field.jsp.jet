@@ -1,0 +1,25 @@
+<%@jet package="translated" class="Field_jsp"%>
+<%@jet imports="org.eclipse.jet.api.Entity"%>
+<%@jet imports="org.eclipse.jet.api.JMR"%>
+<%@jet imports="org.eclipse.jet.api.Group"%>
+<entity var='object' relation="one"/>
+<\%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<body>
+<table>
+  <tr>
+    <for var="field" value='object.fields'>
+    <th width="50"><get value='field.name'/></th>
+    </for>
+  </tr>  
+  <c:forEach items="${listPage.dataList}" var="obj">
+  <tr>
+    <for var="field" value='object.fields'>
+	<td align="center">${obj.<get value='field.name'/>}</td>
+	</for>
+  </tr>
+  </c:forEach>
+</table>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>model-structure-field-column-data</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">模型结构 - field、column、data（字段、列、字段数据）</div></h1>
+<hr />
+<h3>目录</h3>
+<ul>
+<li><a href="#1">field、column、data的定位和关系</a></li>
+<li><a href="#2">field、column、data的增删改、映射转换、预设</a></li>
+<li><a href="#3">field、column、data的应用</a></li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml 任务中的 model/column/column和model/data/data</li>
+</ul>
+<h2>阅读前需要了解的知识</h2>
+<h4>模型</h4>
+<ul>
+<li><a href="model-structure-entity.html">entity（数据库、Java类）</a></li>
+</ul>
+<hr />
+<h2><span id="1">field、column、data的定位和关系</span></h2>
+<ul>
+<li>field：作为entity模型的字段，它的源是数据库表的字段、视图的字段，Java类的字段，用户也可以自己新定义field。</li>
+<li>column：field的共有属性，比如id、name、type等称为column，所有field都包含这些column属性。</li>
+<li>data：field的私有属性，和column区别是，column是所有field都有的属性，而data只属于某个field。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data1.png" /></p>
+<p>field、column、data在实际开发中的定位:</p>
+<ul>
+<li>field：字段本身，每个Entity都有一组field集合。</li>
+<li>column：field的共有属性，比如field.name、field.type。下图column圈起来部分（橙色）就遍历field集合，得到每个field.name。</li>
+<li>data：field私有数据，比如name为type这个field，它定义了一组data数据用来生成下拉框(select)，这是它独有的数据。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data2.png" /></p>
+<h2><span id="2">field、column、data的增删改、映射转换、预设</span></h2>
+<p>以下是模型界面的信息，配合这张图说明。</p>
+<p><img src="image/model-structure-field-column-data3.png" /></p>
+<h2>field的增删改、映射转换、预设</h2>
+<h3>新增field</h3>
+<p>在1和5处点击可以新增加字段，或者鼠标右键点击新增，在此处填入新字段名price。</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<p><img src="image/model-structure-field-column-data4.png" /></p>
+<p>生成新字段price，可以看出，如果字段是新增的，图标颜色是绿色。</p>
+<p><img src="image/model-structure-field-column-data5.png" /></p>
+<p>也可以通过预设生成字段，预设可以在模型转换（生成）时，就添加字段，详细方式请阅读<a href="model-init-plan.html#7">预设字段Field</a>。</p>
+<h3>删除field</h3>
+<p>在2处点击选中字段可以删除，或者选中字段鼠标右键删除，所有字段都可以删除。</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<h3>上移field</h3>
+<p>在3处点击选中字段可以上移字段，或者选中字段鼠标向上，使用for标签的时候将改变字段的遍历顺序。</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<h3>下移field</h3>
+<p>在4处点击选中字段可以下移字段，或者选中字段鼠标向下，使用for标签的时候将改变字段的遍历顺序。</p>
+<p><img src="image/model-structure-field-column-data6.png" /></p>
+<h3>修改field</h3>
+<p>除了id列不能修改外，其它所有字段的内容都可以修改。选中需要修改的内容，点击<img src="image/model-structure-field-column-data9.png" />可以修改内容。</p>
+<p><img src="image/model-structure-field-column-data11.png" /></p>
+<p>String类型：可以选择null也可以输入任意字符串。</p>
+<p><img src="image/model-structure-field-column-data12.png" /></p>
+<p>Boolean类型：可以选择null、true、false中任意一项。</p>
+<p><img src="image/model-structure-field-column-data13.png" /></p>
+<p>Select类型：可以选择null或者其他设定好的选项。</p>
+<p><img src="image/model-structure-field-column-data14.png" /></p>
+<h3>映射转换字段</h3>
+<ul>
+<li>映射：数据库类型和实际开发语言的类型不一样，需要一一对应。type和fullType列可以通过映射的方式赋值。可以通过点击<img src="image/model-structure-field-column-data16.png" />完成映射。关于映射的操作方法请阅读：<a href="model-init-mapping.html#3">在模型中使用映射</a>。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data15.png" /></p>
+<p>映射后的值</p>
+<p><img src="image/model-structure-field-column-data17.png" /></p>
+<ul>
+<li>转换：用某个列的值作为原值，按照一定规则生成新值叫做转换。比如id的值是数据库字段名，而name我们想作为Java类的属性名。id为regist_time，那么name为registTime。可以通过点击<img src="image/model-structure-field-column-data16.png" />完成转换。关于转换的操作方法请阅读：<a href="model-init-mapping.html#9">字段转换</a>。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data18.png" /></p>
+<p>转换后的值</p>
+<p><img src="image/model-structure-field-column-data19.png" /></p>
+<h3>预设字段</h3>
+<p>在实际的开发中，我们需要修改模型的内容，但都需要手动去做，有没有什么方法可以在模型转化(生成)的时候就设定好了呢？答案是有，那就是通过预设方案设定好。字段通过预设，可以省去大部分修改模型的时间，关于字段预设请阅读<a href="model-init-plan.html#7">字段转换</a>。</p>
+<h2>column的增删改、映射转换、预设</h2>
+<p>在实际开发中，单靠一个原始的模型的数据，是没法完全满足我们业务需求的。比如我们需要生成字段在界面上的名称fieldName（可能为英文也可能为中文），每个字段对应的控件类型（比如text、select、date），字段是否作为查询项isQuery。这就需要新增列来扩展字段的属性。</p>
+<p><img src="image/model_init_plan2.png" /></p>
+<p>isQuery是字段是否要查询的标识</p>
+<p><img src="image/model_init_plan5.png" /></p>
+<h3>新增列column</h3>
+<p>在6处点击新增列，新增列有3种类型String、Boolean和Select</p>
+<p>String：字符串类型，可为null或者填写默认值。</p>
+<p><img src="image/model-structure-field-column-data7.png" /></p>
+<p>可以看到，新生成了列fieldName。</p>
+<p><img src="image/model-structure-field-column-data8.png" /></p>
+<p>Boolean：布尔类型，可为null或者选择true或false。</p>
+<p><img src="image/model-structure-field-column-data20.png" /></p>
+<p>可以看到，新生成了列isQuery，值是true。</p>
+<p><img src="image/model-structure-field-column-data21.png" /></p>
+<p>Select：多选类型，可以null，必须自己添加可选项，新列名为controlType(控件类型)，在下面的表格可以添加选项，我们添加了3种控件类型text、select、date，默认选项为text。</p>
+<p><img src="image/model-structure-field-column-data22.png" /></p>
+<p>可以看到，新生成了列isQuery，默认值是text。</p>
+<p><img src="image/model-structure-field-column-data23.png" /></p>
+<h3>删除column</h3>
+<p>在8处可以删除列<img src="image/model-structure-field-column-data24.png" />，只有新设的列才可以删除。</p>
+<h3>修改column</h3>
+<p>和修改field一样，点击<img src="image/model-structure-field-column-data26.png" />修改。</p>
+<p><img src="image/model-structure-field-column-data25.png" /></p>
+<p>String类型修改</p>
+<p><img src="image/model-structure-field-column-data27.png" /></p>
+<p>Boolean类型修改</p>
+<p><img src="image/model-structure-field-column-data28.png" /></p>
+<p>Select类型修改</p>
+<p><img src="image/model-structure-field-column-data29.png" /></p>
+<h3>转换column</h3>
+<ul>
+<li>转换：同field的转换一样，用某个列的值作为原值，按照一定规则生成新值叫做转换。比如id的值是数据库字段名，而fieldName我们想作为界面的属性名。id为regist_time，那么转成fieldName应该为registTime。可以通过点击<img src="image/model-structure-field-column-data16.png" />完成转换。关于转换的操作方法请阅读：<a href="model-init-mapping.html#9">字段转换</a>。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data30.png" /></p>
+<p>转换后的值</p>
+<p><img src="image/model-structure-field-column-data31.png" /></p>
+<h3>预设column</h3>
+<p>同预设field一样，在实际的开发中，我们需要修改模型的内容，但都需要手动去做，有没有什么方法可以在模型转化(生成)的时候就设定好了呢？答案是有，那就是通过预设方案设定好。字段通过预设，可以省去大部分修改模型的时间，关于字段预设请阅读<a href="model-init-plan.html#7">字段转换</a>。</p>
+<h2>data的增删改</h2>
+<p><img src="image/model-structure-field-column-data32.png" /></p>
+<h3>新增data</h3>
+<p>点击<img src="image/model-structure-field-column-data33.png" />添加。</p>
+<p><img src="image/model-structure-field-column-data34.png" /></p>
+<p>data有2个属性name和value。</p>
+<p><img src="image/model-structure-field-column-data35.png" /></p>
+<h3>删除data</h3>
+<p>选中data项，鼠标右键删除。</p>
+<p><img src="image/model-structure-field-column-data36.png" /></p>
+<h3>修改data</h3>
+<p>选中data项，鼠标右键修改。</p>
+<p><img src="image/model-structure-field-column-data37.png" /></p>
+<h2><span id="3">field、column、data的应用</span></h2>
+<p>模型数据</p>
+<ul>
+<li>controlType：控件类型，id、name为text控件，type为select控件，regist_time为date控件。</li>
+<li>fieldName：界面的名称，id为id，name为name，type为type，regist_time为registTime。</li>
+</ul>
+<p><img src="image/model-structure-field-column-data47.png" /></p>
+<p>任务中选择模型</p>
+<p><img src="image/model_structure_property16.png" /></p>
+<p>模板中选择模型（代码提示用）</p>
+<p><img src="image/model_structure_property13.png" /></p>
+<p>选中relation的值是one。</p>
+<p><img src="image/model_structure_property14.png" /></p>
+<h3>field的应用</h3>
+<p>通过遍历field生成一个查询界面。</p>
+<p><img src="image/model-structure-field-column-data44.png" /></p>
+<p>object是entity，使用for标签遍历object.fields这个集合，在for标签中使用get获取field的属性。</p>
+<p><img src="image/model-structure-field-column-data38.png" /></p>
+<pre>
+运行结果
+</pre>
+<p><img src="image/model-structure-field-column-data43.png" /></p>
+<p>此处例子是一个简化版的查询界面，在实战中完整的例子请阅读：<a href="demo-java-view.html">查询界面生成</a></p>
+<pre>
+小贴士：代码提示可以找到需要的属性。
+</pre>
+<p><img src="image/model-structure-field-column-data39.png" /></p>
+<pre>
+小贴士：选中或者鼠标悬浮可以看到对应数据。
+</pre>
+<p><img src="image/model-structure-field-column-data42.png" /></p>
+<h3>column的应用</h3>
+<p>通过遍历field生成一个新增页面</p>
+<p><img src="image/model-structure-field-column-data49.png" /></p>
+<p>通过遍历field，field.property(&quot;fieldName&quot;)为字段在界面的名称，field.property(&quot;controlType&quot;)方法判断控件的类型，根据类型生成不同类型的控件。</p>
+<p><img src="image/model-structure-field-column-data45.png" /></p>
+<pre>
+运行结果,根据
+</pre>
+<p><img src="image/model-structure-field-column-data48.png" /></p>
+<p>此处例子是一个简化版的新增界面，在实战中完整的例子请阅读：
+<a href="demo-java-add.html">新增界面生成</a>。</p>
+<pre>
+小贴士：选中或者鼠标悬浮可以看到判断是否成立。
+</pre>
+<p><img src="image/model-structure-field-column-data50.png" /></p>
+<h3>data的应用</h3>
+<p>type字段的data数据。</p>
+<p><img src="image/model-structure-field-column-data51.png" /></p>
+<p>在新增页面中，type是一个包含选项的下拉框。</p>
+<p><img src="image/model-structure-field-column-data52.png" /></p>
+<p>在之间的基础上，select控件的option中，value属性是data.value，标签值是data.name</p>
+<p><img src="image/model-structure-field-column-data53.png" /></p>
+<pre>
+运行结果,根据
+</pre>
+<p><img src="image/model-structure-field-column-data54.png" /></p>
+<p>此处例子是一个简化版的新增界面，在实战中完整的例子请阅读：
+<a href="demo-java-add.html">新增界面生成</a>。</p>
+<pre>
+小贴士：选中或者鼠标悬浮到data上可以看到数据。
+</pre>
+<p><img src="image/model-structure-field-column-data55.png" /></p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

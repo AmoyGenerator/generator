@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<jmr xmlns="http://www.eclipse-jmr.org/jmr-1.0.xsd">
+	<model>
+      <group name="shop">
+         <entity from="db" name="book" relation="one" type="table">
+            <field dbType="INT" fullType="java.lang.Integer" id="id" isNew="false" isUsed="true" jdbcType="INTEGER" name="id" type="Integer">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">true</database>
+               <database name="size">10</database>
+               <table name="isPk">true</table>
+               <table name="isFk">false</table>
+               <userset name="isEdit">false</userset>
+               <userset name="isQuery">false</userset>
+            </field>
+            <field dbType="VARCHAR" fullType="java.lang.String" id="name" isNew="false" isUsed="true" jdbcType="VARCHAR" name="name" type="String">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">50</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">text</userset>
+               <userset name="isEdit">true</userset>
+               <userset name="isQuery">true</userset>
+            </field>
+            <field dbType="INT" fullType="java.lang.Integer" id="type" isNew="false" isUsed="true" jdbcType="INTEGER" name="type" type="Integer">
+               <database name="isNull">false</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">10</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">select</userset>
+               <userset name="isEdit">true</userset>
+               <userset name="isQuery">true</userset>
+               <data name="novel">0</data>
+               <data name="magazine">1</data>
+            </field>
+            <field dbType="TIMESTAMP" fullType="java.util.Date" id="regist_time" isNew="false" isUsed="true" jdbcType="TIMESTAMP" name="registTime" type="Date">
+               <database name="isNull">true</database>
+               <database name="isAutoIncrement">false</database>
+               <database name="size">19</database>
+               <table name="isPk">false</table>
+               <table name="isFk">false</table>
+               <userset name="controlType">date</userset>
+               <userset name="isEdit">true</userset>
+               <userset name="isQuery">true</userset>
+            </field>
+            <column name="controlType" type="Select">
+               <select>
+                  <value>text</value>
+                  <value>select</value>
+                  <value>date</value>
+               </select>
+            </column>
+            <column name="isEdit" type="Boolean">
+            </column>
+            <column name="isQuery" type="Boolean">
+            </column>
+            <userset name="Class">Book</userset>
+            <userset name="class">book</userset>
+            <userset name="menu">Book</userset>
+         </entity>
+      </group>
+	</model>
+	<run>
+		<project name="model">
+         <directory name="entity">
+            <task name="entity">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/entity.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/entity/</targetContainer>
+               <targetName>${Class}</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="hibernate">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/hbm.xml.jet</templatePath>
+               <targetContainer>/jmr/src/hibernate</targetContainer>
+               <targetName>${Class}</targetName>
+               <targetExt>hbm.xml</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="dao">
+            <task name="dao">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/dao.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/dao</targetContainer>
+               <targetName>I${Class}Dao</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="daoImpl">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/daoImpl.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/dao/impl</targetContainer>
+               <targetName>${Class}DaoImpl</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+			<directory name="service">
+            <task name="service">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/service.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/service</targetContainer>
+               <targetName>I${Class}Service</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="serviceImpl">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/serviceImpl.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/service/impl</targetContainer>
+               <targetName>${Class}ServiceImpl</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="spring">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/spring.xml.jet</templatePath>
+               <targetContainer>/jmr/src/spring</targetContainer>
+               <targetName>beanContext</targetName>
+               <targetExt>xml</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="merge"></generation>
+               <modelName>book</modelName>
+            </task>
+			</directory>
+		</project>
+      <project name="controller">
+         <directory name="action">
+            <task name="action">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/action.java.jet</templatePath>
+               <targetContainer>/jmr/src/com/jmr/action</targetContainer>
+               <targetName>${Class}Action</targetName>
+               <targetExt>java</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="struts">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/struts.xml.jet</templatePath>
+               <targetContainer>/jmr/src/struts</targetContainer>
+               <targetName>struts-config</targetName>
+               <targetExt>xml</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="merge"></generation>
+               <modelName>book</modelName>
+            </task>
+         </directory>
+      </project>
+		<project name="view">
+			<directory name="jsp">
+            <task name="menu">
+               <modelGroupName>shop</modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>jmr/jmr/template/menu.jsp.jet</templatePath>
+               <targetContainer>/jmr/WebContent/common/include</targetContainer>
+               <targetName>menu</targetName>
+               <targetExt>jsp</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="merge"></generation>
+               <modelName>book</modelName>
+            </task>
+				<task name="view">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/view.jsp.jet</templatePath>
+					<targetContainer>/jmr/WebContent/views/${class}</targetContainer>
+					<targetName>${class}</targetName>
+					<targetExt>jsp</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+				</task>
+				<task name="add">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/add.jsp.jet</templatePath>
+					<targetContainer>/jmr/WebContent/views/${class}</targetContainer>
+					<targetName>${class}Add</targetName>
+					<targetExt>jsp</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+				</task>
+				<task name="update">
+					<modelGroupName>shop</modelGroupName>
+					<actionClass></actionClass>
+					<templatePath>jmr/jmr/template/update.jsp.jet</templatePath>
+					<targetContainer>/jmr/WebContent/views/${class}</targetContainer>
+					<targetName>${class}Update</targetName>
+					<targetExt>jsp</targetExt>
+					<targetEncoding>UTF-8</targetEncoding>
+               <modelName>book</modelName>
+               <generation mode="overlay"></generation>
+				</task>
+			</directory>
+		</project>
+	</run>
+	<db>
+      <connection
+            autolink="false"
+            classname="com.mysql.jdbc.Driver"
+            name="mysql"
+            password="root"
+            savepassword="true"
+            type="MySQL Connector/J"
+            url="jdbc:mysql://localhost:3306/jmr"
+            username="root">
+         <jars>
+            <jar path="/jmr/lib/mysql-connector-java-5.1.6-bin.jar" type="2"></jar>
+         </jars>
+      </connection>
+	</db>
+	<rule>
+		<types>
+			<type name="type">
+				<INTEGER>Integer</INTEGER>
+				<VARCHAR>String</VARCHAR>
+				<REAL>Float</REAL>
+				<DATE>Date</DATE>
+            <TIMESTAMP>Date</TIMESTAMP>
+			</type>
+         <type name="fullType">
+            <VARCHAR>java.lang.String</VARCHAR>
+            <TIMESTAMP>java.util.Date</TIMESTAMP>
+            <DATE>java.util.Date</DATE>
+            <INTEGER>java.lang.Integer</INTEGER>
+            <REAL>java.lang.Float</REAL>
+         </type>
+		</types>
+      <converts>
+         <convert name="HeadLowerCamel">convert.HeadLowerCamelConvert</convert>
+         <convert name="HeadUpperCamel">convert.HeadUpperCamelConvert</convert>
+      </converts>
+	</rule>
+   <inits>
+      <init name="plan">
+         <columns>
+         	<column from="id" initType="convert" name="name" type="String" convert="HeadLowerCamel">
+            </column>
+            <column from="jdbcType" initType="convert" name="type" type="String" convert="type">
+            </column>
+            <column from="jdbcType" initType="convert" name="fullType" type="String" convert="fullType">
+            </column>
+            <column initType="defaultValue" name="controlType" type="Select">
+            <select>
+               <value name="text" selected="true"/>
+               <value name="select"/>
+               <value name="date"/>
+            </select>
+            </column>
+            <column initType="defaultValue" name="isEdit" type="Boolean" defaultValue="true">
+            </column>
+            <column initType="defaultValue" name="isQuery" type="Boolean" defaultValue="false">
+            </column>
+         </columns>
+         <properties>
+            <property initType="convert" name="Class" convert="HeadUpperCamel" from="name"></property>
+            <property initType="convert" name="class" convert="HeadLowerCamel" from="name"></property>
+            <property initType="convert" name="menu" convert="HeadLowerCamel" from="name"></property>
+         </properties>
+      </init>
+   </inits>
+</jmr>  

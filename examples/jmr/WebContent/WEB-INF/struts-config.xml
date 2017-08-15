@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+  <data-sources />
+  
+ <!-- Global Forwards -->
+	<global-forwards>
+		<forward name="error" path="/WEB-INF/exception.jsp"></forward>
+	</global-forwards>
+	
+<!-- Action Mappings -->
+   <action-mappings>    
+       
+   </action-mappings>
+
+  <!-- Message Resources -->
+	<message-resources
+		parameter="config.resource.ApplicationResources" />
+	
+</struts-config>
+

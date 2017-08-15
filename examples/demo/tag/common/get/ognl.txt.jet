@@ -1,0 +1,5 @@
+<%@jet package="translated" class="Ognl_txt"%>
+
+<get value='student.id'/>
+<get value='student.name'/>
+<get value='student.name.length()'/>

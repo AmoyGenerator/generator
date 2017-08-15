@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<session comment="Inline deprecated method" version="1.0">
+<refactoring comment="Inline deprecated method" delete="false" description="Inline method 'org.eclipse.jet.taglib.workspace.ActionsUtil.ensureProjectIsBuilt(...)'" flags="393218" id="org.eclipse.jdt.ui.inline.method" input="unit://src/org/eclipse/jet/taglib/workspace/ActionsUtil.java" mode="0" project="org.eclipse.jet" selection="-1 -1" version="1.0"/>
+</session>

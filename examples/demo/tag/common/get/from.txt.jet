@@ -1,0 +1,58 @@
+<%@jet package="translated" class="from_txt"%>
+<%@jet imports="java.util.ArrayList"%>
+<%@jet imports="java.util.List"%>
+<%@jet imports="java.util.Map"%>
+<%@jet imports="java.util.HashMap"%>
+<%
+/* set variable to context */
+context.setVariable("c_str", "c_str");
+context.setVariable("c_bool", true);
+context.setVariable("c_int", 6);
+List<Integer> list = new ArrayList<Integer>();
+list.add(1);
+list.add(2);
+list.add(3);
+context.setVariable("c_object", list);
+%>
+<%
+/* set variable to session */
+context.setSessionVariable("s_str", "s_str");
+context.setSessionVariable("s_bool", false);
+context.setSessionVariable("s_int", 7);
+Map<Integer, String> map = new HashMap<Integer, String>();
+map.put(1, "str1");
+map.put(2, "str2");
+map.put(3, "str3");
+context.setSessionVariable("s_object", map);
+%>
+<%--set variable to tag--%>
+<set var="t_str" value='"str"'/>
+<set var="t_bool" value='true'/>
+<set var="t_int" value='9'/>
+<set var="t_list" value='{"e1","e2","e3"}'/>
+
+/* from context */
+String: <get value='c_str'/>
+boolean: <get value='c_bool'/>
+int: <get value='c_int'/>
+object: <get value='c_object'/>
+
+/* from session */
+String: <get value='s_str' valueScope="session"/>
+boolean: <get value='s_bool' valueScope="session"/>
+int: <get value='s_int' valueScope="session"/>
+object: <get value='s_object' valueScope="session"/>
+
+/* from action */
+String: <get value='a_str'/>
+boolean: <get value='a_bool'/>
+int: <get value='a_int'/>
+object: <get value='a_object'/>
+
+/* from tag */
+String: <get value='t_str'/>
+boolean: <get value='t_bool'/>
+int: <get value='t_int'/>
+foreach: <for var='e' value='t_list' delimiter=",">
+           <get value='e'/>
+         </for>

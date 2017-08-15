@@ -1,0 +1,6 @@
+<%@jet package="translated" class="Update_html"%>
+    <update id="menu">
+    <li><a href="shop.html">shop</a></li>
+    </update>
+    
+    

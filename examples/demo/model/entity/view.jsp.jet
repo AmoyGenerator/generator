@@ -1,0 +1,13 @@
+<%@jet package="translated" class="View_jsp"%>
+
+<entity var='one' relation="one"/>
+<set var="Class" value='one.property("Class")'/>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<body>
+  <span class="title"><get value='Class'/></span>
+
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<%@jet class="WriteTextElementTemplate" %>
+<%@jet imports="org.eclipse.jet.compiler.TextElement"%>
+<%@jet imports="org.eclipse.jet.internal.JavaUtil"%>
+<%
+final String indent = (String)context.getVariable("indent"); //$NON-NLS-1$
+final TextElement text = (TextElement)context.getVariable("element"); //$NON-NLS-1$
+%>
+<% if(text.getText().length > 0) { %>
+<%= indent %>out.write( <%= JavaUtil.asJavaQuotedString(text.getText()) %> ); //$NON-NLS-1$
+<% } %>

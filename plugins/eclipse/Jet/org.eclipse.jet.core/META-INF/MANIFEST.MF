@@ -1,0 +1,456 @@
+Manifest-Version: 1.0
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Name: %pluginName
+Eclipse-LazyStart: true
+Bundle-SymbolicName: org.eclipse.jet.core;singleton:=true
+Require-Bundle: org.eclipse.text,
+ org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.jmr.lang;bundle-version="1.0.0"
+Bundle-Version: 1.0.0.qualifier
+Export-Package: ognl,
+ ognl.enhance,
+ ognl.internal,
+ org.eclipse.jet,
+ org.eclipse.jet.api,
+ org.eclipse.jet.core.compiler,
+ org.eclipse.jet.core.expressions,
+ org.eclipse.jet.core.parser,
+ org.eclipse.jet.core.parser.ast,
+ org.eclipse.jet.exception,
+ org.eclipse.jet.exception.utils,
+ org.eclipse.jet.internal.core;x-friends:="org.eclipse.jet,org.eclipse.jet.tests,org.eclipse.jet.tests.core",
+ org.eclipse.jet.internal.core.compiler;x-friends:="org.eclipse.jet,org.eclipse.jet.tests,org.eclipse.jet.tests.core",
+ org.eclipse.jet.internal.core.expressions;x-friends:="org.eclipse.jet",
+ org.eclipse.jet.internal.core.parser;x-friends:="org.eclipse.jet.tests.tools,org.eclipse.jet,org.eclipse.jet.tests.core",
+ org.eclipse.jet.internal.core.parser.jasper;x-friends:="org.eclipse.jet,org.eclipse.jet.tests,org.eclipse.jet.tests.core",
+ org.eclipse.jet.internal.core.url;
+  x-friends:="org.eclipse.jet,
+   org.eclipse.jet.editor,
+   org.eclipse.jet.tests,
+   org.eclipse.jet.tests.core,
+   org.eclipse.jet.ui",
+ org.eclipse.jet.internal.taglib,
+ org.eclipse.jet.taglib
+Bundle-ClassPath: .,
+ javassist-3.8.0.GA.jar,
+ ognl-3.0.jar,
+ src/org/eclipse/jet/api/
+Bundle-ManifestVersion: 2
+
+Name: org/eclipse/jet/IWriterListenerExtension.class
+SHA1-Digest: C7UYyEWsrvOc3dt8VGCj/UzuIks=
+
+Name: org/eclipse/jet/core/parser/DefaultTemplateResolver.class
+SHA1-Digest: FAthJ0Mb1+sIJI5SE4I63Hxn5U4=
+
+Name: org/eclipse/jet/core/parser/ITemplateResolverHelperFactory.class
+SHA1-Digest: LEJ9tG08QgqyEZi0UX1dl0g1zRE=
+
+Name: org/eclipse/jet/taglib/RuntimeTagElement.class
+SHA1-Digest: YEIvGKSiaCgnv0BI+dDGhOElp8k=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$Scriptlet.
+ class
+SHA1-Digest: oSCVLO4a+TbHolCxbaVTV+33YrQ=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/ErrorRedirectingCore
+ ElementDelegate.class
+SHA1-Digest: /7kzPZNo5nhOqNdz0UliQaF1KYY=
+
+Name: org/eclipse/jet/internal/core/parser/IncludeAlternativesTracker$
+ State.class
+SHA1-Digest: BNELJ1oNdCubQSNBEFu2D9pVVqY=
+
+Name: org/eclipse/jet/internal/core/parser/LineInfo.class
+SHA1-Digest: ZiDTEIeyyGLn7p0n5nI7DCbTg+k=
+
+Name: org/eclipse/jet/core/parser/ast/JETDirective.class
+SHA1-Digest: fFMnQ4T1QbUqVzxPTE1MbusCfVc=
+
+Name: org/eclipse/jet/core/parser/RecursiveIncludeException.class
+SHA1-Digest: 8RXVD/u4SzbNvZFIl+yb2fM07Hc=
+
+Name: org/eclipse/jet/JET2TemplateLoaderExtension.class
+SHA1-Digest: 63LmSqx3xeRzlVGly6p2Jih/svI=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/MessagesUtil.class
+SHA1-Digest: B8Dj27qtsIrCoQqXjl+5+feHZbQ=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser.class
+SHA1-Digest: NY3nnFPKTsQQ8MhdH9R/wr1hQyI=
+
+Name: org/eclipse/jet/internal/core/url/URLConstruction.aj
+SHA1-Digest: t2rmO1fthW8pRwiymYIxB7/DyEM=
+
+Name: org/eclipse/jet/core/parser/ast/JETASTParser$Builder.class
+SHA1-Digest: 7FOMzYtJB2VoZa3KItnkrNcwYwA=
+
+Name: org/eclipse/jet/internal/core/parser/LineInfo$1.class
+SHA1-Digest: yYR4LBMFTPga+Lk6wRsRjvN37es=
+
+Name: org/eclipse/jet/taglib/TagLibrary.class
+SHA1-Digest: HaUx9xr6SPTn23QajBxzeX9oMpY=
+
+Name: org/eclipse/jet/internal/core/parser/InternalJET1Parser.class
+SHA1-Digest: NrHzYfo2uKF7FFzDcB1gEuwN3Pk=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$1.class
+SHA1-Digest: iZY+QnV4MoPrcLRdfsvE/79XdEk=
+
+Name: org/eclipse/jet/internal/core/parser/TextTrimmingVisitor.class
+SHA1-Digest: Pp00ZxdrLdjUEFYIyf8ZmeD1BaU=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParseEventListene
+ r2.class
+SHA1-Digest: Z47Drax1aDeL/SMJTlswdqkKyOc=
+
+Name: org/eclipse/jet/internal/core/url/URLUtility.class
+SHA1-Digest: 7tO0+9eGe53y9LCeRGxQk96zDBg=
+
+Name: org/eclipse/jet/internal/core/compiler/IncludeDependenciesUtil.c
+ lass
+SHA1-Digest: UvN1n0awZo8nqYqRnXgPg05dt+M=
+
+Name: org/eclipse/jet/taglib/TagFactory.class
+SHA1-Digest: Kjw8cIwl6VvTMfnQEMdTyh7bksY=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETReader$IStackPopN
+ otifier.class
+SHA1-Digest: dVVDZlvvAbT6C+ymR8Mr4on8O0U=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$QuoteEscap
+ e.class
+SHA1-Digest: 9ZIbLnrvZI89+1KZ5GYsjpPHaAU=
+
+Name: org/eclipse/jet/taglib/TagInfo.class
+SHA1-Digest: Ho2pB2C9eXW/VPImWpbmLpAMsl4=
+
+Name: org/eclipse/jet/internal/core/expressions/IEmbeddedExpressionSca
+ nner.class
+SHA1-Digest: xM2AgzEcKjSFuw5fcb3704OW5Fg=
+
+Name: org/eclipse/jet/core/parser/ast/JETASTVisitor.class
+SHA1-Digest: siMP5cYMqCNjeX68R3tYQ63NC4s=
+
+Name: org/eclipse/jet/core/parser/ast/JavaExpression.class
+SHA1-Digest: CeTt2G8P6DviQgUjIco7bYvX714=
+
+Name: org/eclipse/jet/internal/core/parser/IncludeAlternativesTracker.
+ class
+SHA1-Digest: KoK4Dz2QU94oSkMPYAqcIU59ZWo=
+
+Name: org/eclipse/jet/internal/core/parser/ElementStack.class
+SHA1-Digest: DYPbAqU0VU1iBKTKXqcDSX3bNiE=
+
+Name: org/eclipse/jet/core/parser/ast/TextElement.class
+SHA1-Digest: kgVcJrthnOyKQG8vnIG4aZM9MCQ=
+
+Name: org/eclipse/jet/core/parser/ast/JETASTElement.class
+SHA1-Digest: vlAvMXI4E8HcNPHKeiDJkBm3Cv4=
+
+Name: org/eclipse/jet/JET2Context$LogListener.class
+SHA1-Digest: 2CTzXhOl/EHwQ0RSxk+MgpJ7FJ0=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETMark.class
+SHA1-Digest: YM+kQcTdqvwo0e8EEKnGG31yppg=
+
+Name: org/eclipse/jet/internal/core/parser/TagValidationVisitor.class
+SHA1-Digest: Utt8y99SnmklT/7KHSxAKyinbiI=
+
+Name: org/eclipse/jet/internal/l10n/JET2Messages.class
+SHA1-Digest: QXXTg+2fUqK3Z4CFkeF0mPhsgGg=
+
+Name: org/eclipse/jet/AbstractContextExtender.class
+SHA1-Digest: 1zZe6XilOSiGimGRc2Ow9X+jdxk=
+
+Name: org/eclipse/jet/internal/core/compiler/UniqueNameGenerator.class
+SHA1-Digest: YgzYATfOYpcEhJOibTcLc03ry1A=
+
+Name: org/eclipse/jet/taglib/TagLibraryReference.class
+SHA1-Digest: 0YvO6U0RsBYpHQ8xRw+r4viE0WE=
+
+Name: org/eclipse/jet/core/parser/ast/JETASTParser$NullTagLibraryResol
+ ver.class
+SHA1-Digest: o0qqpI8qqdXaNu8pxvE8s29mPfI=
+
+Name: org/eclipse/jet/ContextLogEntry.class
+SHA1-Digest: DclCWg2D89hVQrNHLYq5wYiu0FE=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/EmbeddedExpressionEl
+ ement.class
+SHA1-Digest: 7lVtOrljqh/0tdXAAxC7pAhovtE=
+
+Name: org/eclipse/jet/internal/core/parser/IncludeAlternativesTracker$
+ ValidationProblemReporter.class
+SHA1-Digest: /bgD7K2oKuJH4/ItnemqQ6mNWyo=
+
+Name: org/eclipse/jet/core/parser/IJETParser.class
+SHA1-Digest: l89hJN7YjewwR2hFjnTTd66hSg4=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETException.class
+SHA1-Digest: wjpmZr389Kv8un8hpLm55G3g9EI=
+
+Name: org/eclipse/jet/core/parser/ITemplateResolver.class
+SHA1-Digest: 6DF/eVXx87fonv0H2ybTVKECfpg=
+
+Name: org/eclipse/jet/internal/core/compiler/ICompilerOutput.class
+SHA1-Digest: 6CloWS8czSJbUZaSuA2ngaEtrTQ=
+
+Name: org/eclipse/jet/core/parser/ast/JavaDeclaration.class
+SHA1-Digest: 8S/0wIGidhN3rhS9FyNeckr0fes=
+
+Name: about.html
+SHA1-Digest: D/oSIU0bk7GCyXVrViI5+ep/s/o=
+
+Name: org/eclipse/jet/core/parser/ast/XMLBodyElementEnd.class
+SHA1-Digest: dL9kQcUw1A2Q3r7XWtqVwKWhE8w=
+
+Name: org/eclipse/jet/core/parser/ast/JavaElement.class
+SHA1-Digest: P6w/HsoMOQ+NkM3AfZS3zfCFE20=
+
+Name: org/eclipse/jet/internal/core/compiler/DuplicateGeneratedClassEx
+ ception.class
+SHA1-Digest: 0XdAIBI7U5ZTRjMZdGyT2PJvMmI=
+
+Name: org/eclipse/jet/core/parser/ITagLibraryResolver.class
+SHA1-Digest: PrX1JXhbrMEwO0RL6unMyNsVea0=
+
+Name: org/eclipse/jet/JET2Context.class
+SHA1-Digest: t0hgM370Y4xLFRDAkKpxJ9CUJjw=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/XMLElementDelegate.c
+ lass
+SHA1-Digest: 0CUpboug6a+K2hwp80xuFagznpg=
+
+Name: org/eclipse/jet/internal/core/NewLineUtil.class
+SHA1-Digest: mN3KUQh1SJBWS+pAEuazPQTRizo=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParseEventListene
+ r.class
+SHA1-Digest: XDIr645ub7HbewVhoSKMXpT8mZs=
+
+Name: org/eclipse/jet/core/parser/ProblemSeverity.class
+SHA1-Digest: oZeaBdvAOQ1AHXFz8ur1ZkHhllk=
+
+Name: org/eclipse/jet/BufferedJET2Writer.class
+SHA1-Digest: u4y0lbFuXpCIrPEj18gDjL0JXPs=
+
+Name: org/eclipse/jet/JET2Writer.class
+SHA1-Digest: +Xic2Oc8SjflsWwSGfjaqChDGJQ=
+
+Name: org/eclipse/jet/internal/core/compiler/IJETCompiler.class
+SHA1-Digest: kyhQO+FnSXVcieWkAF1SxttvktQ=
+
+Name: org/eclipse/jet/internal/core/expressions/EmbeddedExpressionLang
+ uageManager.class
+SHA1-Digest: Kdud0wYWYAttSB9mkax6kLxh3nE=
+
+Name: org/eclipse/jet/core/parser/ast/XMLBodyElement.class
+SHA1-Digest: PbVOrD59XhpstWvEnojxmHtzyao=
+
+Name: org/eclipse/jet/core/parser/ast/XMLElement.class
+SHA1-Digest: vT3+HTA4451zGHBA8QGJ/DDbVgI=
+
+Name: org/eclipse/jet/core/parser/ast/JETASTParser.class
+SHA1-Digest: OmaqGKAnb/tCvY7+LBzjSJ50t1Y=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$Action.cla
+ ss
+SHA1-Digest: e3MGWHhEo1G22Us3OhpCTGK6+2M=
+
+Name: org/eclipse/jet/internal/core/compiler/IncludeDependencies.class
+SHA1-Digest: 4LBtU9Vp6uYtGALmFXHcY3G0cDk=
+
+Name: org/eclipse/jet/taglib/JET2TagException.class
+SHA1-Digest: k6HXpI1LXjghv3uDhLxkw1pXFxU=
+
+Name: org/eclipse/jet/core/parser/ast/Comment.class
+SHA1-Digest: +DPVPheKzw+l6tPwAFdAzgPpPaI=
+
+Name: org/eclipse/jet/core/parser/AbstractTemplateResolver.class
+SHA1-Digest: aNRJUjWZIXIIbDCc2kFSJ6oVikE=
+
+Name: org/eclipse/jet/internal/l10n/JET2Messages.properties
+SHA1-Digest: /zsbMnth0cZaxKBA2TF9wpDnqvI=
+
+Name: org/eclipse/jet/core/parser/DefaultTemplateResolver$Builder.clas
+ s
+SHA1-Digest: 8cOOWcf09RhY0empz4u6vfYcMeo=
+
+Name: org/eclipse/jet/core/expressions/IEmbeddedExpression.class
+SHA1-Digest: MP5dU4jIuuq9SRMV3RZINBAuWkM=
+
+Name: org/eclipse/jet/core/parser/ast/XMLEmptyElement.class
+SHA1-Digest: 2oZwFRmRzsK08B4SM/BMJYlRU8o=
+
+Name: org/eclipse/jet/core/parser/ast/EmbeddedExpression.class
+SHA1-Digest: Mia7ccShEwW8Mp9BJ191z78NWeI=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: KyT9FF7C7t86NoBoa2kZT3ZJBfw=
+
+Name: org/eclipse/jet/core/expressions/EmbeddedExpressionFactory$TextE
+ xpression.class
+SHA1-Digest: AwITGHKbGnAmHrJy5fpolyXMG6Y=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$Directive.
+ class
+SHA1-Digest: IQv7IuL39iS8Q6qdaF8jw0zMb3A=
+
+Name: org/eclipse/jet/internal/core/parser/InternalJET2Parser.class
+SHA1-Digest: OOtVJuqJcm9kCEIp0Jnzs73psIs=
+
+Name: org/eclipse/jet/core/parser/IProblem.class
+SHA1-Digest: 0nODtW5WNUtX4P2fccQhUaA3Fgk=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/messages.properties
+SHA1-Digest: H3cQr4SbaplsQGHWTY2oUkv+bQw=
+
+Name: org/eclipse/jet/internal/core/parser/DefaultTemplateResolverHelp
+ er.class
+SHA1-Digest: ZdqJ09MJdXCRWTi83gmk35fT/40=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$Delegating
+ Listener.class
+SHA1-Digest: x8d+eVjQwGxTnxuRFB4wpiEwDsQ=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/CommentElementDelega
+ te.class
+SHA1-Digest: Bv50zw/u7mYqxEz64v38n42xiX8=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETMark$IncludeState
+ .class
+SHA1-Digest: ggPZXqvMrXyveM7jLu+mXb/6wW8=
+
+Name: org/eclipse/jet/core/parser/ITemplateResolverHelper.class
+SHA1-Digest: zuH/QKzjn7/G9rJQfoqAMEp9IwU=
+
+Name: org/eclipse/jet/internal/taglib/TagLibraryReferenceImpl.class
+SHA1-Digest: HYeDTJyx+Jg45VhhEz6wzL0T+tY=
+
+Name: org/eclipse/jet/JET2TemplateLoader.class
+SHA1-Digest: JgLlPvOn7gxOoHbQ6eOZECJF2/w=
+
+Name: org/eclipse/jet/core/parser/ITemplateInput.class
+SHA1-Digest: dTbby/JzGUYz3ZeVqYLQymiixeA=
+
+Name: org/eclipse/jet/internal/core/parser/IncludeAlternativesTracker$
+ IncludeWithAlternative.class
+SHA1-Digest: P+I02rXG823P9uLD1o83btVz1R8=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETReader.class
+SHA1-Digest: lH/u/bJVnulxPuGzpw7PeSyuhSA=
+
+Name: org/eclipse/jet/internal/core/parser/DefaultTemplateInput.class
+SHA1-Digest: YVwuQfMfc3JuL0VPRQnHXrTT2a0=
+
+Name: org/eclipse/jet/internal/core/parser/IJETParser2.class
+SHA1-Digest: Fk8oIdENq4GzdHzyiXtGZFePxf0=
+
+Name: org/eclipse/jet/JET2Template.class
+SHA1-Digest: HA7bhg4t6vzf+q4g07k1foWGc+M=
+
+Name: org/eclipse/jet/core/parser/ast/JETAST.class
+SHA1-Digest: wKCFrC7cdqa0DmBhUhZPqMx3d9s=
+
+Name: org/eclipse/jet/core/expressions/EmbeddedExpressionFactory$Conca
+ tExpression.class
+SHA1-Digest: p6lHsy/5qyB0OOkpek1XWwze9PA=
+
+Name: org/eclipse/jet/core/parser/ast/TagLibraryUsageManager.class
+SHA1-Digest: 7c4rJwpSW2R98/ncxl/uHBAalco=
+
+Name: plugin.properties
+SHA1-Digest: MAHIiB8XzYY/TmgziyRIVb2MUn8=
+
+Name: org/eclipse/jet/core/parser/DefaultTemplateResolver$1.class
+SHA1-Digest: VBWjZEY3t1C92jmOSS/Lrfoueq4=
+
+Name: org/eclipse/jet/core/parser/ast/IncludedContent.class
+SHA1-Digest: aGIN3Iq7DfxVmC6hO1c+0rWhCgU=
+
+Name: org/eclipse/jet/IWriterListener.class
+SHA1-Digest: 3SQtXQb+kWSzAe3i/WkMTomH2MA=
+
+Name: org/eclipse/jet/core/parser/ast/Problem.class
+SHA1-Digest: rw4OopI7VbWigzIEykXrLhkOXWg=
+
+Name: org/eclipse/jet/core/parser/ast/JETASTParser$1.class
+SHA1-Digest: QHbCzeX/R1XaFG/+WdwIDq9rSnc=
+
+Name: org/eclipse/jet/core/parser/ast/BodyElements.class
+SHA1-Digest: wHTeCnwJhKBdGW8Ih+zedAHDNoc=
+
+Name: org/eclipse/jet/core/compiler/JETCompilerOptions.class
+SHA1-Digest: Guo4jv6AVy2io0JmhfurwpRH5Ts=
+
+Name: org/eclipse/jet/internal/core/IContextLogEntryFactory.class
+SHA1-Digest: mlAzeqKcugJO58/X2Wf9SBWtbug=
+
+Name: org/eclipse/jet/taglib/TagDefinition.class
+SHA1-Digest: Sv76/Q9Ykf18EduXwJYQG7GpiB8=
+
+Name: org/eclipse/jet/internal/core/parser/InternalJET1Parser$IncludeF
+ ailAction.class
+SHA1-Digest: /cyHmYtQdYkX8pWr2ThzkNz7N7A=
+
+Name: org/eclipse/jet/core/parser/ast/JavaScriptlet.class
+SHA1-Digest: Xe77J9QfNTMBIXgSzgIm6PWZesQ=
+
+Name: org/eclipse/jet/internal/core/ContextLogEntryFactoryManager.clas
+ s
+SHA1-Digest: sFl3xKK5+7AV+/Ysi9JrtrOGNC4=
+
+Name: org/eclipse/jet/taglib/CustomTagKind.class
+SHA1-Digest: qHQYQF9/6Y7wBZQIWK6fAufBSyY=
+
+Name: org/eclipse/jet/core/parser/ast/JETCompilationUnit.class
+SHA1-Digest: qiMQAbgD/nX98HgruMxLCfEIMh4=
+
+Name: org/eclipse/jet/core/parser/ast/BodyElement.class
+SHA1-Digest: rc6aGdIelHCytBetVrwgKZFCKUg=
+
+Name: org/eclipse/jet/internal/core/compiler/IJETCompiler$CompileResul
+ t.class
+SHA1-Digest: 4ZQXdNx5U2WGuoyIEx2pbnbZNy0=
+
+Name: org/eclipse/jet/internal/core/DefaultContextLogEntryFactory.clas
+ s
+SHA1-Digest: jKW0t2AO7OvFIj4gVFqnICsxVQY=
+
+Name: org/eclipse/jet/core/parser/TemplateInputException.class
+SHA1-Digest: ruqVdg9e61Fi4sqiM891OogMOb8=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETParser$Expression
+ .class
+SHA1-Digest: JTehySexgI+zu3mSI1lxgYTEeEw=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/JETCoreElement.class
+SHA1-Digest: k32oJ9i4MEL5YZ2PTxo5oMVY0MQ=
+
+Name: org/eclipse/jet/ContextLogEntry$Builder.class
+SHA1-Digest: tZ/do+W+Ham5RZpHb75EIRFSL/8=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/DeclarationElementDe
+ legate.class
+SHA1-Digest: +gyeM5pkFo2+EWWNSqG+keByWPY=
+
+Name: org/eclipse/jet/core/expressions/EmbeddedExpressionFactory.class
+SHA1-Digest: ddME9Qq8CYIOzA6+CwkAptyxaPA=
+
+Name: org/eclipse/jet/taglib/TagAttributeDefinition.class
+SHA1-Digest: gNH+AO0ZZYMdv14FCXQdjczyoQE=
+
+Name: org/eclipse/jet/internal/core/expressions/IEmbeddedLanguage.clas
+ s
+SHA1-Digest: OdVwiYCH0O2SgTKfHRLWK174E9A=
+
+Name: org/eclipse/jet/internal/core/parser/jasper/Messages.class
+SHA1-Digest: cI5QgY7fhCmbkYUFWGZRaNNH7Tk=
+
+
+

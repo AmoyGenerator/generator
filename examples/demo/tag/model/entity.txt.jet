@@ -1,0 +1,27 @@
+<%@jet package="translated" class="Entity_txt"%>
+<entity var='db' relation="db"/>
+<%-- 
+<entity var='db'/>
+--%>
+
+<get value='db.name'/>
+<get value='db.relation'/>
+<get value='db.from'/>
+
+<for var='field' value='db.fields'>
+<get value='field.name'/>
+</for>
+
+<entity var='java' relation="java"/>
+<%-- 
+<entity var='java'/>
+--%>
+
+<get value='java.name'/>
+<get value='java.relation'/>
+<get value='java.from'/>
+
+<for var='field' value='java.fields'>
+<get value='field.name'/>
+</for>
+

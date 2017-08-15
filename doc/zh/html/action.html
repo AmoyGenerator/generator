@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>action</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">action</div></h1>
+<hr />
+<h3>目录:</h3>
+<ul>
+<li><a href="#1">前言</a></li>
+<li><a href="#2">创建Action</a></li>
+<li><a href="#3">使用Action</a></li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/action/action.jmr.xml</li>
+</ul>
+<hr />
+<h2><span id="1">前言</span></h2>
+<p>在jsp、asp、php发展的初期，很多项目都是没有前后台之分，大量的业务逻辑，数据库查询代码写在&lt;%%&gt;或&lt;??&gt;中，随着各种框架的发展，项目都会分成前后台，jsp、asp、php中只写和界面相关的代码，后台写业务逻辑、数据库查询。</p>
+<p>同理，我们不提倡在jet模板中插入各种业务逻辑，这会使得页面变得冗余，不美观。</p>
+<p>如下例，输出哈利波特书名和列表。</p>
+<p><img src="image/action1.png" /></p>
+<pre>
+运行结果如下：
+</pre>
+<p><img src="image/action2.png" /></p>
+<pre>
+这是action，也就是一个java类。把业务逻辑全放这吧！
+</pre>
+<p><img src="image/action5.png" /></p>
+<p>使用action后，同样的结果，是不是简洁了许多呢？</p>
+<pre>
+从context中得到想要的变量输出。
+</pre>
+<p><img src="image/action3.png" /></p>
+<p>当然，还可以进一步，使用action + 结合标签，这样才完美！</p>
+<p><img src="image/action4.png" /></p>
+<p>在模板头部指定下提示的Action</p>
+<p><img src="image/action6.png" /></p>
+<pre>
+按提示键（如Alt+/），可以提示出所有变量。
+</pre>
+<p><img src="image/action9.png" /></p>
+<p><img src="image/action10.png" /></p>
+<pre>
+标签中的变量使用Ognl扩展，可以自由的使用到变量的属性和方法（此处类型为String）。
+</pre>
+<p><img src="image/action11.png" /></p>
+<pre>
+将鼠标选中，或者放到对应的位置可以显示值。
+</pre>
+<p><img src="image/action7.png" /></p>
+<p><img src="image/action8.png" /></p>
+<p>总结：Action和标签更配哦，它们结合的优点：</p>
+<ul>
+<li>在Action中写业务逻辑很好的解决分层不清晰，代码冗余的问题。</li>
+<li>一个Action可以分配给多个任务和模板，可以很好的把业务逻辑公共出来。</li>
+<li>使用标签可以直接得到context中的变量，不需要在&lt;%%&gt;中调用context取值和导入对应的包。</li>
+<li>标签使用Ognl，可以自由调用变量的属性和方法（很好的取代了&lt;%%&gt;原生代码的优势）。</li>
+</ul>
+<h2><span id="2">创建Action</span></h2>
+<p>鼠标右键，在New中选择Jmr Action，或者在其它（Other）找到JMR目录下也有。</p>
+<p><img src="image/action12.png" /></p>
+<p>输入名称MyAction，点击完成（Finish）。</p>
+<p><img src="image/action13.png" /></p>
+<p><img src="image/action14.png" /></p>
+<p>如果当前项目没有载入Jmr的库</p>
+<p><img src="image/action15.png" /></p>
+<p>点击完成（Finish）后，点击OK导入Jmr库即可。</p>
+<p><img src="image/action16.png" /></p>
+<p>在项目中就会加入Jmr库，这个库和Junit库一样，只存在于项目开发环境里，不会影响项目实际的依赖结构。</p>
+<p><img src="image/action17.png" /></p>
+<p>在任务的Action栏目中点击浏览</p>
+<p><img src="image/action23.png" /></p>
+<p>在弹出的浏览框中会匹配所有的Jmr Action，选择MyAction。</p>
+<p><img src="image/action24.png" /></p>
+<p>这样，任务中就设置好了action。</p>
+<p><img src="image/action25.png" /></p>
+<h2><span id="3">使用Action</span></h2>
+<p>action的结构很简单，在execute方法中提供上下文容器context。只要往context中设置需要传递的变量即可。</p>
+<p><img src="image/action18.png" /></p>
+<p>可以在context中设置变量和全局变量。变量可以是各种基本类型，Object对象等。</p>
+<p><img src="image/action19.png" /></p>
+<pre>
+关于context设置变量，请阅读：
+</pre>
+<ul>
+<li>
+<a href="head-template-context.html">context - 上下文容器</a>
+<ul>
+<li><a href="template-var.html">var - 变量</a></li>
+<li><a href="template-session-var.html">sessionVar - 全局变量</a></li>
+</ul>
+</li>
+</ul>
+<p>在模版中，如果想得到Action的提示，可以选择想要的Action；</p>
+<p><img src="image/action20.png" /></p>
+<p>在标签中可以得到这些变量的提示。</p>
+<p><img src="image/action21.png" /></p>
+<p><img src="image/action22.png" /></p>
+<pre>
+更多关于标签调用，请阅读：
+</pre>
+<ul>
+<li>
+<a href="head-tag-common.html">常规标签</a>
+<ul>
+<li><a href="tag-get.html">get - 获取变量</a></li>
+<li><a href="tag-set.html">set - 设置变量</a></li>
+<li><a href="tag-if.html">if - 判断</a>        
+</li>
+<li><a href="tag-elseif.html">elseif - 判断</a></li>
+<li><a href="tag-else.html">else - 判断</a> </li>
+<li><a href="tag-for.html">for - 循环迭代</a></li>
+</ul>
+</li>
+</ul>
+<hr />
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

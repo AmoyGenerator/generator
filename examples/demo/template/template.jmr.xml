@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<jmr xmlns="http://www.eclipse-jmr.org/jmr-1.0.xsd">
+ <run>
+      <project name="start">
+         <directory name="hello">
+            <task name="hello">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/template/start/hello.jet</templatePath>
+               <targetContainer>/demo/template/start</targetContainer>
+               <targetName>hello</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>  
+      <project name="directive">
+         <directory name="import">
+            <task name="import">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/template/directive/import.txt.jet</templatePath>
+               <targetContainer>/demo/template/directive</targetContainer>
+               <targetName>import</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <modelName></modelName>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="script">
+         <directory name="declare">
+            <task name="declare">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/template/script/declare.txt.jet</templatePath>
+               <targetContainer>/demo/template/script</targetContainer>
+               <targetName>declare</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="script">
+            <task name="script">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/template/script/script.txt.jet</templatePath>
+               <targetContainer>/demo/template/script</targetContainer>
+               <targetName>script</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="expression">
+            <task name="expression">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/template/script/expression.txt.jet</templatePath>
+               <targetContainer>/demo/template/script</targetContainer>
+               <targetName>expression</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+      <project name="object">
+         <directory name="out">
+            <task name="out">
+               <modelGroupName></modelGroupName>
+               <actionClass></actionClass>
+               <templatePath>demo/template/object/out.txt.jet</templatePath>
+               <targetContainer>/demo/template/object</targetContainer>
+               <targetName>out</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+         <directory name="context">
+            <task name="var">
+               <modelGroupName></modelGroupName>
+               <actionClass>action.MyAction</actionClass>
+               <templatePath>demo/template/object/context/var.txt.jet</templatePath>
+               <targetContainer>/demo/template/object/context</targetContainer>
+               <targetName>var</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+            <task name="sessionVar">
+               <modelGroupName></modelGroupName>
+               <actionClass>action.MyAction</actionClass>
+               <templatePath>demo/template/object/context/sessionVar.txt.jet</templatePath>
+               <targetContainer>/demo/template/object/context</targetContainer>
+               <targetName>sessionVar</targetName>
+               <targetExt>txt</targetExt>
+               <targetEncoding>UTF-8</targetEncoding>
+               <generation mode="overlay"></generation>
+            </task>
+         </directory>
+      </project>
+ </run>
+ <db>
+ </db>
+ <model>
+ </model>
+ <rule>
+  <types>
+   <type name="fullType">
+    <BIGINT>java.lang.Long</BIGINT>
+    <BINARY>java.lang.Byte[]</BINARY>
+    <BIT>java.lang.Boolean</BIT>
+    <BLOB>java.lang.Byte[]</BLOB>
+    <BOOLEAN>java.lang.Boolean</BOOLEAN>
+    <CHAR>java.lang.String</CHAR>
+    <CLOB>java.lang.String</CLOB>
+    <DATE>java.util.Date</DATE>
+    <DECIMAL>java.lang.Double</DECIMAL>
+    <DOUBLE>java.lang.Double</DOUBLE>
+    <FLOAT>java.lang.Double</FLOAT>
+    <INTEGER>java.lang.Integer</INTEGER>
+    <JAVA_OBJECT>java.lang.Object</JAVA_OBJECT>
+    <LONGNVARCHAR>java.lang.String</LONGNVARCHAR>
+    <LONGVARBINARY>java.lang.Byte[]</LONGVARBINARY>
+    <LONGVARCHAR>java.lang.String</LONGVARCHAR>
+    <NUMERIC>java.lang.Double</NUMERIC>
+    <NCHAR>java.lang.String</NCHAR>
+    <NCLOB>java.lang.String</NCLOB>
+    <NVARCHAR>java.lang.String</NVARCHAR>
+    <OTHER>java.lang.Object</OTHER>
+    <REAL>java.lang.Float</REAL>
+    <SMALLINT>java.lang.Integer</SMALLINT>
+    <TIME>java.util.Date</TIME>
+    <TIMESTAMP>java.util.Date</TIMESTAMP>
+    <TINYINT>java.lang.Byte</TINYINT>
+    <VARCHAR>java.lang.String</VARCHAR>
+    <VARBINARY>java.lang.Byte[]</VARBINARY>
+   </type>
+   <type name="type">
+    <BIGINT>Long</BIGINT>
+    <BINARY>Byte[]</BINARY>
+    <BIT>Boolean</BIT>
+    <BLOB>Byte[]</BLOB>
+    <BOOLEAN>Boolean</BOOLEAN>
+    <CHAR>String</CHAR>
+    <CLOB>String</CLOB>
+    <DATE>Date</DATE>
+    <DECIMAL>Double</DECIMAL>
+    <DOUBLE>Double</DOUBLE>
+    <FLOAT>Double</FLOAT>
+    <INTEGER>Integer</INTEGER>
+    <JAVA_OBJECT>Object</JAVA_OBJECT>
+    <LONGNVARCHAR>String</LONGNVARCHAR>
+    <LONGVARBINARY>Byte[]</LONGVARBINARY>
+    <LONGVARCHAR>String</LONGVARCHAR>
+    <NUMERIC>Double</NUMERIC>
+    <NCHAR>String</NCHAR>
+    <NCLOB>String</NCLOB>
+    <NVARCHAR>String</NVARCHAR>
+    <OTHER>Object</OTHER>
+    <REAL>Float</REAL>
+    <SMALLINT>Integer</SMALLINT>
+    <TIME>Date</TIME>
+    <TIMESTAMP>Date</TIMESTAMP>
+    <TINYINT>Byte</TINYINT>
+    <VARCHAR>String</VARCHAR>
+    <VARBINARY>Byte[]</VARBINARY>
+   </type>
+  </types>
+ </rule>
+ <inits>
+  <init name="init_java">
+   <columns>
+    <column from="id" initType="convert" name="name" type="String" convert="name">
+    </column>
+    <column from="jdbcType" initType="convert" name="type" type="String" convert="type">
+    </column>
+    <column from="jdbcType" initType="convert" name="fullType" type="String" convert="fullType">
+    </column>
+   </columns>
+  </init>
+ </inits>
+</jmr>

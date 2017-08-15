@@ -1,0 +1,1426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="tagLibraries" name="%extpoint.tagLibraries.name" schema="schema/tagLibraries.exsd"/>
+   <extension-point id="deployedTransforms" name="%extpoint.deployedTransforms.name" schema="schema/deployedTransforms.exsd"/>
+   <extension-point id="transform" name="%extpoint.transform.name" schema="schema/transform.exsd"/>
+   <extension-point id="xpathFunctions" name="%extpoint.xpathFunctions.name" schema="schema/xpathFunctions.exsd"/>
+   <extension-point id="modelLoaders" name="%extpoint.modelLoaders.name" schema="schema/modelLoaders.exsd"/>
+   <extension-point id="modelInspectors" name="%extpoint.modelInspectors.name" schema="schema/modelInspectors.exsd"/>
+   <extension
+         id="builder"
+         name="%jet2Builder.name"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run class="org.eclipse.jet.internal.builder.JET2Builder"/>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.eclipse.jet.internal.launch.JET2TransformationDelegate"
+            id="org.eclipse.jet.jet2Transformation"
+            modes="run"
+            name="%jet2Launch.name"/>
+   </extension>
+   <extension
+         point="org.eclipse.jet.deployedTransforms">
+      <deployedTransform
+            bundle="transforms/plugins/org.eclipse.jet.transforms.newproject_1.0.0.jar"
+            private="true"/>
+      <deployedTransform
+            bundle="transforms/plugins/org.eclipse.jet.transforms.taglibdoc_1.0.0.jar"
+            private="false"/>
+   </extension>
+   <extension
+         point="org.eclipse.jet.tagLibraries">
+      <tagLibrary
+            deprecated="true"
+            id="controlTags"
+            name="Standard JET2 Control Tags"
+            standardPrefix="c"
+            tagFactory="org.eclipse.jet.internal.taglib.control.TagFactory">
+         <description>
+            Control flow and data management tags. This tags allow templates to evaluate conditions, perform loops and access and set information in the template input.
+         </description><emptyTag class="org.eclipse.jet.internal.taglib.control.AddElementTag" name="addElement" whenContainingLineIsEmpty="remove">
+            
+            
+            <description>
+               Create a new model element under the selected node.
+            </description>
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  An XPath expression identifying the parent of the new element.
+               </description>
+            </attribute>
+            <attribute name="name" type="string" use="required">
+               <description>
+                  The name of the new element.
+               </description>
+            </attribute>
+            <attribute name="var" type="string" use="optional">
+               <description>
+                  A variable name that will refer to the newly created element.
+               </description>
+            </attribute>
+         </emptyTag><functionTag
+                          class="org.eclipse.jet.internal.taglib.control.AddTextElementTag"
+                          name="addTextElement"
+                          whenContainingLineIsEmpty="remove">
+            
+            
+            <description>
+               Create a new model element node under the selected element, and whose text content is the content of this tag.
+            </description>
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  An XPath expression determining the parent of the new element.
+               </description>
+            </attribute>
+            <attribute name="name" type="string" use="required">
+               <description>
+                  The name of the new element.
+               </description>
+            </attribute>
+            <attribute name="var" type="string" use="optional">
+               <description>
+                  A variable name that will refer to the newly created element.
+               </description>
+            </attribute>
+            <attribute name="cdata" type="boolean" use="optional">
+               <description>
+                  Add the text as a CData section. Default is 'false'.
+               </description>
+            </attribute>
+         </functionTag><conditionalTag class="org.eclipse.jet.internal.taglib.control.WhenTag" deprecated="true" name="case" processContents="custom" whenContainingLineIsEmpty="remove">
+            <attribute name="test" type="xpath" use="required">
+               <description>
+                  An expression expression, that, if true, causes the tag contents to be evaluated.
+               </description>
+            </attribute>
+            <description>
+               *** DEPRECATED  - use &apos;when&apos; tag instead. ***
+Define a one of the mutually exclusive cases of a &apos;choose&apos; tag. The body of this tag is processed only if the &apos;test&apos; XPath expression evaluates to &apos;true&apos;, and no previous &apos;case&apos; or &apos;otherwise&apos; tag in the containing &apos;choose&apos; tag has processed its body content.
+
+If the &apos;test&apos; XPath expression is does not result in a boolean value, then it is converted to a boolean value according the the XPath 1.0 specification. In particular, if the XPath expression results in a set of objects, then &apos;test&apos; is considered to be true if and only if the set is not empty.
+
+If the &apos;test&apos; XPath expression is not well formed, then an error results.
+
+If this tag is not directly contained by a &apos;choose&apos; tag, then an error results.
+            </description>
+         </conditionalTag><containerTag class="org.eclipse.jet.internal.taglib.control.ChooseTag" name="choose" processContents="custom" whenContainingLineIsEmpty="remove">
+            <description>
+               Define a group of mutually exclusive choices. The contents of this tag are restricted to &apos;when&apos; and &apos;otherwise&apos; tags only.
+
+During execution of this tag, each &apos;when&apos; and &apos;otherwise&apos; tag is evaluated in sequence. If one of these tags evaluates to &apos;true&apos;, then any subsequent tags are ignored. A &apos;when&apos; tag evaluates to &apos;true&apos; if its &apos;test&apos; attribute&apos;s XPath expression evaluates to &apos;true&apos;. An &apos;otherwise&apos; tag evaluates to &apos;true&apos; if no preceeding &apos;when&apos; (or &apos;otherwise&apos;) tag has evaluated to true.
+            </description>
+            <attribute name="select" type="string" use="optional">
+               <description>
+                  Optional test expression. When specified, each 'when' tag 'test' expression is tested for equality against this value. When not specified, this is the equivalent of the XPath expression 'true()'.
+               </description>
+            </attribute>
+         </containerTag><emptyTag class="org.eclipse.jet.internal.taglib.control.CopyElementTag" name="copyElement" whenContainingLineIsEmpty="remove">
+            
+            <description>
+               Copy the selected node to the selected location.
+            </description>
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  An XPath expression selecting the element node to copy.
+               </description>
+            </attribute>
+            <attribute name="toSelect" type="xpath" use="required">
+               <description>
+                  An XPath expression identifying the parent of the newly selected node.
+               </description>
+            </attribute>
+            <attribute name="name" type="string" use="required">
+               <description>
+                  The name for the newly created element.
+               </description>
+            </attribute>
+            <attribute name="recursive" type="boolean" use="optional">
+               <description>
+                  Determine whether child elements of the copied element are copied, too. Default is &apos;true&apos;.
+               </description>
+            </attribute>
+            <attribute name="var" type="string" use="optional">
+               <description>
+                  The name of a variable that will be set to the newly copied element.
+               </description>
+            </attribute>
+         </emptyTag><emptyTag name="dump" class="org.eclipse.jet.internal.taglib.control.DumpTag">
+            <attribute name="select" type="xpath" use="required">
+               <description>A query expression specifying a single node in the model</description>
+            </attribute>
+           <!--
+            <attribute name="format" type="boolean" use="optional">
+               <description>A true/false value indicating whether the tag should try to write out whitespace to cause the output to be nicely formatted and indented.</description>
+            </attribute>
+            <attribute name="entities" type="boolean" use="optional">
+               <description>A true/false value indicating whether characters that can cause XML parsing problems (left and right angle brackets, quotes, apostrophes, etc) should be written as entities (e.g. "%lt;" for the left angle bracket).</description>
+            </attribute>
+            -->
+            <attribute
+                  name="format"
+                  type="boolean"
+                  use="optional">
+               <description>
+                  A true/false value indicating whether the tag should try to write out whitespace to cause the output to be nicely formatted and indented.
+               </description>
+            </attribute>
+            <attribute
+                  name="entities"
+                  type="boolean"
+                  use="optional">
+               <description>
+                  A true/false value indicating whether characters that can cause XML parsing problems (left and right angle brackets, quotes, apostrophes, etc) should be written as entities (e.g. "%lt;" for the left angle bracket).
+               </description>
+            </attribute>
+            <description>Writes out the DOM subtree under a specified model node.</description>
+         </emptyTag>
+         <emptyTag class="org.eclipse.jet.internal.taglib.control.GetTag" name="get" whenContainingLineIsEmpty="preserve">
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  The XPath expression to evaluate.
+               </description>
+            </attribute>
+            <attribute name="default" type="string" use="optional">
+               <description>
+                  The value to write, if the XPath expression selects no objects.
+               </description>
+            </attribute>
+            <attribute
+                  name="case"
+                  type="string"
+                  use="optional">
+               <description>
+                  change case
+               </description>
+            </attribute>
+            <description>
+               Write a the result of an XPath expression.
+
+If the 'select' XPath expression returns more than one object, only the first is written. If the XPath expression selects no objects, then an error occurs, unless the 'default' attribute is specified. If the 'select' XPath expression is malformed, then an error occurs.
+            </description>
+         </emptyTag><conditionalTag class="org.eclipse.jet.internal.taglib.control.IfTag" name="if" whenContainingLineIsEmpty="remove">
+            <attribute name="test" type="xpath" use="required">
+               <description>
+                  An expression expression, that, if true, causes the tag contents to be evaluated.
+               </description>
+            </attribute>
+            <description>
+               Process the tag contents if a test condition is satisfied.
+
+If the 'test' XPath expression is does not result in a boolean value, then it is converted to a boolean value according the the XPath 1.0 specification. In particular, if the XPath expression results in a set of objects, then 'test' is considered to be true if and only if the set is not empty.
+
+If the 'test' XPath expression is not well formed, then an error results.
+            </description>
+            <attribute name="var" type="string" use="optional">
+               <description>
+                  The name of a variable that will refer to the value of the 'test' expression prior to it being converted to a boolean value'. The variable has the scope of the tag contents.
+               </description>
+            </attribute>
+         </conditionalTag><emptyTag class="org.eclipse.jet.internal.taglib.control.IncludeTag" name="include" whenContainingLineIsEmpty="remove">
+            
+            <description>
+               Process the referenced template, and include its results in the output of the current template.
+
+The attribute &apos;passVariables&apos; allows explicit declaration of the variables that are passed to the template. By default, all context variables are available to the template. With this parameter, only those variables specified are available. In addition, any changes to passed variables in the template are not reflected in the invoking context.
+
+The deprecated &amp;apos;restoreNames&amp;apos; attribute is useful in recursive transformations. It causes the tag to save the listed variable values prior to executing the template, and then restore them after exectuion.
+
+The &apos;restoreNames&apos; and &apos;passVariables&apos; options are mutually exclusive.
+            </description>
+            <attribute name="template" type="string" use="required">
+               <description>
+                  A transformation project relative path to the template to execute.
+               </description>
+            </attribute>
+            <attribute deprecated="true" name="restoreNames" type="string" use="optional">
+               <description>
+                  A comma separated list of variable names (without the $ sign). Mutually exclusive with &apos;passVariables&apos;.
+               </description>
+            </attribute>
+            <attribute name="passVariables" type="string" use="optional">
+               <description>
+                  A comma separated list of variable names (without the $ sign). Mutually exclusive with 'restoreNames'.
+               </description>
+            </attribute>
+            <attribute name="super" type="boolean" use="optional">
+               <description>
+                  If set to &apos;true&apos;, the template loader attempts to load directly from the overriden transformation (as specified by the &apos;override&apos; tag or by the &apos;overrides&apos; attribute of the &apos;transform&apos; element of the &apos;org.eclipse.jet.transform&apos; extension in the transforms plugin.xml). If no &apos;super&apos; template can be found, an error occurs. The default is &apos;false&apos;, indicating normal template loading.
+               </description>
+            </attribute>
+         </emptyTag><containerTag class="org.eclipse.jet.internal.taglib.control.InitialCodeTag" name="initialCode" whenContainingLineIsEmpty="remove">
+            
+            <description>
+               A child tag of the 'userRegion' tag containing the initial code to write. See 'userRegion' for more information.
+            </description>
+            <attribute name="unmodifiedMarker" type="string" use="optional">
+               <description>
+                  A string that when present in the content of the existing code indicates that the code has not been modified by the user, and should be replace with the contents of this initial code block.
+               </description>
+            </attribute>
+         </containerTag><emptyTag class="org.eclipse.jet.internal.taglib.control.InvokeTransformTag" name="invokeTransform" whenContainingLineIsEmpty="remove">
+            <description>
+               Invoke the another transformation, passing it the current transformation&apos;s source model and context variables. The transformation&apos;s actions will be accumulated, and commit when the invoking transformation commits.
+
+The attribute &apos;passVariables&apos; allows explicit declaration of the variables that are passed to the transformation. By default, all context variables are available. With this parameter, only those variables specified are available. In addition, any changes to passed variables are not reflected in the invoking context.
+
+The deprecated &apos;restoreNames&apos; attribute allows for the restoration of variables set by the invoked transformation back to their pre-invocation value.
+
+The &apos;restoreNames&apos; and &apos;passVariables&apos; options are mutually exclusive.
+            </description>
+            <attribute name="transformId" type="string" use="required">
+               <description>
+                  The transformation id of the transformation to invoke.
+               </description>
+            </attribute>
+            <attribute deprecated="true" name="restoreNames" type="string" use="optional">
+               <description>
+                  A comma separated list of variable names (without the $ sign). Mutually exclusive with 'passVariables'.
+               </description>
+               
+            </attribute>
+            <attribute name="passVariables" type="string" use="optional">
+               <description>
+                  A comma separated list of variable names (without the $ sign). Mutually exclusive with 'restoreNames'.
+               </description>
+            </attribute>
+         </emptyTag><iteratingTag
+               class="org.eclipse.jet.internal.taglib.control.IterateTag"
+               name="iterate"
+               whenContainingLineIsEmpty="remove">
+            
+            <attribute
+                  name="select"
+                  type="xpath"
+                  use="required">
+               <description>
+                  An XPath expression that returns either a node set (a collection of elements or attributes) or a number.
+               </description>
+            </attribute>
+            <attribute
+                  name="var"
+                  type="string"
+                  use="optional">
+               <description>
+                  A variable name. During each iteration, the value of the variable is an object from the set of objects selected by the &apos;select&apos; XPath expression.
+               </description>
+            </attribute>
+            <description>
+               Write the tag contents for each in the template input model identified by an XPath expression.
+
+If the &amp;apos;select&amp;apos; XPath expression selects no objects, then the contents of the tag are not processed. If the XPath expression is not well-formed, then an error results.
+
+If the &apos;select&apos; XPath expression returns a number, then the body of the loop is processed that number of times, and the variable named by &apos;var&apos; is set to 1 for the first iteration, and incremented by one for each successive iteration.
+
+If there is a variable in scope with the same name as the value &amp;apos;var&amp;apos; attribute, then it is hidden during the execution of this tag.
+
+If the JET variable org.eclipse.jet.taglib.control.iterateSetsContext is set and evaluates to a boolean value of true, the iterate tag will set the XPath default context object to the current object in the iteration. Using this feature allows nested XPath expressions to be relative to that object (making them shorter).
+            </description>
+            <attribute
+                  name="delimiter"
+                  type="string"
+                  use="optional">
+               
+               <description>
+                  A string that is written to the tag's output between iteration of the tag. The text is not written after the last iteration.
+               </description>
+            </attribute>
+         </iteratingTag>
+         
+         
+         
+         
+         <emptyTag class="org.eclipse.jet.internal.taglib.control.LoadTag" name="load" whenContainingLineIsEmpty="remove">
+            <description>
+               Load the referenced model, and set the passed variable to the loaded document root.
+
+The optional urlContext attribute determines how relative URL in the url attribute are resolved. Predefined constants: &apos;transform&apos;, indicating that URL is relative to the root directory of the transformation; &apos;workspace&apos;, indicating the URL is relative to the current Eclipse workspace.
+
+The optional loader attribute determines which loader is used to load the model. The default loader is &apos;emf&apos;, although other loaders may have been contributed.
+            </description>
+            <attribute name="url" type="string" use="required">
+               <description>
+                  The URL of the model to load. Usually, this is a relative URL, and is interpretation is controlled by the urlContext attribute.
+               </description>
+            </attribute>
+            <attribute name="var" type="string" use="required">
+               A variable name which will be set to the root of the loaded model.
+               <description>
+                  A variable name. The root of the loaded document is set to this variable.
+               </description>
+            </attribute>
+            <attribute name="urlContext" type="string" use="optional">
+               <description>
+                  A url context constant. See tag comments for possible values. The default is 'transform'.
+               </description>
+            </attribute>
+            <attribute name="loader" type="string" use="optional">
+               
+               <description>
+                  A constant defining the loader to use. The default is determined by the system, depending upon the value of &apos;type&apos; if specified, or the extension specified on &apos;url&apos;.
+               </description>
+            </attribute>
+            <attribute name="type" type="string" use="optional">
+               <description>
+                  The type (typically the extension) of the model. That may be required if the URL does not have a standard extension.
+               </description>
+            </attribute>
+         </emptyTag><functionTag name="loadContent" class="org.eclipse.jet.internal.taglib.control.LoadContentTag">
+            <attribute name="var" use="required">
+               <description>A name to associate with the document root of the DOM created by the parse.  Subsequent template tags can use this name in query expressions to access the data in this DOM.</description>
+            </attribute>
+            <attribute name="type" use="optional">
+               <description>A content type with which to search for an appropriate loader for the content.  Defaults to "xml" if null.</description>
+            </attribute>
+            <attribute name="loader" use="optional">
+               <description>The id of a specific loader which will parse the content and build a model.</description>
+            </attribute>
+            <description>Extends the model by parsing its contents as XML.</description>
+         </functionTag><functionTag class="org.eclipse.jet.internal.taglib.control.LogTag" name="log" whenContainingLineIsEmpty="remove">
+            <description>
+               Write a message to the transformation log. The contents of the tag are written to the log. Nothing is written the template output.
+
+The optional 'severity' attribute may have one of the following values: 'info', 'warning' or 'error'. The default is 'info'.
+            </description>
+            <attribute name="severity" type="string" use="optional">
+               <description>
+                  The message severity level. Default is 'info'.
+               </description>
+            </attribute>
+         </functionTag><containerTag allowAsEmpty="false" class="org.eclipse.jet.internal.taglib.control.MarkerTag" name="marker" processContents="standard" whenContainingLineIsEmpty="remove">
+            <description>
+               Create an Eclipse task marker refering to the text contained in the tag. If the description attribute is specified, then the tasks description is the value of that attribute, otherwise, it is the same as the text refered to by the marker.
+            </description>
+            <attribute name="description" type="string" use="optional">
+               <description>
+                  The description to use in the task marker. The default is to use the text the marker refers to (the tag's content).
+               </description>
+            </attribute>
+         </containerTag><conditionalTag
+               class="org.eclipse.jet.internal.taglib.control.OtherwiseTag"
+               name="otherwise"
+               processContents="custom"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Define a default case for a 'choose' tag. The body of this tag is processed only if no previous 'case' or 'otherwise' tag in the containing 'choose' tag has processed its body content.
+
+An error occurs if the 'otherwise' is not directly contained by a 'choose' tag.
+            </description>
+         </conditionalTag>
+         <emptyTag class="org.eclipse.jet.internal.taglib.control.OverrideTag" deprecated="false" name="override" whenContainingLineIsEmpty="remove">
+            <description>
+               *** Deprecated: Use the 'overrides' attribute on 'transform' extension in plugin.xml instead. *** Declares that this transformation overrides templates in the identified transformation.
+            </description>
+            <attribute name="transformId" type="string" use="required">
+               <description>
+                  The transformation id of the transformation which is being overriden.
+               </description>
+            </attribute>
+         </emptyTag><emptyTag class="org.eclipse.jet.internal.taglib.control.RemoveElementTag" name="removeElement" whenContainingLineIsEmpty="remove">
+            <description>
+               Remove the selected node from the document tree.
+            </description>
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  An XPath expression determining the document to remove.
+               </description>
+            </attribute>
+         </emptyTag><functionTag name="replaceStrings" class="org.eclipse.jet.internal.taglib.control.ReplaceStringsTag">
+            <attribute name="replace" use="required">
+               <description>A comma-separated list of strings to be replaced.  The backslash ("\") acts as an escape character for special characters</description>
+            </attribute>
+            <attribute name="with" use="required">
+               <description>A comma-separated list of replacement strings corresponding to the strings in the replace attribute.</description>
+            </attribute>
+            <description>Replaces one set of strings in its content with another set of strings and writes out the result.</description>
+         </functionTag><containerTag allowAsEmpty="false" class="org.eclipse.jet.internal.taglib.control.SetTag" name="set" processContents="custom" whenContainingLineIsEmpty="remove">
+            <description>
+               Set an attribute on an object selected by an XPath expression. The value of the attribute is determined by the contents of the tag.
+
+If the XPath expression results in more than one object being selected, then that attribute is created on only the first selected object. 
+
+If the XPath expression does not select an object, or if the XPath expression is malformed, then an error occurs.
+
+The 'name' attribute need not refer to an attribute defined on the selected object. If the attribute does not exist, one is created dynamically. Such dynamically created attributes are not permanent - they are destroyed when the JET2Context object passed to the template is destroyed.
+
+If the 'name' attribute refers to an existing attribute on the selected object, then the tag attempts to convert the string contents of this tag to the appropriate attribute data type. If this conversion fails, then an error occurs.
+            </description>
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  The XPath expression to evaluate.
+               </description>
+            </attribute>
+            <attribute name="name" type="string" use="required">
+               <description>
+                  The name of the attribute to set or create and set.
+               </description>
+            </attribute>
+            <attribute
+                  name="case"
+                  type="string"
+                  use="optional">
+            </attribute>
+         </containerTag><emptyTag class="org.eclipse.jet.internal.taglib.control.SetVariableTag" name="setVariable" whenContainingLineIsEmpty="remove">
+            <description>
+               Create a variable whose value is set to the result of the provided XPath expression.
+            </description>
+            <attribute name="select" type="xpath" use="required">
+               <description>
+                  An XPath expression to creates the variable's value.
+               </description>
+            </attribute>
+            <attribute name="var" type="string" use="required">
+               <description>
+                  The name of the variable to set.
+               </description>
+            </attribute>
+         </emptyTag><iteratingTag name="stringTokens" class="org.eclipse.jet.internal.taglib.control.StringTokensTag">
+            <attribute name="string" use="required">
+               <description>The string to be parsed</description>
+            </attribute>
+            <attribute name="delimitedBy" use="optional">
+               <description>The tokens that delimit the tokens in the string</description>
+            </attribute>
+            <attribute name="name" use="required">
+               <description>The variable name to be associated with the temporary model nodes describing the tokens.  Nested tags can use this variable name to refer to the temporary node.</description>
+            </attribute>
+            <attribute name="delimiter" use="optional">
+               <description>The string to write after every iteration except the last</description>
+            </attribute>
+            <attribute name="reverse" use="optional">
+               <description>A true/false value indicating whether the tokens should be iterated over first-to-last (false) or last-to-first (true)</description>
+            </attribute>
+            <attribute name="tokenLength" use="optional">
+               <description>Default description for attribute tokenLength</description>
+            </attribute>
+            <description>Parses a string into tokens and iterates over its content for each token.</description>
+         </iteratingTag><containerTag class="org.eclipse.jet.internal.taglib.control.UserRegionTag" name="userRegion" whenContainingLineIsEmpty="remove">
+            
+            <description>
+               Define a region in the generated text where users may write customized code. 
+
+The tag must contain a single &apos;initialCode&apos; tag. Content before the initialCode tag is considered a &apos;begin marker&apos;, while content after it is considered an
+&apos;end marker&apos;. During execution, the existing file is searched for the begin and end markers. If found, the content of the user region tag is replaced with
+the content found in the existing file. If the markers are not found (or the file does not exist), then the markers, along with the content of the initialCode
+tag are written.
+            </description>
+         </containerTag><conditionalTag class="org.eclipse.jet.internal.taglib.control.VisitTag" name="visit" whenContainingLineIsEmpty="remove">
+            <attribute
+                  name="test"
+                  type="xpath"
+                  use="required">
+               <description>
+                  An expression expression, that, if true, causes the tag contents to be evaluated.
+               </description>
+            </attribute>
+            <description>
+               Define content to process for an object found by the parent 'visitor' tag, provided a condition is met. The contents of this tag are evaluated if the current object of the 'visitor' iteration satisfies the 'test' XPath expression.
+
+The 'test' XPath expression is relative to the current object of the parent 'visitor' tag. If the 'test' XPath expression is does not result in a boolean value, then it is converted to a boolean value according the the XPath 1.0 specification. In particular, if the XPath expression results in a set of objects, then 'test' is considered to be true if and only if the set is not empty.
+
+Note that more than one 'visit' tag may be executed for the same object identified by the parent 'visitor' tag.
+            </description>
+         </conditionalTag><iteratingTag
+               class="org.eclipse.jet.internal.taglib.control.VisitorTag"
+               name="visitor"
+               whenContainingLineIsEmpty="remove">
+            <attribute
+                  name="select"
+                  type="xpath"
+                  use="required">
+               <description>
+                  The XPath expression to evaluate.
+               </description>
+            </attribute>
+            <attribute
+                  name="var"
+                  type="string"
+                  use="required">
+               <description>
+                  The name of a variable that will contain the current object in the iteration.
+               </description>
+            </attribute>
+            <description>
+               *** PROTOTYPE *** Iterate over an object and all its contained objects, typically be doing a depth-first traversal. For each identified object, the tag evaluates the 'test' condition on its contained 'visit' tags. Only those tags whose test condition is true have their contents processed.
+
+If the 'select' XPath expression returns more than one object, only the first is written. If the XPath expression selects no objects, then an error occurs, unless the 'default' attribute is specified. If the 'select' XPath expression is malformed, then an error occurs.
+            </description>
+         </iteratingTag>
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         <conditionalTag
+               class="org.eclipse.jet.internal.taglib.control.WhenTag"
+               name="when"
+               processContents="custom"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Define a one of the mutually exclusive cases of a 'choose' tag. The body of this tag is processed only if the 'test' XPath expression evaluates to 'true', and no previous 'when' or 'otherwise' tag in the containing 'choose' tag has processed its body content.
+
+If the 'test' XPath expression is does not result in a boolean value, then it is converted to a boolean value according the the XPath 1.0 specification. In particular, if the XPath expression results in a set of objects, then 'test' is considered to be true if and only if the set is not empty.
+
+If the 'test' XPath expression is not well formed, then an error results.
+
+If this tag is not directly contained by a 'choose' tag, then an error results.
+            </description>
+            <attribute
+                  name="test"
+                  type="xpath"
+                  use="required">
+               <description>
+                  An expression expression, that, if true, causes the tag contents to be evaluated.
+               </description>
+            </attribute>
+         </conditionalTag>
+         <conditionalTag
+               class="org.eclipse.jet.internal.taglib.control.WithTag"
+               name="with"
+               processContents="standard"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Evaluate the tag body with the XPath context set to the result of the&apos;select&apos; XPath expression. The XPath context is restored to its previous value once the tag handler completes.
+
+If the XPath expression selects multiple objects, the first object is used.
+
+If the XPath expression selects no objects, then the body content block is not executed.
+
+Optionally, an XPath variable may be set by providing a &apos;var&apos; attribute. The variable is restored to its previous value or removed if not previously set once the tag handler completes.
+            </description>
+            <attribute
+                  name="select"
+                  type="xpath"
+                  use="required">
+               <description>
+                  An XPath expression that is evaluated to a single object.
+               </description>
+            </attribute>
+            <attribute
+                  name="var"
+                  type="string"
+                  use="optional">
+               <description>
+                  An optional XPath variable name that will contain the result of the XPath expression.
+               </description>
+            </attribute>
+         </conditionalTag>
+         <iteratingTag
+               class="org.eclipse.jet.internal.taglib.control.DeepIterateTag"
+               name="deepIterate"
+               processContents="custom"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Do a deep (recusive) iteration by repeated evaluating the 'select' expression on previous results.
+            </description>
+            <attribute
+                  name="select"
+                  type="xpath"
+                  use="required">
+               <description>
+                  The XPath selection that selects nodes. The expression should be relative.
+               </description>
+            </attribute>
+            <attribute
+                  name="filter"
+                  type="xpath"
+                  use="optional">
+               <description>
+                  An optional XPath expression that remove elements after the deep traversal.
+               </description>
+            </attribute>
+            <attribute
+                  name="initialContext"
+                  type="xpath"
+                  use="optional">
+               <description>
+                  Optional XPath expression defining the inital context object for the 'select' expression. If omitted, then the current XPath context object is used.
+               </description>
+            </attribute>
+            <attribute
+                  name="var"
+                  type="string"
+                  use="optional">
+               <description>
+                  Optional XPath variable name that will refer to the XPath context object during traversal, and to the current object during each expansion of the tags contents.
+               </description>
+            </attribute>
+            <attribute
+                  name="delimiter"
+                  type="string"
+                  use="optional">
+               <description>
+                  Optional string that will be inserted after each expansion of the tag's body, except the last.
+               </description>
+            </attribute>
+            <attribute
+                  name="indent"
+                  type="string"
+                  use="optional">
+               <description>
+                  Optional string that will used to prefix each line in the expanded tag content. The number of times the text is inserted will depend on the depth of the current item in the traversal. The top most item will have no indent. Each deeper level will have one more insertion of the indent text that is parent level.
+               </description>
+            </attribute>
+            <attribute
+                  name="varStatus"
+                  type="string"
+                  use="optional">
+               <description>
+                  Optional variable containing information on the current item in the traversal. The status object has the following attributes: 
+
+@depth - a one-base index of the items depth in the traversal
+@isLeaf - defined if and only if the item is a leaf node. Not defined during evaluation of the 'select' attribute
+               </description>
+            </attribute>
+            <attribute
+                  name="allowDuplicates"
+                  type="boolean"
+                  use="optional">
+               <description>
+                  Optional parameter indicating whether the traversal should allow the same node to be traversed more than once (so long as it does not resulting in a loop). Default is 'true'.
+               </description>
+            </attribute>
+            <attribute
+                  name="traversal"
+                  type="string"
+                  use="optional">
+               <description>
+                  Optional parameter indicating the type of traversal. Possible values are 'depthFirst' and ' breadthFirst'. Default is 'depthFirst'.
+               </description>
+            </attribute>
+         </iteratingTag>
+         <emptyTag
+               class="org.eclipse.jet.internal.taglib.control.DeepContentTag"
+               name="deepContent"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Designate the insertion point for child content generated from a c:deepIterate tag.
+
+This tag may only be used if the containing c:deepIterate has no &apos;filter&apos; and is doing a depth first traversal. Other cases will result in a runtime error.
+            </description>
+         </emptyTag>
+         
+         
+         
+         
+         
+         
+         
+         
+      </tagLibrary>
+      <tagLibrary
+            deprecated="true"
+            id="workspaceTags"
+            name="Standard JET2 Workspace Tags"
+            standardPrefix="ws"
+            tagFactory="org.eclipse.jet.internal.taglib.workspace.TagFactory">
+         
+         <description>
+            A library of tags for performing actions against the Eclipse workspace.
+         </description><emptyTag class="org.eclipse.jet.internal.taglib.workspace.CopyFileTag" name="copyFile">
+            
+            <description>
+               Copy the file refered to by 'url' to the location refered to by 'path'.
+            </description>
+            <attribute name="binary" type="boolean" use="optional">
+               <description>
+                  Indicates whether the copy is binary or text base. Possible values: 'true' or 'false'. Default: 'false'.
+               </description>
+            </attribute>
+            <attribute name="replace" type="boolean" use="optional">
+               <description>
+                  Indicates if any existing version of the file should be replaced. Possible values: 'true' or 'false'. Default: 'true'.
+               </description>
+            </attribute>
+            <attribute name="srcEncoding" type="string" use="optional">
+               <description>
+                  Defines the default text encoding of the source file. This is only meaningful if the 'binary' attribute is not 'false'. Default is the platform default text encoding.
+               </description>
+            </attribute>
+            <attribute name="targetEncoding" type="string" use="optional">
+               <description>
+                  Identifies the text encoding to use when writing the target file. This is only meaningful if the 'binary' attribute is not 'true'. The default text encoding is determined by the platform.
+               </description>
+            </attribute>
+            <attribute name="src" type="string" use="required">
+               <description>
+                  An absolute or relative URL identifying the file to copy. If a relative URL, the 'srcContext' attribute controls resolution of the URL.
+               </description>
+            </attribute>
+            <attribute name="srcContext" type="string" use="optional">
+               <description>
+                  Determines the context of relative URL in the 'src' attribute. Default value is 'transform'. Possible values: 'transform', 'workspace'.
+               </description>
+            </attribute>
+            <attribute name="target" type="string" use="required">
+               <description>
+                  The destination path of the resource. If relative, this is relative to any containing 'folder' or 'project' tag, otherwise, the first path element is treated as a project name.
+               </description>
+            </attribute>
+         </emptyTag><emptyTag class="org.eclipse.jet.internal.taglib.workspace.FileTag" name="file">
+            <attribute name="path" type="string" use="required">
+               <description>
+                  A relative path (no initial '/') or an absolute path.
+               </description>
+            </attribute>
+            <attribute name="template" type="string" use="required">
+               <description>
+                  A project-relative path of a JET template to execute. The template provides the file&apos;s contents.
+               </description>
+            </attribute>
+            <attribute name="encoding" type="string" use="optional">
+               <description>
+                  The character encoding of the file. If omitted, then the Eclipse workspace determines the encoding. If provided, then the encoding is changed to the specified value. A value of &apos;#default&apos; restores the encoding of the file to the workspace determined default.
+               </description>
+            </attribute>
+            <attribute name="replace" type="boolean" use="optional">
+               <description>
+                  A boolean (&apos;true&apos; or &apos;false&apos;) value. If &apos;true&apos;, the tag will overwrite an existing file, otherwise it will not. If omitted, a value of &apos;true&apos; is assumed.
+               </description>
+            </attribute>
+            <attribute name="derived" type="boolean" use="optional">
+               <description>
+                  A boolean value (&apos;true&apos; or &apos;false&apos;) determining the value of the workspace &apos;derived&apos; attribute for the file. If omitted, a value of &apos;false&apos; is assumed.
+               </description>
+            </attribute>
+            <description>
+               Create or write an Eclipse workspace file. If the file does not exist, the tag attempts to create it and any containing folders. An error occurs if the file does not exist and cannot be created.
+
+Note that the actual creation of the workspace file is deferred until the JET2Context passed to the executing template has the 'commit' method calls. If the template is part of a JET2 transformation, this occurs once all templates have executed.
+
+If the 'file' tag is contained directly or indirectly by a 'folder' or 'project' tag AND the 'path' attribute on this tag is relative (does not start with a '/'), then the 'path' attribute is treated as relative to the containing 'folder' or 'project'.
+
+An absolute 'path' (one starting with '/') is treated as a workspace relative path. That is, the first component after the slash is interpreted as the name of an Eclipse Project, and subsequence segments are treated as folder names, with the last segment being interpreted as the file name.
+
+When executing, this tag will cause the implicit creation of any folders containing the folder to be created. It will not implicitly create a containing workspace project.
+            </description>
+         </emptyTag><containerTag
+               allowAsEmpty="true"
+               class="org.eclipse.jet.internal.taglib.workspace.FolderTag"
+               name="folder">
+            <attribute
+                  name="path"
+                  type="string"
+                  use="required">
+               <description>
+                  A relative path (no initial '/') or an absolute path.
+               </description>
+            </attribute>
+            <description>
+               Ensure the existence on an Eclipse Workspace Folder. If the folder does not exist, the tag attempts to create it and any containing folders. An error occurs if the folder does not exist and cannot be created.
+
+Note that the actual creation of the workspace folder is deferred until the JET2Context passed to the executing template has the &apos;commit&apos; method calls. If the template is part of a JET2 transformation, this occurs once all templates have executed.
+
+If the &apos;folder&apos; tag is contained directly or indirectly by another &apos;folder&apos; tag or by a &apos;project&apos; tag AND the &apos;path&apos; attribute on this tag is relative (does not start with a &apos;/&apos;), then the &apos;path&apos; attribute is treated as relative to the containing &apos;folder&apos; or &apos;project&apos;. Otherwise, the path is treated as a workspace relative path (that is, the first element is treated as a project name).
+
+The &apos;folder&apos; tag may contain other tags. Contained &apos;folder&apos; and &apos;file&apos; tags will have relative path names iterpreted as being relative to the folder defined by this tag.
+
+An absolute &apos;path&apos; (one starting with &apos;/&apos;) is treated as a workspace relative path. That is, the first component after the slash is interpreted as the name of an Eclipse Project, and subsequence segments are treated as folder names.
+
+When executing, this tag will cause the implicit creation of any folders containing the folder to be created. It will not implicitly create a containing workspace project.
+            </description>
+         </containerTag>
+         
+         <containerTag allowAsEmpty="true" class="org.eclipse.jet.internal.taglib.workspace.ProjectTag" name="project">
+            <attribute name="name" type="string" use="required">
+               <description>
+                  The name of the project.
+               </description>
+            </attribute>
+            <description>
+               Ensure the existence of an Eclipse Project of a given name. If the project does not exist, it is created. If the project is not opened, it is opened.
+
+Note that the actual creation of the workspace project is deferred until the JET2Context passed to the executing template has the 'commit' method calls. If the template is part of a JET2 transformation, this occurs once all templates have executed.
+
+An error occurs of the project does not exist and cannot be created, or if the project exists, but cannot be opened.
+
+The 'project' tag may contain other tags. Contained 'folder' and 'file' tags will have relative path names iterpreted as being relative to the project defined by this tag.
+            </description>
+            <attribute name="location" type="string" use="optional">
+               <description>
+                  An optional absolute file-system location for the new project. If not specified, the project is created in a directory under the workspace directory.
+               </description>
+            </attribute>
+         </containerTag><emptyTag name="rebuildWorkspace" class="org.eclipse.jet.internal.taglib.workspace.RebuildWorkspaceTag">
+            <description>Causes the Eclipse workspace to process resources that were changed or created by the pattern.</description>
+         </emptyTag>
+         
+         
+      </tagLibrary>
+      <tagLibrary
+            deprecated="true"
+            id="formatTags"
+            name="Standard JET2 Format Tags"
+            standardPrefix="f"
+            tagFactory="org.eclipse.jet.internal.taglib.format.TagFactory">
+        
+		<description>
+                           Standard utility tags that rewrite their content in a different format.
+                        </description><emptyTag name="formatNow" class="org.eclipse.jet.internal.taglib.format.backup.FormatNowTag">
+            <attribute name="pattern" use="required">
+               <description>The pattern with which to format the current data and time.  See documentation for the Java class java.util.SimpleDateFormat for more details.</description>
+            </attribute>
+            <description>Formats and writes out the current date and time</description>
+         </emptyTag>
+         <containerTag
+               allowAsEmpty="false"
+               class="org.eclipse.jet.internal.taglib.format.backup.IndentTag"
+               name="indent"
+               processContents="custom"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Indent the tag contents the specified number of times.
+            </description>
+            <attribute
+                  name="depth"
+                  type="string"
+                  use="optional">
+               <description>
+                  Specify the depth of indentation. The text specified in the text attribute is inserted the number of times specified by depth. Default value is one (1).
+               </description>
+            </attribute>
+            <attribute
+                  name="text"
+                  type="string"
+                  use="required">
+               <description>
+                  Specifies the indentation text.
+               </description>
+            </attribute>
+         </containerTag><functionTag class="org.eclipse.jet.internal.taglib.format.backup.LowerCaseTag" name="lc">
+            <attribute name="offset" use="optional">
+               <description>
+                  The starting offset (0-based) of the conversion. When omitted, 0 (the start of the content to be converted) is assumed.
+               </description>
+            </attribute>
+            <attribute name="length" use="optional">
+               <description>
+                  The number of characters to convert. When omitted, it is assumed that all characters after (and including) the starting character will be converted.
+               </description>
+            </attribute>
+            <description>
+               Convert the tag contents to lower case.
+
+If 'offset' is specified, start conversion from the specified character, otherwise, start conversion from the first character.
+
+if 'length' is specified, convert only the specified number of characters, otherwise, convert all characters from the start character on.
+            </description>
+         </functionTag><emptyTag name="milliseconds" class="org.eclipse.jet.internal.taglib.format.backup.MillisecondsTag">
+            <description>Writes out a current system milliseconds value.
+If the variable &apos;org.eclipse.jet.formatTags.test&apos; is defined, the tag will return a sequence of values, starting at one. This facilitates testing of results that include data based on the tag results.</description>
+         </emptyTag><functionTag
+               class="org.eclipse.jet.internal.taglib.format.backup.ReplaceAllTag"
+               name="replaceAll">
+            
+            <attribute
+                  name="value"
+                  type="string"
+                  use="required">
+               <description>
+                  The value to be replace, or a regular expression defining the value to replace.
+               </description>
+            </attribute>
+            <attribute
+                  name="replacement"
+                  type="string"
+                  use="required">
+               <description>
+                  The replacement text.
+               </description>
+            </attribute>
+            <attribute
+                  name="regex"
+                  type="boolean"
+                  use="optional">
+               <description>
+                  A boolean value ('true' or 'false'). If omitted, 'false' is assumed.
+               </description>
+            </attribute>
+            <description>
+               Replace all instances of a value in the tag's content with a new value.
+
+If the 'regex' attribute is supplied, and equals 'true', then 'value' is treated as a Regular Expression as defined in java.util.reg.Pattern, otherwise 'value' is treated as a literal value.
+            </description>
+         </functionTag>
+         <functionTag
+               class="org.eclipse.jet.internal.taglib.format.backup.StripTag"
+               name="strip">
+            <description>
+               *** DEPRECATED *** Strip all whitespace from the content. This is equivalent to a &apos;replaceAll&apos; with a regular expression of &apos;\s+&apos;.
+            </description>
+         </functionTag>
+        
+         <functionTag
+               class="org.eclipse.jet.internal.taglib.format.backup.UpperCaseTag"
+               name="uc">
+            <attribute
+                  name="offset"
+                  use="optional">
+               <description>
+                  The starting offset (0-based) of the conversion. When omitted, 0 (the start of the content to be converted) is assumed.
+               </description>
+            </attribute>
+            <attribute
+                  name="length"
+                  use="optional">
+               <description>
+                  The number of characters to convert. When omitted, it is assumed that all characters after (and including) the starting character will be converted.
+               </description>
+            </attribute>
+            <description>
+               Convert the tag contents to upper case.
+
+If 'offset' is specified, start conversion from the specified character, otherwise, start conversion from the first character.
+
+if 'length' is specified, convert only the specified number of characters, otherwise, convert all characters from the start character on.
+            </description>
+         </functionTag> 
+                        
+         
+         
+         <emptyTag name="unique"  class="org.eclipse.jet.internal.taglib.format.backup.UniqueTag" >
+            <description>Writes out a unique integer value</description>
+         </emptyTag>
+         <emptyTag name="uuid"  class="org.eclipse.jet.internal.taglib.format.backup.UuidTag" >
+            <description>Generate a universally unique identifier (UUID).
+If the variable &apos;org.eclipse.jet.formatTags.test&apos; is defined, the tag will return a sequence of values of the form &apos;-Fake_UUID-n-000000000&apos;. This facilitates testing of results that include data based on the tag results.</description>
+         </emptyTag>
+         <functionTag
+               class="org.eclipse.jet.internal.taglib.format.backup.XPathTag"
+               name="xpath"
+               whenContainingLineIsEmpty="preserve">
+            <description>
+               Evaluate the specified XPath function on the tag content and write the result in place of the tag content. The tag content is referenced by the variable $bodyContent.
+            </description>
+            <attribute
+                  name="select"
+                  type="xpath"
+                  use="required">
+               <description>
+                  The XPath expression to evaluate. The result is automatically converted to a a string. The tags content is refered to by the variable $bodyContent.
+               </description>
+            </attribute>
+         </functionTag>
+         <containerTag
+               allowAsEmpty="true"
+               class="org.eclipse.jet.internal.taglib.format.backup.MessageTag"
+               name="message"
+               processContents="custom"
+               whenContainingLineIsEmpty="remove">
+            <attribute
+                  name="key"
+                  type="string"
+                  use="optional">
+               <description>
+                  The key for a resource bundle message. If omitted, the body content of the tag is used to create the key.
+               </description>
+            </attribute>
+            <attribute
+                  name="var"
+                  type="string"
+                  use="optional">
+               <description>
+                  a variable that will be set to the message. If omitted, the message is writen to the tag output.
+               </description>
+            </attribute>
+            <description>
+               Retrieve a message from a message bundle and either write it or store it in a variable. 
+
+The message bundle may be defined by either a containing f:bundle tag or identified by the f:setBundle tag. 
+
+If the message is parameterized, parameter values are defined by contained f:param tags.
+            </description>
+         </containerTag>
+         <containerTag
+               allowAsEmpty="true"
+               class="org.eclipse.jet.internal.taglib.format.backup.ParamTag"
+               name="param"
+               processContents="custom"
+               whenContainingLineIsEmpty="remove">
+            <attribute
+                  name="value"
+                  type="string"
+                  use="optional">
+               <description>
+                  The parameter value. If omitted, the tag&apos;s body content is used as the parameter value.
+               </description>
+            </attribute>
+            <description>
+               Define a parameter value for a containing f:message tag. 
+
+If the value attribute is defined, then this defines the parameter value. Otherwise, the tag&apos;s body content defines the parameter value.
+
+This tag must be contained within a f:message tag, or a runtime error will occur.
+            </description>
+         </containerTag>
+         <containerTag
+               allowAsEmpty="false"
+               class="org.eclipse.jet.internal.taglib.format.backup.BundleTag"
+               name="bundle"
+               processContents="standard"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Define the message bundle from which contained f:message tags will retrieve messages.
+
+The actual bundle loaded will be influenced by the default locale, which may be changed via the f:setLocale tag.
+            </description>
+            <attribute
+                  name="basename"
+                  type="string"
+                  use="required">
+               <description>
+                  The base name of the message bundle. This is either JET project relative template path of a message bundle file (without the .properties extension), or a fully qualified Java class name.
+Fully qualified Java class names are resolved via java.util.ResourceBundle.getBundle(). See the method documentation for details.
+               </description>
+            </attribute>
+         </containerTag>
+         <emptyTag
+               class="org.eclipse.jet.internal.taglib.format.backup.SetBundleTag"
+               name="setBundle"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Define the default message bundle to be used by all f:message tags in all JET templates.
+            </description>
+            <attribute
+                  name="basename"
+                  type="string"
+                  use="required">
+               <description>
+                  The base name of the message bundle. This is either JET project relative template path of a message bundle file (without the .properties extension), or a fully qualified Java class name.
+Fully qualified Java class names are resolved via java.util.ResourceBundle.getBundle(). See the method documentation for details.
+               </description>
+            </attribute>
+         </emptyTag>
+         <emptyTag
+               class="org.eclipse.jet.internal.taglib.format.backup.SetLocaleTag"
+               name="setLocale"
+               whenContainingLineIsEmpty="remove">
+            <description>
+               Define the language locale to be used when loading message bundles with the f:bundle and f:setBundle tags.
+
+See the documentation for the Java class java.util.Locale for details on language codes, country codes and locale variants.
+            </description>
+            <attribute
+                  name="value"
+                  type="string"
+                  use="required">
+               <description>
+                  A string representing the locale, which must contain a two-letter (lower-case) language code (as defined by ISO-639), and optionally followed by a two-letter (upper-case) country code (as defined by ISO-3166). The language and country codes must be separated by an underscore(_) or a hyphen(-).
+               </description>
+            </attribute>
+            <attribute
+                  name="variant"
+                  type="string"
+                  use="optional">
+               <description>
+                  An optional locale variant.
+               </description>
+            </attribute>
+         </emptyTag>
+      </tagLibrary>
+   </extension>
+   <extension
+         id="runtimeProblem"
+         name="%markers.runtimeProblem.name"
+         point="org.eclipse.core.resources.markers">
+     <super type="org.eclipse.core.resources.problemmarker"/>
+   </extension>
+   <extension
+         id="compileProblem"
+         name="%markers.compileProblem.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.team.core.fileTypes">
+      <fileTypes
+            extension="jet"
+            type="text"/>
+   </extension>
+   <extension
+         point="org.eclipse.jet.modelLoaders">
+      <loader
+            class="org.eclipse.jet.internal.runtime.model.EMFModelLoader"
+            dynamicTypes="true"
+            id="emf"
+            name="%extensions.modelLoaders.emf.name"/>
+     
+      <loader
+            class="org.eclipse.jet.internal.runtime.model.EMFXMLModelLoader"
+            dynamicTypes="false"
+            id="emfxml"
+            name="%extensions.modelLoaders.emfxml.name">
+         <type fileType="xml"/>
+      </loader>
+      <defaultTypeLoader
+            fileType="xml"
+            id="org.eclipse.jet.emfxml"/>
+      <loader
+            class="org.eclipse.jet.internal.runtime.model.ResourceLoader"
+            dynamicTypes="false"
+            id="resource"
+            name="%extensions.modelLoaders.resource.name"/>
+      <loader
+            class="org.eclipse.jet.internal.runtime.model.XMLDOMLoader"
+            dynamicTypes="false"
+            id="xml"
+            name="%extensions.modelLoaders.xml.name">
+      </loader>
+      <loader
+            class="org.eclipse.jet.internal.runtime.model.jdt.JavaLoader"
+            dynamicTypes="false"
+            id="java"
+            name="Java AST Loader">
+         <type
+               fileType="java">
+         </type>
+      </loader>
+   </extension>
+   <extension
+         point="org.eclipse.jet.modelInspectors">
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.DOMInspector">
+         <inspects class="org.w3c.dom.Node"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.EObjectInspector">
+         <inspects class="org.eclipse.emf.ecore.EObject"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.EMFResourceInspector">
+         <inspects class="org.eclipse.emf.ecore.resource.Resource"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.EStructuralFeatureSettingInspector">
+         <inspects class="org.eclipse.emf.ecore.EStructuralFeature$Setting"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.EMFEAttrAsElementWrapperInspector">
+         <inspects class="org.eclipse.jet.internal.xpath.inspectors.EMFEAttrAsElementWrapper"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.EMFXMLNodeWrapperInspector">
+         <inspects class="org.eclipse.jet.internal.xpath.inspectors.EMFXMLNodeWrapper"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.ResourceInspector">
+         <inspects class="org.eclipse.core.resources.IResource"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.WrappedAttributeInspector">
+         <inspects class="org.eclipse.jet.internal.xpath.inspectors.IWrappedAttribute"/>
+      </inspector>
+      <inspector class="org.eclipse.jet.internal.xpath.inspectors.PropertiesInspector">
+         <inspects class="java.util.Properties"/>
+      </inspector>
+      <inspector
+            class="org.eclipse.jet.internal.xpath.inspectors.jdt.InspectASTNode">
+         <inspects
+               class="org.eclipse.jdt.core.dom.ASTNode">
+         </inspects>
+      </inspector>
+      <inspector
+            class="org.eclipse.jet.internal.xpath.inspectors.jdt.InspectASTNodeDocumentRoot">
+         <inspects
+               class="org.eclipse.jet.internal.xpath.inspectors.jdt.ASTNodeDocumentRoot">
+         </inspects>
+      </inspector>
+      <inspector
+            class="org.eclipse.jet.internal.xpath.inspectors.jdt.InspectNonDescriptorAttribute">
+         <inspects
+               class="org.eclipse.jet.internal.xpath.inspectors.jdt.NonDescriptorAttribute">
+         </inspects>
+      </inspector>
+      <inspector
+            class="org.eclipse.jet.internal.xpath.inspectors.jdt.InspectSimplePropertyDescriptorAttribute">
+         <inspects
+               class="org.eclipse.jet.internal.xpath.inspectors.jdt.SimplePropertyDescriptorAttribute">
+         </inspects>
+      </inspector>
+   </extension>
+   <extension
+         id="taskmarker"
+         name="%markers.taskmarker.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.taskmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="jet"
+            id="template"
+            name="%contentTypes.template.name"
+            priority="normal"/>
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            default-charset="UTF-8"
+            file-extensions="jet2"
+            id="templateUnicode"
+            name="%contentTypes.templateUnicode.name"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="org.eclipse.jet.internal.JETPreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.jet.xpathFunctions">
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.CamelCaseFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="camelCase"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.CardinalityFunction"
+            maxArgs="2"
+            minArgs="2"
+            name="cardinality"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.ClassNameFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="className"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.EscapeJavaWhitespaceFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="escapeJavaWhitespace"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.IsVariableDefinedFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="isVariableDefined">
+      </function>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.Lower_caseFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="lower-case"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.LowercaseFirstFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="lowercaseFirst"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.PackageNameFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="packageName"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.RemoveWhitespaceFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="removeWhitespace"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.TrimWhitespaceFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="trimWhitespace"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.Upper_caseFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="upper-case"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.UppercaseFirstFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="uppercaseFirst"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.XmlEncodeFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="xmlEncode"/>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.PropertiesEncodeFunction"
+            maxArgs="2"
+            minArgs="1"
+            name="propertiesEncode">
+      </function>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.SortFunction"
+            maxArgs="-1"
+            minArgs="2"
+            name="sort">
+      </function>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.EvalFunction"
+            maxArgs="1"
+            minArgs="1"
+            name="eval">
+      </function>
+      <function
+            implementation="org.eclipse.jet.internal.xpath.functions.extras.EClassFunction"
+            maxArgs="1"
+            minArgs="0"
+            name="emf.eClass">
+      </function>
+   </extension>
+   <extension
+         point="org.eclipse.ant.core.antTasks">
+      <antTask
+            class="org.eclipse.jet.ant.tasks.JETCompileTask"
+            eclipseRuntime="true"
+            headless="true"
+            library="jetant.jar"
+            name="jet.compile"/>
+      <antTask
+            class="org.eclipse.jet.ant.tasks.JETTransformTask"
+            eclipseRuntime="true"
+            headless="true"
+            library="jetant.jar"
+            name="jet.transform"/>
+   </extension>
+   <extension
+         point="org.eclipse.jet.transform">
+      <transform
+            private="false"
+            startTemplate="templates/main.jet"
+            templateLoaderClass="org.eclipse.jet.internal.compiler.templates.CodeGenTemplateLoader">
+         <tagLibraries>
+            <importLibrary id="org.eclipse.jet.controlTags" usePrefix="c" autoImport="false"/>
+            <importLibrary id="org.eclipse.jet.javaTags" usePrefix="java" autoImport="true"/>
+            <importLibrary id="org.eclipse.jet.formatTags" usePrefix="f" autoImport="true"/>
+            <importLibrary id="org.eclipse.jet.workspaceTags" usePrefix="ws" autoImport="false"/>
+         </tagLibraries>
+         <description>
+            description body text
+         </description>
+      </transform>
+   </extension>
+   <extension
+         id="jet2Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="org.eclipse.jet.internal.builder.JET2ProjectNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="org.eclipse.core.runtime.CoreException"
+            class="org.eclipse.jet.internal.core.equinox.ContextLogEntryAdapterFactory">
+         <adapter
+               type="org.eclipse.jet.ContextLogEntry">
+         </adapter>
+      </factory>
+      <factory
+            adaptableType="org.eclipse.emf.common.util.DiagnosticException"
+            class="org.eclipse.jet.internal.core.equinox.emf.ContextLogEntryAdapterFactory">
+         <adapter
+               type="org.eclipse.jet.ContextLogEntry">
+         </adapter>
+      </factory>
+   </extension>
+
+
+</plugin>

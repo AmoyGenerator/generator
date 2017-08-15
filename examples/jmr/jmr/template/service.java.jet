@@ -1,0 +1,10 @@
+<%@ jet package="translated" class="Iservice_java"%>
+package <java:package />;
+
+/**
+ * Service interface
+ *
+ */
+public interface <java:class /> extends IBeanService{
+
+}

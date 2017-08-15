@@ -1,0 +1,8 @@
+<%@jet package="translated" class="Ws"%>
+number<tab/>square<tab/>cube
+0<tab/>0<tab/>0
+1<tab/>1<tab/>1
+2<tab/>4<tab/>8
+3<tab/>9<tab/>27
+4<tab/>16<tab/>64
+5<tab/>25<tab/>125

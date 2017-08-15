@@ -1,0 +1,11 @@
+<%@jet package="translated" class="Number_txt"%>
+<set var="balance" value='120000.2309'/>
+Formatted Number (1): <number type="currency"><get value='balance'/></number>
+Formatted Number (2): <number type="currency" locale="en_US"><get value='balance'/></number>
+Formatted Number (3): <number type="number" maxIntegerDigits="3"><get value='balance'/></number>
+Formatted Number (4): <number type="number" maxFractionDigits="3"><get value='balance'/></number>
+Formatted Number (5): <number type="number" groupingUsed="false"><get value='balance'/></number>
+Formatted Number (6): <number type="percent" maxIntegerDigits="3"><get value='balance'/></number>
+Formatted Number (7): <number type="percent" minFractionDigits="10"><get value='balance'/></number>
+Formatted Number (8): <number type="percent" maxIntegerDigits="3"><%=120000.2309%></number>
+Formatted Number (9): <number type="number" pattern="###.###E0">120000.2309</number>

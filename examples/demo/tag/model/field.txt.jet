@@ -1,0 +1,9 @@
+<%@jet package="translated" class="Field_txt"%>
+
+<entity var='db' relation="db"/>
+
+<field var="field" entity="db" id="type"/>
+
+<get value='field.name'/>
+<get value='field.type'/>
+

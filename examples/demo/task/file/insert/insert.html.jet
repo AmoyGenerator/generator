@@ -1,0 +1,4 @@
+<%@jet package="translated" class="Insert_html"%>
+    <!-- insert_start id="menu" -->
+    <li><a href="book.html">book</a></li>
+    <!-- insert_end -->
