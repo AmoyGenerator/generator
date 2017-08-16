@@ -5,7 +5,7 @@
 > 万物皆可被生成
 
 <a href="http://www.jmr-source.com" target="_blank">官网</a> | 
-<a href="http://www.jmr-source.com/doc/en/index.html#html/install-and-uninstall.html" target="_blank">安装说明</a> |
+<a href="http://www.jmr-source.com/doc/zh/index.html#html/install-and-uninstall.html" target="_blank">安装说明</a> |
 <a href="http://www.jmr-source.com/doc/zh/index.html">文档</a>
 
 ## Jmr是什么？
