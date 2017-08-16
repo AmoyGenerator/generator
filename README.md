@@ -1,11 +1,12 @@
+[English](README.md) | [中文](README.zh.md) 
+
 # Jmr
 
 > Everything can be generated
 
 <a href="http://www.jmr-source.com" target="_blank">Home</a> | 
 <a href="http://www.jmr-source.com/doc/en/index.html#html/install-and-uninstall.html" target="_blank">Installation Guide</a> |
-<a href="http://www.jmr-source.com/doc/en/index.html" target="_blank">Documentation</a> |
-<a href="http://www.jmr-source.com/doc/zh/index.html">文档</a>
+<a href="http://www.jmr-source.com/doc/en/index.html" target="_blank">Documentation</a>
 
 ## What is Jmr?
 
