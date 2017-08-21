@@ -18,7 +18,7 @@ Any repetitive code can be automatically generated through Jmr. You only need to
 
 For example, here's a CRUD module, to generate all the code through the following steps.
 
-1, Write Tempalte   
+1, Write Template   
 2, Set Task  
 3, Get model(from database)  
 4, Run
