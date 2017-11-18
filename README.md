@@ -10,7 +10,15 @@
 
 ## What is Jmr?
 
-Jmr’s full name is Jet Model Robotization, in Eclipse, any language (Java, Php, C++ etc.) project, any type of framework(struts, spring/springMVC, hiberate etc.), can use Jmr to generate code.
+More than just an entirely free Java code generator, It's also a state-of-the-art development automation tool(Much more than a normal code generator). 
+
+Maybe it can become your "black technology" will improve development productivity by 1.5 to 5 times, Zero coupling to your project and without changing anything.
+
+Jmr’s full name is Jet Model Robotization, in Eclipse, any kind of project(Maven, Gradle, Web, Java, PHP, Python etc.), any kind of framework(spring/springMVC, hibernate, mybatis, struts, JPA etc.), can use Jmr to manage and generate code.
+
+![](image/7.png)
+
+![](image/8.png)
 
 ## What can Jmr do?
 

@@ -10,7 +10,15 @@
 
 ## Jmr是什么？
 
-Jmr全称Jet Model Robotization，在Eclipse中，只要安装了Jmr插件，任何语言(Java，Php，C++等)的项目，任何类型的框架(struts, spring/springMVC, hiberate等)，都可以使用Jmr来生成代码。
+Jmr不仅仅是一款免费的Java代码生成工具，还是一款应用最新理念的自动化开发工具。
+
+比普通代码生成器做得多得多，实现全程自动化开发。能够提升1.5~5倍的效率，在提升效率的同时，不必改变项目和框架，可以零耦合集成Jmr。
+
+Jmr全称Jet Model Robotization，在Eclipse中，只要安装了Jmr插件，任何类型项目(Maven, Gradle, Web, Java, PHP, Python等等)的项目，任何类型的框架(spring/springMVC, hibernate, mybatis, struts, JPA等)，都可以使用Jmr来管理和生成代码。
+
+![](image/7.png)
+
+![](image/8.png)
 
 ## Jmr能做到什么？
 
