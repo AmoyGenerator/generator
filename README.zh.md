@@ -44,14 +44,6 @@ Jmr使用Jet作为模板语言，类似JSP的模板可以很容易上手，并�
 
 ![](image/6.gif)
 
-## 模型转成代码
-
-![](image/3.png)
-
-生成Java实体类。
-
-![](image/4.png)
-
 ## <span id="1">安装</span>
 
 在Eclipse菜单栏中，点击Help -> Eclipse Marketplace，搜索Jmr，点击安装。

@@ -44,14 +44,6 @@ Exclusive template editor, write templates better.
 
 ![](image/6.gif)
 
-## Model to code
-
-![](image/3.png)
-
-Generated entity class.
-
-![](image/4.png)
-
 ## <span id="1">Install</span>
 
 In the Eclipse menu bar, click Help -> Eclipse Marketplace. Search Jmr, click Install.
