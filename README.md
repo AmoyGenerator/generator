@@ -8,15 +8,23 @@
 <a href="http://www.jmr-source.com/doc/en/index.html#html/install-and-uninstall.html" target="_blank">Installation Guide</a> |
 <a href="http://www.jmr-source.com/doc/en/index.html" target="_blank">Documentation</a>
 
+
+## Support IDE
+
+![](image/eclipse.jpg) ![](image/idea.jpg)
+
+###Eclipse  
+version:1.3.1 
+###Intellij IDEA
+developing(Coming Soon) 
 ## What is Jmr?
 
-More than just an entirely free Java code generator, It's also a state-of-the-art development automation tool(Much more than a normal code generator). 
+More than just an entirely free Java code generator. 
 
 Maybe it can become your "black technology" will improve development productivity by 1.5 to 5 times, Zero coupling to your project and without changing anything.
 
-Jmr’s full name is Jet Model Robotization, in Eclipse, any kind of project(Maven, Gradle, Web, Java, PHP, Python etc.), any kind of framework(spring/springMVC, hibernate, mybatis, struts, JPA etc.), can use Jmr to manage and generate code.
+Jmr’s full name is Jet Model Robotization, in Eclipse or IDEA, any kind of project(Maven, Gradle, Java, React, Vue, Angular, Python, Php etc.), any kind of framework(springboot/spring/springMVC, hibernate, mybatis, struts, JPA etc.), can use Jmr to manage and generate code.
 
-![](image/7.png)
 
 ![](image/8.png)
 
@@ -37,12 +45,10 @@ For example, here's a CRUD module, to generate all the code through the followin
 
 Jmr uses Jet as a template to generate code. JSP-like template files can be edited and transformed into any kind of source artifact including java, html, properties or xml files in a very simple way.
 
-![](image/2.png)
+![](image/editor_1.png)
 
-## Template Editor
-Exclusive template editor, write templates better.
 
-![](image/6.gif)
+![](image/editor_2.png)
 
 ## <span id="1">Install</span>
 
