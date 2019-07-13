@@ -23,7 +23,7 @@ More than just an entirely free Java code generator.
 
 Maybe it can become your "black technology" will improve development productivity by 1.5 to 5 times, Zero coupling to your project and without changing anything.
 
-Jmr’s full name is Jet Model Robotization, in Eclipse or IDEA, any kind of project(Maven, Gradle, Java, React, Vue, Angular, Python, Php etc.), any kind of framework(springboot/spring/springMVC, hibernate, mybatis, struts, JPA etc.), can use Jmr to manage and generate code.
+Jmr’s full name is Jet Model Robotization, in Eclipse or IDEA, any kind of project(Maven, Gradle, Java, Python, Php etc.), any kind of framework(springboot/spring/springMVC, React/ Vue/Angular, hibernate, mybatis, struts, JPA etc.), can use Jmr to manage and generate code.
 
 
 ![](image/8.png)
